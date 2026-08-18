@@ -21,7 +21,7 @@ The repository includes the public **Higher Education Students’ Early Percepti
 | NetworkTree partitioning | `R/09_networktree.R` | Implemented when `NetworkTree` is available |
 | Categorical association checks | `R/10_context.R` | Implemented |
 
-The ChatGPT data do not contain two independent studies, a populism/nativism scale, or a left–right political-orientation measure. The example therefore uses a **split-sample methodological analogue** for the two-study comparison and clearly labels scale/group analyses that are conditional on model fit. See [reports/adaptation_matrix.md](reports/adaptation_matrix.md).
+The ChatGPT data do not contain two independent studies, a populism or nativism scale, threat or conspiracy measures, or a left–right political-orientation measure. The project therefore distinguishes **literal replications**, **adapted computational analogues**, and **non-applicable elements**. It never presents a split sample, use-frequency comparison, or candidate satisfaction scale as a substitute for Abadi et al.’s substantive constructs. See [docs/chatgpt_full_replication_mapping.md](docs/chatgpt_full_replication_mapping.md) and [reports/adaptation_matrix.md](reports/adaptation_matrix.md).
 
 ## Quick start
 
@@ -38,7 +38,7 @@ The first command installs project-local packages and creates `renv.lock`. The r
 
 ## Streamlit case study and participant workspace
 
-The repository includes a **Streamlit application** at `app/app.py` with two explicit workspaces. **ChatGPT case study** is the default view: it presents the completed 30-node primary CAN, full-sample flow, centrality and strongest-edge tables, node dictionary, methods, and downloads for the public Ravšelj et al. data. **Bring your own data** is a separate workflow in which participants upload a CSV or Excel dataset, map arbitrary raw variable names to CAN nodes and contextual roles, inspect response coding, and generate a standalone YAML configuration without touching the case-study files.
+The repository includes a **Streamlit application** at `app/app.py` with two explicit workspaces. **ChatGPT case study** is the default view: it presents the completed 30-node primary CAN, full-sample flow, centrality and strongest-edge tables, node dictionary, methods, downloadable results, and a **full Abadi et al. replication ledger**. The ledger accounts for every major paper computation, comparison, and conclusion as completed, adapted, non-applicable because the needed construct/design is absent, or runtime-deferred because a full offline resampling run exceeded three hours. A dedicated conclusion tab states what the ChatGPT data can and cannot support. **Bring your own data** is a separate workflow in which participants upload a CSV or Excel dataset, map arbitrary raw variable names to CAN nodes and contextual roles, inspect response coding, and generate a standalone YAML configuration without touching the case-study files.
 
 ```bash
 sudo pip3 install -r requirements-streamlit.txt

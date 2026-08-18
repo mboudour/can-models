@@ -1,0 +1,31 @@
+source_variable,label,missing_n,missing_percent,unique_values
+Q15,General ChatGPT use,85,0.531,5
+Q19d,Provides information efficiently,721,4.503,5
+Q19e,Provides reliable information,727,4.541,5
+Q19g,Simplifies complex information,735,4.591,5
+Q19h,Facilitates classroom learning,734,4.585,5
+Q21a,International regulation is necessary,1508,9.419,5
+Q21c,University ethical guidelines are necessary,1531,9.563,5
+Q22b,May encourage cheating,1533,9.575,5
+Q22e,May mislead with inaccurate information,1540,9.619,5
+Q22f,May invade privacy,1546,9.656,5
+Q22j,May hinder learning by doing work,1544,9.644,5
+Q24e,Satisfied with level of assistance,2116,13.217,5
+Q24f,Satisfied with information quality,2112,13.192,5
+Q24g,Satisfied with information accuracy,2111,13.186,5
+Q25a,Use is under my control,2095,13.086,5
+Q25b,Use is interesting,2115,13.21,5
+Q25c,Ability to use is important,2115,13.21,5
+Q25d,Helps in everyday life,2104,13.142,5
+Q26a,Enhances access to knowledge sources,2605,16.271,5
+Q26e,Increases study efficiency,2625,16.396,5
+Q26f,Increases motivation to study,2623,16.384,5
+Q27e,Enhances learning experience,2635,16.458,5
+Q27f,Improves skills,2626,16.402,5
+Q30a,Will reduce the number of jobs,3449,21.543,5
+Q30e,Will increase demand for AI skills,3489,21.793,5
+Q32b,Hopeful when using ChatGPT,3552,22.186,5
+Q32e,Calm when using ChatGPT,3565,22.267,5
+Q32j,Anxious when using ChatGPT,3566,22.274,5
+Q32l,Curious when using ChatGPT,3562,22.249,5
+Q32m,Excited when using ChatGPT,3566,22.274,5

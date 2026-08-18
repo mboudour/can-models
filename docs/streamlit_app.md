@@ -1,6 +1,6 @@
 # Streamlit application: ChatGPT case study and participant workflow
 
-The Streamlit application has two separate workspaces. **ChatGPT case study** is the default public-facing view and presents the completed, full-sample 30-node ChatGPT CAN: the network figure, node dictionary, sample flow, centrality, strongest associations, method notes, and reusable downloads. **Bring your own data** is a configuration generator and local analysis launcher for datasets whose variable names do not resemble the ChatGPT example and therefore never assumes that a variable is called `Q15`, `country`, or anything else.
+The Streamlit application has two separate workspaces. **ChatGPT case study** is the default public-facing view and presents the completed, full-sample 30-node ChatGPT CAN: the network figure, node dictionary, sample flow, centrality, strongest associations, method notes, reusable downloads, and a **full Abadi et al. replication ledger**. The ledger accounts for every major computation, comparison, and conclusion path in the paper and labels each one as completed, adapted, not applicable because a necessary construct or design feature is absent, or runtime-deferred because the full configured offline resampling run exceeded three hours. The dedicated conclusion tab makes the resulting interpretation boundaries explicit. **Bring your own data** is a configuration generator and local analysis launcher for datasets whose variable names do not resemble the ChatGPT example and therefore never assumes that a variable is called `Q15`, `country`, or anything else.
 
 Run it from the repository root after installing the Python requirements.
 
@@ -8,6 +8,12 @@ Run it from the repository root after installing the Python requirements.
 sudo pip3 install -r requirements-streamlit.txt
 streamlit run app/app.py
 ```
+
+## ChatGPT case-study replication ledger
+
+The worked case study does **not** claim to replicate Abadi et al.’s substantive conclusions about populism, nativism, realistic or symbolic threat, conspiracy mentality, political orientation, translations, or European political context. The global ChatGPT survey lacks those measures and contains one cross-sectional study rather than the paper’s two-study design. The app therefore shows a visible row for each unavailable element instead of dropping it or relabelling a use-frequency, split-sample, or satisfaction-scale analysis as a substantive equivalent.
+
+The full mapping is maintained in [chatgpt_full_replication_mapping.md](chatgpt_full_replication_mapping.md). The static app bundles the current ledger, output evidence for completed modules, the bounded conclusion statement, and a separate runtime-status record for the expensive resampling/country-comparison modules. Users can download the ledger and related documentation directly from the case-study workspace.
 
 ## How participant variable names are handled
 

@@ -338,6 +338,11 @@ def read_case_table(filename: str) -> pd.DataFrame:
     return pd.read_csv(CASE_STUDY_DIR / filename)
 
 
+@st.cache_data(show_spinner=False)
+def read_case_markdown(filename: str) -> str:
+    return (CASE_STUDY_DIR / filename).read_text(encoding="utf-8")
+
+
 def render_chatgpt_case_study() -> None:
     """Show the completed full-sample ChatGPT CAN example without requiring R at runtime."""
     st.header("ChatGPT perceptions: worked CAN case study")
@@ -353,7 +358,16 @@ def render_chatgpt_case_study() -> None:
     metric_columns[2].metric("Complete CAN cases", f"{int(flow['primary_network_rows']):,}")
     metric_columns[3].metric("CAN nodes", f"{int(summary['p'])}")
 
-    overview_tab, network_tab, method_tab, download_tab = st.tabs(["Overview", "Network results", "Method and scope", "Data and code"])
+    overview_tab, network_tab, replication_tab, method_tab, conclusions_tab, download_tab = st.tabs(
+        [
+            "Overview",
+            "Primary network",
+            "Full Abadi replication",
+            "Method and scope",
+            "Conclusions and limits",
+            "Data and code",
+        ]
+    )
 
     with overview_tab:
         st.subheader("Research object and question")
@@ -390,6 +404,55 @@ def render_chatgpt_case_study() -> None:
             st.markdown("**Highest predictability estimates**")
             st.dataframe(predictability.rename(columns={"node": "Node", "predictability": "Predictability", "measure": "Measure"}), width="stretch", hide_index=True)
 
+    with replication_tab:
+        st.subheader("Full Abadi et al. computation-by-computation ledger")
+        st.write(
+            "This matrix accounts for every major computation, comparison, and conclusion path in Abadi et al. It separates executed ChatGPT results from literal replications that are impossible because the corresponding construct or research design is absent, and from implemented modules whose full offline run was runtime-deferred. Nothing is silently omitted."
+        )
+        ledger = read_case_table("abadi_full_replication_ledger.csv")
+        ledger_columns = [
+            "id",
+            "paper_element",
+            "Abadi_et_al_computation_or_claim",
+            "literal_replication_status",
+            "ChatGPT_treatment",
+            "execution_status",
+            "required_disclaimer",
+        ]
+        st.dataframe(
+            ledger.loc[:, ledger_columns].rename(
+                columns={
+                    "id": "ID",
+                    "paper_element": "Paper section",
+                    "Abadi_et_al_computation_or_claim": "Abadi et al. element",
+                    "literal_replication_status": "Replication status",
+                    "ChatGPT_treatment": "ChatGPT treatment",
+                    "execution_status": "Execution status",
+                    "required_disclaimer": "Required interpretation",
+                }
+            ),
+            width="stretch",
+            height=620,
+            hide_index=True,
+        )
+        status_counts = ledger["execution_status"].value_counts().reset_index()
+        status_counts.columns = ["Execution status", "Elements"]
+        st.dataframe(status_counts, width="stretch", hide_index=True)
+        st.download_button(
+            "Download full replication ledger",
+            data=(CASE_STUDY_DIR / "abadi_full_replication_ledger.csv").read_bytes(),
+            file_name="chatgpt_abadi_full_replication_ledger.csv",
+            mime="text/csv",
+            key="case_download_full_replication_ledger",
+        )
+        st.download_button(
+            "Download paper-to-ChatGPT mapping",
+            data=(ROOT / "docs" / "chatgpt_full_replication_mapping.md").read_bytes(),
+            file_name="chatgpt_abadi_replication_mapping.md",
+            mime="text/markdown",
+            key="case_download_full_replication_mapping",
+        )
+
     with method_tab:
         st.subheader("Reproducible computation")
         st.write(
@@ -401,6 +464,23 @@ def render_chatgpt_case_study() -> None:
         st.caption("The Mardia diagnostic uses a deterministic 2,000-case subsample for computational feasibility. The primary network uses all 11,964 complete cases.")
         st.markdown(
             "The network should be read as a structured description of conditional associations. For a causal or temporal test of the CAN theory, a longitudinal or experimental follow-up would be required."
+        )
+
+    with conclusions_tab:
+        st.subheader("Conclusions and interpretation boundaries")
+        st.warning(
+            "The ChatGPT case study is not a substantive replication of Abadi et al.’s political-attitude findings. It contains no measures of populism, nativism, realistic or symbolic threat, conspiracy mentality, or left–right political orientation; it also contains no second independent study or wave."
+        )
+        st.markdown(read_case_markdown("case_study_conclusions.md"))
+        st.divider()
+        st.subheader("Explicit placeholders and reasons")
+        st.markdown(read_case_markdown("limitations_and_placeholders.md"))
+        st.download_button(
+            "Download conclusions and limitations",
+            data=(CASE_STUDY_DIR / "case_study_conclusions.md").read_bytes() + b"\n\n" + (CASE_STUDY_DIR / "limitations_and_placeholders.md").read_bytes(),
+            file_name="chatgpt_can_conclusions_and_limitations.md",
+            mime="text/markdown",
+            key="case_download_conclusions_limitations",
         )
 
     with download_tab:

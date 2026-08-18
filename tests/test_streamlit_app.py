@@ -13,8 +13,11 @@ def main() -> None:
     assert app.radio[0].value == "ChatGPT case study"
     assert any("ChatGPT perceptions: worked CAN case study" in element.value for element in app.header)
     assert any(metric.label == "Complete CAN cases" and metric.value == "11,964" for metric in app.metric)
-    assert len(app.download_button) >= 6
-    print("Streamlit ChatGPT case-study smoke test passed.")
+    assert any("Full Abadi et al. computation-by-computation ledger" in element.value for element in app.subheader)
+    assert any("Conclusions and interpretation boundaries" in element.value for element in app.subheader)
+    assert any("political-attitude findings" in element.value for element in app.warning)
+    assert len(app.download_button) >= 9
+    print("Streamlit ChatGPT full case-study and replication-ledger smoke test passed.")
 
 
 if __name__ == "__main__":
