@@ -1,23 +1,33 @@
-# Streamlit application: ChatGPT case study and participant workflow
+# Streamlit application: original Study 2 replication and participant workflow
 
-The Streamlit application has two separate workspaces. **ChatGPT case study** is the default public-facing view and presents the completed, full-sample 30-node ChatGPT CAN: the network figure, node dictionary, sample flow, centrality, strongest associations, method notes, reusable downloads, and a **full Abadi et al. replication ledger**. The ledger accounts for every major computation, comparison, and conclusion path in the paper and labels each one as completed, adapted, not applicable because a necessary construct or design feature is absent, or runtime-deferred because the full configured offline resampling run exceeded three hours. The dedicated conclusion tab makes the resulting interpretation boundaries explicit. **Bring your own data** is a configuration generator and local analysis launcher for datasets whose variable names do not resemble the ChatGPT example and therefore never assumes that a variable is called `Q15`, `country`, or anything else.
+The Streamlit application has two distinct workspaces. **Abadi et al. Study 2 replication** is the default public view. It uses the authors’ original public April 2020 four-country data and Qualtrics codebook, rather than a topic-adjacent example. It displays the Study 2 sample flow, logged transformations, original 29-node mixed graphical model, centrality and edge exports, scale diagnostics, and a transparent paper-wide ledger. **Bring your own data** is a separate configuration generator and local analysis launcher; it never assumes a participant’s raw variables follow any predefined naming convention.
 
-Run it from the repository root after installing the Python requirements.
+Run the application from the repository root after installing the Python requirements.
 
 ```bash
 sudo pip3 install -r requirements-streamlit.txt
 streamlit run app/app.py
 ```
 
-## ChatGPT case-study replication ledger
+## Original Study 2 replication ledger
 
-The worked case study does **not** claim to replicate Abadi et al.’s substantive conclusions about populism, nativism, realistic or symbolic threat, conspiracy mentality, political orientation, translations, or European political context. The global ChatGPT survey lacks those measures and contains one cross-sectional study rather than the paper’s two-study design. The app therefore shows a visible row for each unavailable element instead of dropping it or relabelling a use-frequency, split-sample, or satisfaction-scale analysis as a substantive equivalent.
+The public source is the UvA Figshare dataset collected in April 2020 in Germany, Spain, the Netherlands, and the United Kingdom. It includes the original country, demographics, realistic/symbolic threat, populist-attitude, nativism, and conspiracy-mentality items used for the 29-node Study 2 network. The codebook identifies reverse-coded items with an asterisk, and the application exposes each applied transformation rather than applying it silently.
 
-The full mapping is maintained in [chatgpt_full_replication_mapping.md](chatgpt_full_replication_mapping.md). The static app bundles the current ledger, output evidence for completed modules, the bounded conclusion statement, and a separate runtime-status record for the expensive resampling/country-comparison modules. Users can download the ledger and related documentation directly from the case-study workspace.
+The application classifies every paper component as one of three states:
+
+| State | Meaning |
+|---|---|
+| **Executed** | The public Study 2 data and documented procedure have been run; the result is displayed or downloadable. |
+| **Pending** | The public Study 2 data support the computation, but an intensive run or an exact appendix decision rule is still required. No substantive result is implied. |
+| **Access-gated** | The computation needs the restricted 2019 Study 1 data, which are not bundled or reconstructed. |
+
+The public Study 2 joint MGM, sample preparation, Mardia diagnostic, centrality/predictability exports, and PA/nativism CFA/EFA workflow are executed. The seven-item one-factor PA model fits poorly, and the interface therefore does not silently treat it as a validated score for high/low PA networks. The original Study 2 data support RQ2–RQ4, including political-orientation and country comparisons, but the app labels those modules as pending until the published grouping rules are verified and their intensive computations complete.
+
+The 2019 15-country Study 1 data are restricted by the article’s H2020/GDPR data-availability statement. The application shows a request template and a precise required-materials checklist. It does not present a fabricated Study 1 network, a cross-study NCT, or two-study substantive conclusions. The detailed boundary is in [abadi_genuine_replication_scope.md](abadi_genuine_replication_scope.md).
 
 ## How participant variable names are handled
 
-After a participant uploads a CSV or Excel file, the app profiles every column: data type, non-missing count, missingness, number of unique values, and—where meaningful—numeric range. The participant then selects their own source columns as CAN nodes and assigns each a readable label and an attitude-system domain. The saved YAML configuration stores this mapping explicitly.
+After a participant uploads a CSV or Excel file, the app profiles every column: data type, non-missing count, missingness, unique values, and—where meaningful—numeric range. The participant then selects their own source columns as CAN nodes and assigns each a readable label and an attitude-system domain. The saved YAML configuration stores this mapping explicitly.
 
 | User action | What the app saves | Why it matters |
 |---|---|---|
@@ -28,7 +38,7 @@ After a participant uploads a CSV or Excel file, the app profiles every column: 
 | Select a country/group variable | `comparisons.country.variable` | Enables country-network eligibility checks and, where possible, country analyses. |
 | Select a candidate factor scale | `factor_models` | Activates CFA, EFA, and eligible country invariance checks. |
 
-The current core estimator expects numeric item codes. If a participant has responses such as `Strongly disagree` / `Strongly agree`, the interface identifies them as non-numeric and does not mark the joint MGM as ready until the data have been recoded. It therefore separates **variable naming**, which the interface solves through mapping, from **response coding**, which must be statistically valid.
+The core estimator expects numeric item codes. If a participant has responses such as `Strongly disagree` / `Strongly agree`, the interface identifies them as non-numeric and does not mark the joint MGM as ready until the data have been recoded. It therefore separates **variable naming**, which the interface solves through mapping, from **response coding**, which must be statistically valid.
 
 ## Analysis eligibility and placeholders
 
@@ -39,7 +49,7 @@ The app presents an eligibility table before a computation is run. A row is mark
 | Joint MGM / LASSO / EBIC network | At least three mapped numeric nodes and adequate complete cases | Reports missing node, numeric-coding, or sample-size requirement. |
 | Centrality, bootstrap accuracy/stability, Walktrap communities | Eligible joint network | Marks diagnostic block unavailable until a core network exists. |
 | CFA, country CFA, EFA, invariance | At least three coherent selected scale items; country analysis also needs adequate country groups | Explains that no latent scale or adequate group structure was supplied. |
-| Original two-study NCT | Two independent comparable studies or waves | Always remains a placeholder for a single cross-sectional upload; the optional random split is labelled a methodological check only. |
+| Original two-study NCT | Two independent comparable studies or waves | Always remains a placeholder for a single cross-sectional upload; a random split is not treated as a substitute. |
 | High/low subgroup networks | Numeric grouping variable not retained as a network node | Explains the overlap or absence of a grouping variable. |
 | Country networks, all pairwise NCTs, and matrix correlations | Two or more eligible country/group samples | Reports number of eligible groups at the selected minimum sample size. |
 | Country clustering and pooled cluster networks | Two or more country networks; three or more are preferable | Keeps the clustering module as a placeholder when network groups cannot be formed. |
@@ -48,7 +58,7 @@ The app presents an eligibility table before a computation is run. A row is mark
 
 ## Reproducible run bundle
 
-Selecting **Create configuration and run bundle** writes a separate directory under `user_runs/`. It contains the original upload, generated `config.yml`, a variable profile, a SHA-256 checksum manifest, console logs, and generated R outputs. The app does not overwrite the bundled ChatGPT example data or its configuration.
+Selecting **Create configuration and run bundle** writes a separate directory under `user_runs/`. It contains the original upload, generated `config.yml`, a variable profile, a SHA-256 checksum manifest, console logs, and generated R outputs. The app does not overwrite the original Study 2 source data or its configuration.
 
 The participant can download the YAML configuration and rerun it outside the interface:
 
@@ -58,6 +68,6 @@ Rscript scripts/run_core_analysis.R --config user_runs/<run-id>/config.yml
 Rscript scripts/run_example.R --config user_runs/<run-id>/config.yml
 ```
 
-The interface labels **Quick mode** as a feasibility check. Full bootstrap, exhaustive country NCT, and clustering workflows can be substantially slower and should be chosen only after the mapping and core network have been validated.
+The interface labels **Quick mode** as a feasibility check. Full bootstrap, exhaustive country NCT, and clustering workflows can be substantially slower and should be selected only after the mapping and core network have been validated.
 
 > **Interpretive limit.** The interface implements a CAN-informed workflow, not an automatic causal-inference engine. Cross-sectional network edges are conditional associations. Directional causal claims require an appropriate longitudinal or experimental design.

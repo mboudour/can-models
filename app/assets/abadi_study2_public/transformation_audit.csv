@@ -1,0 +1,5 @@
+variable,transformation,minimum,maximum,nonmissing_n,from_values,to_value,affected_n
+A9.3*,reverse_code,1,7,2031,NA,NA,NA
+A9.8*,reverse_code,1,7,2031,NA,NA,NA
+A21.2*,reverse_code,1,7,2031,NA,NA,NA
+A3.2,collapse_values,NA,NA,2031,7,6,1

@@ -1,0 +1,379 @@
+from,to,weight,abs_weight,sign
+Subjective social status,Highest education level,4.561985813880315,4.561985813880315,positive
+Highest education level,Government officials do not improve people lives,3.9058886668021815,3.9058886668021815,positive
+Country of residence,Highest education level,3.647207485281476,3.647207485281476,positive
+Highest education level,Government agencies closely monitor citizens,3.3046850058841466,3.3046850058841466,positive
+Subjective social status,Women should stay home and care for children,3.2578990898495834,3.2578990898495834,positive
+Highest education level,Politicians should listen to people,3.251729142491062,3.251729142491062,positive
+Highest education level,Government is run by big interests,3.1930743433576976,3.1930743433576976,positive
+Politicians should listen to people,Elites failed to protect cultural identity,2.9593895443255036,2.9593895443255036,positive
+Public is not informed about important events,Politicians conceal true motives,2.745675644502439,2.745675644502439,positive
+Highest education level,Will of the people is the highest political principle,2.598017772697456,2.598017772697456,positive
+Highest education level,Public is not informed about important events,2.4626727240732253,2.4626727240732253,positive
+Age category,Religion,2.2148671395061665,2.2148671395061665,positive
+Immigration threatens my values,Elites failed to protect cultural identity,2.214399577659344,2.214399577659344,positive
+Highest education level,Politicians conceal true motives,2.143606365708676,2.143606365708676,positive
+Women should stay home and care for children,Politicians should listen to people,2.123152351728544,2.123152351728544,positive
+Women should stay home and care for children,Events result from secret activities,2.091901546428948,2.091901546428948,positive
+Age category,Highest education level,2.0366863406403075,2.0366863406403075,positive
+Age category,Fear proper housing is difficult,2.023578445441945,2.023578445441945,positive
+Subjective social status,Politicians should listen to people,1.9992698843444907,1.9992698843444907,positive
+Politicians should listen to people,Politicians should spend time among ordinary people,1.9923772510441489,1.9923772510441489,positive
+Highest education level,Multicultural influences harm national traditions,1.9623714697944432,1.9623714697944432,positive
+Religion,Highest education level,1.961578794867466,1.961578794867466,positive
+Elites failed to protect cultural identity,Immigrants should give up their culture,1.9568139723620788,1.9568139723620788,positive
+Highest education level,Anxious about the future,1.9135820456970685,1.9135820456970685,positive
+Religion,Women should stay home and care for children,1.8498961504210651,1.8498961504210651,positive
+Fear proper housing is difficult,Elites failed to protect cultural identity,1.8483706909422,1.8483706909422,positive
+Religion,Government agencies closely monitor citizens,1.8206606056031633,1.8206606056031633,positive
+Political views reveal if a person is good or bad,Political opponents are misinformed,1.8112000847899254,1.8112000847899254,positive
+Highest education level,Secret organizations influence political decisions,1.802126237081434,1.802126237081434,positive
+Highest education level,Women should stay home and care for children,1.785254319641896,1.785254319641896,positive
+Politicians conceal true motives,Secret organizations influence political decisions,1.7767231913444221,1.7767231913444221,positive
+Age category,Politicians conceal true motives,1.759858070118079,1.759858070118079,positive
+Politicians should listen to people,Government agencies closely monitor citizens,1.7546920616595045,1.7546920616595045,positive
+Religion,Politicians should listen to people,1.752098452459244,1.752098452459244,positive
+Politicians should spend time among ordinary people,Elites failed to protect cultural identity,1.7013756903510098,1.7013756903510098,positive
+Subjective social status,Politicians conceal true motives,1.6304039473474536,1.6304039473474536,positive
+Afraid of losing job,Anxious about the future,1.6136490157512073,1.6136490157512073,positive
+Highest education level,Afraid of losing job,1.6111323278216716,1.6111323278216716,positive
+Women should stay home and care for children,Elites failed to protect cultural identity,1.6016695395866347,1.6016695395866347,positive
+Elites failed to protect cultural identity,Government agencies closely monitor citizens,1.593481631976998,1.593481631976998,positive
+Women should stay home and care for children,Secret organizations influence political decisions,1.591068851330514,1.591068851330514,positive
+Government is run by big interests,Government agencies closely monitor citizens,1.5869396232586048,1.5869396232586048,positive
+Anxious about the future,Will of the people is the highest political principle,1.57453841169973,1.57453841169973,positive
+Age category,Subjective social status,1.5733864031956843,1.5733864031956843,positive
+Government agencies closely monitor citizens,Events result from secret activities,1.556693067762855,1.556693067762855,positive
+Country of residence,Politicians should spend time among ordinary people,1.5529159903428904,1.5529159903428904,positive
+Age category,Living standards will decline,1.5501956251779214,1.5501956251779214,positive
+Highest education level,Politicians should spend time among ordinary people,1.5149946561671865,1.5149946561671865,positive
+Women should stay home and care for children,Government is run by big interests,1.5074764568957069,1.5074764568957069,positive
+Political opponents are misinformed,Government agencies closely monitor citizens,1.4854976397227766,1.4854976397227766,positive
+Highest education level,Elites failed to protect cultural identity,1.4834501942825122,1.4834501942825122,positive
+Politicians should listen to people,Will of the people is the highest political principle,1.4411261670789883,1.4411261670789883,positive
+Subjective social status,Religion,1.4372417419585934,1.4372417419585934,positive
+Subjective social status,Government officials do not improve people lives,1.4326059244811489,1.4326059244811489,positive
+Women should stay home and care for children,Will of the people is the highest political principle,1.423964583616069,1.423964583616069,positive
+Religion,Political views reveal if a person is good or bad,1.4127688354841947,1.4127688354841947,positive
+Religion,Elites failed to protect cultural identity,1.4100724206993753,1.4100724206993753,positive
+Subjective social status,Political opponents are misinformed,1.403975500794139,1.403975500794139,positive
+Highest education level,Living standards will decline,1.3331215392600502,1.3331215392600502,positive
+Government is run by big interests,Elites failed to protect cultural identity,1.3138328600076021,1.3138328600076021,positive
+Politicians should spend time among ordinary people,Will of the people is the highest political principle,1.2927850525205868,1.2927850525205868,positive
+Elites failed to protect cultural identity,Natives should receive priority over immigrants,1.2911161394888857,1.2911161394888857,positive
+Politicians should listen to people,Politicians conceal true motives,1.2898901020634335,1.2898901020634335,positive
+Religion,Politicians conceal true motives,1.286736940046256,1.286736940046256,positive
+Politicians should listen to people,Government is run by big interests,1.2553423064662663,1.2553423064662663,positive
+Subjective social status,Afraid of losing job,1.253502001971508,1.253502001971508,positive
+Will of the people is the highest political principle,Politicians conceal true motives,1.2510772500834366,1.2510772500834366,positive
+Immigration threatens my values,Public is not informed about important events,1.2460608142931506,1.2460608142931506,positive
+Anxious about the future,Politicians should listen to people,1.2459674348814789,1.2459674348814789,positive
+Immigrants should give up their culture,Government agencies closely monitor citizens,1.2321320048091104,1.2321320048091104,positive
+Government is run by big interests,Political views reveal if a person is good or bad,1.2282919901386382,1.2282919901386382,positive
+Religion,Immigration threatens my values,1.22742286871646,1.22742286871646,positive
+Women should stay home and care for children,Immigration threatens my values,1.2221031879217896,1.2221031879217896,positive
+Religion,Anxious about the future,1.2184784738638608,1.2184784738638608,positive
+Highest education level,Natives should receive priority over immigrants,1.2131453112817112,1.2131453112817112,positive
+Subjective social status,Government is run by big interests,1.2084713360098223,1.2084713360098223,positive
+Subjective social status,Secret organizations influence political decisions,1.201357472469935,1.201357472469935,positive
+Immigration threatens my values,Politicians conceal true motives,1.1977348065937135,1.1977348065937135,positive
+Anxious about the future,Public is not informed about important events,1.1970963500101839,1.1970963500101839,positive
+Subjective social status,Public is not informed about important events,1.1949507003672766,1.1949507003672766,positive
+Country of residence,Government agencies closely monitor citizens,1.190718610187358,1.190718610187358,positive
+Events result from secret activities,Secret organizations influence political decisions,1.183938118284059,1.183938118284059,positive
+Subjective social status,Anxious about the future,1.181756321868363,1.181756321868363,positive
+Immigration threatens my values,Politicians should listen to people,1.1783403621186586,1.1783403621186586,positive
+Religion,Public is not informed about important events,1.1689301331764597,1.1689301331764597,positive
+Public is not informed about important events,Government agencies closely monitor citizens,1.1675557231639226,1.1675557231639226,positive
+Religion,Government officials do not improve people lives,1.1624475902016864,1.1624475902016864,positive
+Subjective social status,Government agencies closely monitor citizens,1.157465718548797,1.157465718548797,positive
+Immigration threatens my values,Natives should receive priority over immigrants,1.1517748434249584,1.1517748434249584,positive
+Women should stay home and care for children,Government officials do not improve people lives,1.1485950867506982,1.1485950867506982,positive
+Government is run by big interests,Political opponents are misinformed,1.137767207485439,1.137767207485439,positive
+Religion,Events result from secret activities,1.137390754653996,1.137390754653996,positive
+Religion,Government is run by big interests,1.1335030565619706,1.1335030565619706,positive
+Age category,Immigration threatens my values,1.122655932156308,1.122655932156308,positive
+Important norms and values are no longer important,Government agencies closely monitor citizens,1.1201796414684038,1.1201796414684038,positive
+Highest education level,Fear proper housing is difficult,1.1142855406907124,1.1142855406907124,positive
+Government is run by big interests,Government officials do not improve people lives,1.1097442484850526,1.1097442484850526,positive
+Politicians should listen to people,Government officials do not improve people lives,1.1066868312467844,1.1066868312467844,positive
+Politicians should spend time among ordinary people,Political views reveal if a person is good or bad,1.1057368079115144,1.1057368079115144,positive
+Subjective social status,Will of the people is the highest political principle,1.1051597016789032,1.1051597016789032,positive
+Elites failed to protect cultural identity,Politicians conceal true motives,1.097726028895293,1.097726028895293,positive
+Natives should receive priority over immigrants,Government agencies closely monitor citizens,1.09318051743599,1.09318051743599,positive
+Immigration threatens my values,Multicultural influences harm national traditions,1.0917030098851326,1.0917030098851326,positive
+Government officials do not improve people lives,Politicians conceal true motives,1.0781371774756587,1.0781371774756587,positive
+Government is run by big interests,Secret organizations influence political decisions,1.0705724508387005,1.0705724508387005,positive
+Politicians should listen to people,Political views reveal if a person is good or bad,1.068981493144956,1.068981493144956,positive
+Age category,Women should stay home and care for children,1.0649273807261848,1.0649273807261848,positive
+Religion,Will of the people is the highest political principle,1.0630529275276408,1.0630529275276408,positive
+Politicians should listen to people,Immigrants should give up their culture,1.063007768550703,1.063007768550703,positive
+Government officials do not improve people lives,Political views reveal if a person is good or bad,1.0613653389556519,1.0613653389556519,positive
+Natives should receive priority over immigrants,Immigrants should give up their culture,1.0532077907917086,1.0532077907917086,positive
+Age category,Politicians should listen to people,1.0525611788498004,1.0525611788498004,positive
+Age category,Will of the people is the highest political principle,1.0489658789143799,1.0489658789143799,positive
+Anxious about the future,Women should stay home and care for children,1.0489315670022568,1.0489315670022568,positive
+Politicians conceal true motives,Government agencies closely monitor citizens,1.046262973917415,1.046262973917415,positive
+Religion,Fear proper housing is difficult,1.0457751437734946,1.0457751437734946,positive
+Will of the people is the highest political principle,Political opponents are misinformed,1.0446454095502375,1.0446454095502375,positive
+Age category,Political views reveal if a person is good or bad,1.0398159067081545,1.0398159067081545,positive
+Religion,Afraid of losing job,1.038379354861473,1.038379354861473,positive
+Politicians should spend time among ordinary people,Government agencies closely monitor citizens,1.0287281697162687,1.0287281697162687,positive
+Age category,Afraid of losing job,1.0257362552407425,1.0257362552407425,positive
+Multicultural influences harm national traditions,Politicians conceal true motives,1.02286364131411,1.02286364131411,positive
+Subjective social status,Political views reveal if a person is good or bad,1.0152873870857877,1.0152873870857877,positive
+Politicians should listen to people,Secret organizations influence political decisions,1.013717311112218,1.013717311112218,positive
+Religion,Politicians should spend time among ordinary people,1.009989503391101,1.009989503391101,positive
+Religion,Immigrants should give up their culture,1.0033322103478453,1.0033322103478453,positive
+Highest education level,Political opponents are misinformed,0.9942919296954342,0.9942919296954342,positive
+Highest education level,Political views reveal if a person is good or bad,0.9928145435479908,0.9928145435479908,positive
+Subjective social status,Living standards will decline,0.9844259603091687,0.9844259603091687,positive
+Government agencies closely monitor citizens,Secret organizations influence political decisions,0.9776646503383173,0.9776646503383173,positive
+Subjective social status,Immigration threatens my values,0.9695067638097324,0.9695067638097324,positive
+Highest education level,Events result from secret activities,0.9693152139743738,0.9693152139743738,positive
+Political views reveal if a person is good or bad,Elites failed to protect cultural identity,0.9619650754966003,0.9619650754966003,positive
+Highest education level,Immigration threatens my values,0.961038066141644,0.961038066141644,positive
+Fear proper housing is difficult,Will of the people is the highest political principle,0.9524710377060237,0.9524710377060237,positive
+Country of residence,Politicians should listen to people,0.9467191154269099,0.9467191154269099,positive
+Will of the people is the highest political principle,Secret organizations influence political decisions,0.9458212947728005,0.9458212947728005,positive
+Subjective social status,Elites failed to protect cultural identity,0.9424890808106626,0.9424890808106626,positive
+Will of the people is the highest political principle,Public is not informed about important events,0.9411759695715598,0.9411759695715598,positive
+Anxious about the future,Politicians conceal true motives,0.9363777249363443,0.9363777249363443,positive
+Important norms and values are no longer important,Politicians should listen to people,0.9249073578230631,0.9249073578230631,positive
+Religion,Political opponents are misinformed,0.9156117032314222,0.9156117032314222,positive
+Politicians conceal true motives,Events result from secret activities,0.9152435024769349,0.9152435024769349,positive
+Multicultural influences harm national traditions,Public is not informed about important events,0.9106527413461107,0.9106527413461107,positive
+Government is run by big interests,Politicians conceal true motives,0.9092249619730435,0.9092249619730435,positive
+Country of residence,Subjective social status,0.9032828439231602,0.9032828439231602,positive
+Will of the people is the highest political principle,Natives should receive priority over immigrants,0.8921576420225722,0.8921576420225722,positive
+Public is not informed about important events,Secret organizations influence political decisions,0.891742206294915,0.891742206294915,positive
+Immigration threatens my values,Immigrants should give up their culture,0.8908666956250083,0.8908666956250083,positive
+Politicians should listen to people,Public is not informed about important events,0.8853411797591239,0.8853411797591239,positive
+Religion,Secret organizations influence political decisions,0.8812899759974733,0.8812899759974733,positive
+Fear proper housing is difficult,Anxious about the future,0.8552141333551417,0.8552141333551417,positive
+Political views reveal if a person is good or bad,Politicians conceal true motives,0.8523799996631319,0.8523799996631319,positive
+Elites failed to protect cultural identity,Events result from secret activities,0.8497087840066545,0.8497087840066545,positive
+Government is run by big interests,Natives should receive priority over immigrants,0.8399070092831911,0.8399070092831911,positive
+Politicians should spend time among ordinary people,Government is run by big interests,0.8398925934173275,0.8398925934173275,positive
+Afraid of losing job,Politicians should listen to people,0.8353089815362875,0.8353089815362875,positive
+Elites failed to protect cultural identity,Public is not informed about important events,0.8328080252654055,0.8328080252654055,positive
+Living standards will decline,Government is run by big interests,0.8304761215656418,0.8304761215656418,positive
+Will of the people is the highest political principle,Political views reveal if a person is good or bad,0.8250816709251503,0.8250816709251503,positive
+Government officials do not improve people lives,Elites failed to protect cultural identity,0.8228143899552296,0.8228143899552296,positive
+Political views reveal if a person is good or bad,Secret organizations influence political decisions,0.8225681312537347,0.8225681312537347,positive
+Anxious about the future,Government officials do not improve people lives,0.8195116412938497,0.8195116412938497,positive
+Government officials do not improve people lives,Public is not informed about important events,0.8184949368491923,0.8184949368491923,positive
+Fear proper housing is difficult,Politicians should listen to people,0.811331983195884,0.811331983195884,positive
+Important norms and values are no longer important,Will of the people is the highest political principle,0.8099945675113966,0.8099945675113966,positive
+Political views reveal if a person is good or bad,Public is not informed about important events,0.8090153657231933,0.8090153657231933,positive
+Religion,Living standards will decline,0.7995919664186462,0.7995919664186462,positive
+Political views reveal if a person is good or bad,Natives should receive priority over immigrants,0.7995645385405141,0.7995645385405141,positive
+Women should stay home and care for children,Public is not informed about important events,0.7951239976116822,0.7951239976116822,positive
+Immigration threatens my values,Government is run by big interests,0.7921156926973284,0.7921156926973284,positive
+Politicians should spend time among ordinary people,Political opponents are misinformed,0.7830522679766053,0.7830522679766053,positive
+Government officials do not improve people lives,Secret organizations influence political decisions,0.7828280015862593,0.7828280015862593,positive
+Subjective social status,Important norms and values are no longer important,0.7799785209371244,0.7799785209371244,positive
+Women should stay home and care for children,Natives should receive priority over immigrants,0.7756817995908905,0.7756817995908905,positive
+Living standards will decline,Politicians should listen to people,0.7744448122965542,0.7744448122965542,positive
+Will of the people is the highest political principle,Events result from secret activities,0.7729215240726485,0.7729215240726485,positive
+Religion,Important norms and values are no longer important,0.7683276719444403,0.7683276719444403,positive
+Immigration threatens my values,Will of the people is the highest political principle,0.762078173796529,0.762078173796529,positive
+Will of the people is the highest political principle,Government is run by big interests,0.7577559189040084,0.7577559189040084,positive
+Multicultural influences harm national traditions,Elites failed to protect cultural identity,0.7489286571935045,0.7489286571935045,positive
+Political opponents are misinformed,Elites failed to protect cultural identity,0.7480304627374881,0.7480304627374881,positive
+Subjective social status,Multicultural influences harm national traditions,0.7170383359846888,0.7170383359846888,positive
+Immigration threatens my values,Secret organizations influence political decisions,0.7162412147996133,0.7162412147996133,positive
+Multicultural influences harm national traditions,Will of the people is the highest political principle,0.7146832981757434,0.7146832981757434,positive
+Country of residence,Government is run by big interests,0.7060944656141979,0.7060944656141979,positive
+Government is run by big interests,Events result from secret activities,0.7009505554697378,0.7009505554697378,positive
+Subjective social status,Natives should receive priority over immigrants,0.6900865661197735,0.6900865661197735,positive
+Subjective social status,Fear proper housing is difficult,0.6878840403587984,0.6878840403587984,positive
+Subjective social status,Politicians should spend time among ordinary people,0.6873272512460522,0.6873272512460522,positive
+Highest education level,Important norms and values are no longer important,0.6869819452468114,0.6869819452468114,positive
+Religion,Multicultural influences harm national traditions,0.6766929294116464,0.6766929294116464,positive
+Politicians should spend time among ordinary people,Government officials do not improve people lives,0.666898795640621,0.666898795640621,positive
+Religion,Natives should receive priority over immigrants,0.6665723258203464,0.6665723258203464,positive
+Afraid of losing job,Women should stay home and care for children,0.6619139796852223,0.6619139796852223,positive
+Government is run by big interests,Public is not informed about important events,0.6565073722213943,0.6565073722213943,positive
+Important norms and values are no longer important,Elites failed to protect cultural identity,0.6551571982675519,0.6551571982675519,positive
+Afraid of losing job,Fear proper housing is difficult,0.6512729854793322,0.6512729854793322,positive
+Important norms and values are no longer important,Women should stay home and care for children,0.6443192149104852,0.6443192149104852,positive
+Politicians should listen to people,Events result from secret activities,0.640412048289763,0.640412048289763,positive
+Age category,Anxious about the future,0.6392552181721496,0.6392552181721496,positive
+Country of residence,Religion,0.6369075959884927,0.6369075959884927,positive
+Will of the people is the highest political principle,Government officials do not improve people lives,0.630660836082877,0.630660836082877,positive
+Politicians should listen to people,Political opponents are misinformed,0.627388231173096,0.627388231173096,positive
+Multicultural influences harm national traditions,Government is run by big interests,0.6227708687462019,0.6227708687462019,positive
+Age category,Public is not informed about important events,0.6206873203817409,0.6206873203817409,positive
+Women should stay home and care for children,Immigrants should give up their culture,0.6192530164715345,0.6192530164715345,positive
+Afraid of losing job,Government agencies closely monitor citizens,0.615911568079192,0.615911568079192,positive
+Highest education level,Immigrants should give up their culture,0.6157192203387023,0.6157192203387023,positive
+Fear proper housing is difficult,Public is not informed about important events,0.6096491819972097,0.6096491819972097,positive
+Immigration threatens my values,Political views reveal if a person is good or bad,0.6052957805699659,0.6052957805699659,positive
+Anxious about the future,Political views reveal if a person is good or bad,0.6051668474099601,0.6051668474099601,positive
+Government officials do not improve people lives,Events result from secret activities,0.6050000030271958,0.6050000030271958,positive
+Will of the people is the highest political principle,Immigrants should give up their culture,0.6039513443221557,0.6039513443221557,positive
+Politicians should spend time among ordinary people,Public is not informed about important events,0.599507140287873,0.599507140287873,positive
+Multicultural influences harm national traditions,Politicians should listen to people,0.5952421769672223,0.5952421769672223,positive
+Age category,Elites failed to protect cultural identity,0.5919673210248038,0.5919673210248038,positive
+Afraid of losing job,Government is run by big interests,0.5885989378759974,0.5885989378759974,positive
+Fear proper housing is difficult,Government is run by big interests,0.5864638993905962,0.5864638993905962,positive
+Government officials do not improve people lives,Government agencies closely monitor citizens,0.5828284924206035,0.5828284924206035,positive
+Living standards will decline,Politicians conceal true motives,0.5803785120211233,0.5803785120211233,positive
+Afraid of losing job,Living standards will decline,0.5767256351899133,0.5767256351899133,positive
+Political views reveal if a person is good or bad,Immigrants should give up their culture,0.5744189372048462,0.5744189372048462,positive
+Women should stay home and care for children,Political opponents are misinformed,0.5711682897455004,0.5711682897455004,positive
+Fear proper housing is difficult,Government agencies closely monitor citizens,0.5709628614186864,0.5709628614186864,positive
+Politicians should spend time among ordinary people,Events result from secret activities,0.5639603020716769,0.5639603020716769,positive
+Politicians should spend time among ordinary people,Secret organizations influence political decisions,0.5625498449588697,0.5625498449588697,positive
+Immigrants should give up their culture,Politicians conceal true motives,0.5619583184046568,0.5619583184046568,positive
+Subjective social status,Immigrants should give up their culture,0.559545694650899,0.559545694650899,positive
+Women should stay home and care for children,Politicians conceal true motives,0.5572352521933568,0.5572352521933568,positive
+Anxious about the future,Government is run by big interests,0.5548814869231218,0.5548814869231218,positive
+Natives should receive priority over immigrants,Politicians conceal true motives,0.5541726557552363,0.5541726557552363,positive
+Living standards will decline,Government officials do not improve people lives,0.5527704353273935,0.5527704353273935,positive
+Living standards will decline,Elites failed to protect cultural identity,0.5478135123243686,0.5478135123243686,positive
+Age category,Events result from secret activities,0.5435458780031026,0.5435458780031026,positive
+Country of residence,Elites failed to protect cultural identity,0.5278200285091703,0.5278200285091703,positive
+Will of the people is the highest political principle,Government agencies closely monitor citizens,0.5273422344910672,0.5273422344910672,positive
+Fear proper housing is difficult,Politicians conceal true motives,0.5241218310946234,0.5241218310946234,positive
+Political opponents are misinformed,Public is not informed about important events,0.5234191579712796,0.5234191579712796,positive
+Immigration threatens my values,Political opponents are misinformed,0.5180451783833793,0.5180451783833793,positive
+Government officials do not improve people lives,Political opponents are misinformed,0.5143567894975358,0.5143567894975358,positive
+Multicultural influences harm national traditions,Natives should receive priority over immigrants,0.5139203192314772,0.5139203192314772,positive
+Age category,Multicultural influences harm national traditions,0.511993518986516,0.511993518986516,positive
+Important norms and values are no longer important,Political views reveal if a person is good or bad,0.5031016486580457,0.5031016486580457,positive
+Multicultural influences harm national traditions,Government agencies closely monitor citizens,0.49747524953878186,0.49747524953878186,positive
+Country of residence,Will of the people is the highest political principle,0.49488559000280963,0.49488559000280963,positive
+Politicians should listen to people,Natives should receive priority over immigrants,0.4931447807338384,0.4931447807338384,positive
+Public is not informed about important events,Events result from secret activities,0.48275269127534837,0.48275269127534837,positive
+Important norms and values are no longer important,Politicians conceal true motives,0.48060791646574663,0.48060791646574663,positive
+Women should stay home and care for children,Multicultural influences harm national traditions,0.47575996904040085,0.47575996904040085,positive
+Country of residence,Living standards will decline,0.47427571678085434,0.47427571678085434,positive
+Politicians should spend time among ordinary people,Natives should receive priority over immigrants,0.46891859643784906,0.46891859643784906,positive
+Political views reveal if a person is good or bad,Events result from secret activities,0.4687794976426386,0.4687794976426386,positive
+Political opponents are misinformed,Politicians conceal true motives,0.4669953433598919,0.4669953433598919,positive
+Living standards will decline,Anxious about the future,0.4606832681014509,0.4606832681014509,positive
+Multicultural influences harm national traditions,Political opponents are misinformed,0.4589262208504492,0.4589262208504492,positive
+Fear proper housing is difficult,Secret organizations influence political decisions,0.4569866849287617,0.4569866849287617,positive
+Country of residence,Immigration threatens my values,0.44757243039001005,0.44757243039001005,positive
+Natives should receive priority over immigrants,Public is not informed about important events,0.4474565911791036,0.4474565911791036,positive
+Immigrants should give up their culture,Events result from secret activities,0.4378654477146769,0.4378654477146769,positive
+Age category,Natives should receive priority over immigrants,0.43412291818709403,0.43412291818709403,positive
+Political opponents are misinformed,Natives should receive priority over immigrants,0.43335930233103404,0.43335930233103404,positive
+Government officials do not improve people lives,Immigrants should give up their culture,0.4252149801068629,0.4252149801068629,positive
+Elites failed to protect cultural identity,Secret organizations influence political decisions,0.41466609301169566,0.41466609301169566,positive
+Country of residence,Political views reveal if a person is good or bad,0.4095406346444939,0.4095406346444939,positive
+Afraid of losing job,Politicians conceal true motives,0.4061448673745416,0.4061448673745416,positive
+Age category,Political opponents are misinformed,0.40386840500965254,0.40386840500965254,positive
+Afraid of losing job,Multicultural influences harm national traditions,0.40366040523125435,0.40366040523125435,positive
+Country of residence,Public is not informed about important events,0.40322974832422925,0.40322974832422925,positive
+Important norms and values are no longer important,Secret organizations influence political decisions,0.40077605046782916,0.40077605046782916,positive
+Living standards will decline,Women should stay home and care for children,0.3995701919726783,0.3995701919726783,positive
+Women should stay home and care for children,Politicians should spend time among ordinary people,0.3950225133067655,0.3950225133067655,positive
+Country of residence,Afraid of losing job,0.3945130786147872,0.3945130786147872,positive
+Multicultural influences harm national traditions,Immigrants should give up their culture,0.3934550652215435,0.3934550652215435,positive
+Anxious about the future,Immigrants should give up their culture,0.3907063845920633,0.3907063845920633,positive
+Country of residence,Age category,0.38617845728775607,0.38617845728775607,positive
+Living standards will decline,Multicultural influences harm national traditions,0.38568319885690605,0.38568319885690605,positive
+Living standards will decline,Secret organizations influence political decisions,0.38479277896868563,0.38479277896868563,positive
+Fear proper housing is difficult,Political views reveal if a person is good or bad,0.38347232026201716,0.38347232026201716,positive
+Subjective social status,Events result from secret activities,0.38288879975191126,0.38288879975191126,positive
+Living standards will decline,Public is not informed about important events,0.380323918448315,0.380323918448315,positive
+Afraid of losing job,Political views reveal if a person is good or bad,0.3794253222473309,0.3794253222473309,positive
+Living standards will decline,Government agencies closely monitor citizens,0.3785229152373263,0.3785229152373263,positive
+Multicultural influences harm national traditions,Political views reveal if a person is good or bad,0.377564616366316,0.377564616366316,positive
+Afraid of losing job,Public is not informed about important events,0.3693358759874591,0.3693358759874591,positive
+Women should stay home and care for children,Political views reveal if a person is good or bad,0.3665976062832794,0.3665976062832794,positive
+Political opponents are misinformed,Events result from secret activities,0.36569425518800847,0.36569425518800847,positive
+Age category,Politicians should spend time among ordinary people,0.3542122908248932,0.3542122908248932,positive
+Politicians should spend time among ordinary people,Politicians conceal true motives,0.3490028870138416,0.3490028870138416,positive
+Political opponents are misinformed,Secret organizations influence political decisions,0.3426170849112918,0.3426170849112918,positive
+Anxious about the future,Immigration threatens my values,0.34244780890003745,0.34244780890003745,positive
+Important norms and values are no longer important,Public is not informed about important events,0.34121279176644187,0.34121279176644187,positive
+Anxious about the future,Government agencies closely monitor citizens,0.34105538820132353,0.34105538820132353,positive
+Living standards will decline,Important norms and values are no longer important,0.3406789559503403,0.3406789559503403,positive
+Living standards will decline,Will of the people is the highest political principle,0.339632103013427,0.339632103013427,positive
+Living standards will decline,Immigrants should give up their culture,0.32892296679193933,0.32892296679193933,positive
+Anxious about the future,Political opponents are misinformed,0.3249303993577705,0.3249303993577705,positive
+Living standards will decline,Events result from secret activities,0.3178837041511318,0.3178837041511318,positive
+Government is run by big interests,Immigrants should give up their culture,0.31705713369547056,0.31705713369547056,positive
+Anxious about the future,Natives should receive priority over immigrants,0.3125364515659495,0.3125364515659495,positive
+Fear proper housing is difficult,Multicultural influences harm national traditions,0.3054118003542863,0.3054118003542863,positive
+Government officials do not improve people lives,Natives should receive priority over immigrants,0.30526494466492826,0.30526494466492826,positive
+Age category,Immigrants should give up their culture,0.30318816952747296,0.30318816952747296,positive
+Anxious about the future,Politicians should spend time among ordinary people,0.29977074188407055,0.29977074188407055,positive
+Multicultural influences harm national traditions,Events result from secret activities,0.2990303419018555,0.2990303419018555,positive
+Important norms and values are no longer important,Multicultural influences harm national traditions,0.29852547097764903,0.29852547097764903,positive
+Anxious about the future,Secret organizations influence political decisions,0.29790365641927696,0.29790365641927696,positive
+Important norms and values are no longer important,Immigration threatens my values,0.29679720036844404,0.29679720036844404,positive
+Age category,Important norms and values are no longer important,0.2954947662581379,0.2954947662581379,positive
+Immigrants should give up their culture,Public is not informed about important events,0.29022427664757444,0.29022427664757444,positive
+Country of residence,Political opponents are misinformed,0.28937596146004585,0.28937596146004585,positive
+Country of residence,Multicultural influences harm national traditions,0.28098916261367857,0.28098916261367857,positive
+Living standards will decline,Political opponents are misinformed,0.2779442144884674,0.2779442144884674,positive
+Fear proper housing is difficult,Women should stay home and care for children,0.2770172556209689,0.2770172556209689,positive
+Multicultural influences harm national traditions,Government officials do not improve people lives,0.275799616759416,0.275799616759416,positive
+Important norms and values are no longer important,Politicians should spend time among ordinary people,0.2731438856627596,0.2731438856627596,positive
+Multicultural influences harm national traditions,Secret organizations influence political decisions,0.2717434474539903,0.2717434474539903,positive
+Living standards will decline,Natives should receive priority over immigrants,0.2688949761418343,0.2688949761418343,positive
+Important norms and values are no longer important,Immigrants should give up their culture,0.26240176449142516,0.26240176449142516,positive
+Immigration threatens my values,Politicians should spend time among ordinary people,0.2616090573969603,0.2616090573969603,positive
+Important norms and values are no longer important,Government officials do not improve people lives,0.25602203452534295,0.25602203452534295,positive
+Will of the people is the highest political principle,Elites failed to protect cultural identity,0.2546378816051162,0.2546378816051162,positive
+Age category,Government is run by big interests,0.25434988038612466,0.25434988038612466,positive
+Fear proper housing is difficult,Politicians should spend time among ordinary people,0.2509424948876154,0.2509424948876154,positive
+Immigrants should give up their culture,Secret organizations influence political decisions,0.24956640498671268,0.24956640498671268,positive
+Politicians should spend time among ordinary people,Immigrants should give up their culture,0.246040905925607,0.246040905925607,positive
+Anxious about the future,Multicultural influences harm national traditions,0.24456551146294267,0.24456551146294267,positive
+Fear proper housing is difficult,Important norms and values are no longer important,0.23638545128145944,0.23638545128145944,positive
+Anxious about the future,Elites failed to protect cultural identity,0.23495522229928503,0.23495522229928503,positive
+Afraid of losing job,Immigration threatens my values,0.23453274875678087,0.23453274875678087,positive
+Country of residence,Fear proper housing is difficult,0.22707087677928744,0.22707087677928744,positive
+Important norms and values are no longer important,Natives should receive priority over immigrants,0.22185281918699035,0.22185281918699035,positive
+Important norms and values are no longer important,Events result from secret activities,0.21587800121838643,0.21587800121838643,positive
+Afraid of losing job,Politicians should spend time among ordinary people,0.215223278519789,0.215223278519789,positive
+Living standards will decline,Political views reveal if a person is good or bad,0.21083429191085706,0.21083429191085706,positive
+Fear proper housing is difficult,Government officials do not improve people lives,0.2090253317159001,0.2090253317159001,positive
+Natives should receive priority over immigrants,Events result from secret activities,0.20857432775785806,0.20857432775785806,positive
+Important norms and values are no longer important,Government is run by big interests,0.2083612440713377,0.2083612440713377,positive
+Living standards will decline,Immigration threatens my values,0.20604999619266734,0.20604999619266734,positive
+Women should stay home and care for children,Government agencies closely monitor citizens,0.20241242445023067,0.20241242445023067,positive
+Living standards will decline,Politicians should spend time among ordinary people,0.19990342156705873,0.19990342156705873,positive
+Afraid of losing job,Important norms and values are no longer important,0.1991850471564932,0.1991850471564932,positive
+Country of residence,Natives should receive priority over immigrants,0.1983412877500716,0.1983412877500716,positive
+Afraid of losing job,Government officials do not improve people lives,0.1943464544512742,0.1943464544512742,positive
+Multicultural influences harm national traditions,Politicians should spend time among ordinary people,0.19400860189175953,0.19400860189175953,positive
+Afraid of losing job,Political opponents are misinformed,0.19272863919636096,0.19272863919636096,positive
+Anxious about the future,Important norms and values are no longer important,0.18854739789984068,0.18854739789984068,positive
+Natives should receive priority over immigrants,Secret organizations influence political decisions,0.18787418259891017,0.18787418259891017,positive
+Afraid of losing job,Elites failed to protect cultural identity,0.1878218591994981,0.1878218591994981,positive
+Country of residence,Women should stay home and care for children,0.18641281526925002,0.18641281526925002,positive
+Afraid of losing job,Events result from secret activities,0.18106541536111187,0.18106541536111187,positive
+Important norms and values are no longer important,Political opponents are misinformed,0.17832062847299335,0.17832062847299335,positive
+Afraid of losing job,Natives should receive priority over immigrants,0.17409965387565338,0.17409965387565338,positive
+Immigration threatens my values,Events result from secret activities,0.1663789246499743,0.1663789246499743,positive
+Fear proper housing is difficult,Immigrants should give up their culture,0.16321142516069637,0.16321142516069637,positive
+Anxious about the future,Events result from secret activities,0.16303547165162677,0.16303547165162677,positive
+Immigration threatens my values,Government officials do not improve people lives,0.15964801653261473,0.15964801653261473,positive
+Political views reveal if a person is good or bad,Government agencies closely monitor citizens,0.1594482784535003,0.1594482784535003,positive
+Fear proper housing is difficult,Immigration threatens my values,0.15924459276730774,0.15924459276730774,positive
+Afraid of losing job,Will of the people is the highest political principle,0.15886857223197087,0.15886857223197087,positive
+Afraid of losing job,Immigrants should give up their culture,0.15629753917415154,0.15629753917415154,positive
+Country of residence,Immigrants should give up their culture,0.15539447919572935,0.15539447919572935,positive
+Immigration threatens my values,Government agencies closely monitor citizens,0.15473606683809593,0.15473606683809593,positive
+Country of residence,Important norms and values are no longer important,0.1538745017017869,0.1538745017017869,positive
+Fear proper housing is difficult,Events result from secret activities,0.14966605268265532,0.14966605268265532,positive
+Country of residence,Secret organizations influence political decisions,0.14308582327297756,0.14308582327297756,positive
+Country of residence,Government officials do not improve people lives,0.13853344303879436,0.13853344303879436,positive
+Fear proper housing is difficult,Living standards will decline,0.13849906811809648,0.13849906811809648,positive
+Country of residence,Events result from secret activities,0.1303851851288735,0.1303851851288735,positive
+Age category,Government officials do not improve people lives,0.1142754365744156,0.1142754365744156,positive
+Fear proper housing is difficult,Natives should receive priority over immigrants,0.10613782434513716,0.10613782434513716,positive
+Country of residence,Anxious about the future,0.08985208576641143,0.08985208576641143,positive
+Country of residence,Politicians conceal true motives,0.08790500587135311,0.08790500587135311,positive
+Fear proper housing is difficult,Political opponents are misinformed,0.08710081981521614,0.08710081981521614,positive
+Age category,Secret organizations influence political decisions,0.0827149822806722,0.0827149822806722,positive
+Afraid of losing job,Secret organizations influence political decisions,0.0800713965548997,0.0800713965548997,positive
+Political opponents are misinformed,Immigrants should give up their culture,0.07191619935502686,0.07191619935502686,positive
+Age category,Government agencies closely monitor citizens,0.07071495886758847,0.07071495886758847,positive

@@ -18,6 +18,40 @@ read_can_data <- function(config) {
   data
 }
 
+apply_can_transformations <- function(data, config) {
+  reverse_specs <- config$preprocessing$reverse_code %||% list()
+  if (!length(reverse_specs)) {
+    attr(data, "transformation_audit") <- tibble::tibble()
+    return(data)
+  }
+  audit <- lapply(reverse_specs, function(spec) {
+    variable <- as.character(spec$variable)
+    minimum <- as.numeric(spec$minimum %||% 1)
+    maximum <- as.numeric(spec$maximum)
+    if (!nzchar(variable) || !variable %in% names(data)) stop("Reverse-code variable not present: ", variable, call. = FALSE)
+    if (is.na(maximum) || maximum <= minimum) stop("Reverse-code specification needs maximum > minimum for `", variable, "`.", call. = FALSE)
+    original <- suppressWarnings(as.numeric(data[[variable]]))
+    if (any(!is.na(data[[variable]]) & is.na(original))) stop("Reverse-code variable is not numeric: ", variable, call. = FALSE)
+    data[[variable]] <<- ifelse(is.na(original), NA_real_, minimum + maximum - original)
+    tibble::tibble(variable = variable, transformation = "reverse_code", minimum = minimum, maximum = maximum, nonmissing_n = sum(!is.na(original)))
+  })
+  collapse_specs <- config$preprocessing$collapse_values %||% list()
+  collapse_audit <- lapply(collapse_specs, function(spec) {
+    variable <- as.character(spec$variable)
+    from_values <- as.numeric(unlist(spec$from, use.names = FALSE))
+    to_value <- as.numeric(spec$to)
+    if (!nzchar(variable) || !variable %in% names(data)) stop("Category-collapse variable not present: ", variable, call. = FALSE)
+    if (!length(from_values) || is.na(to_value)) stop("Category-collapse specification needs from and to values for `", variable, "`.", call. = FALSE)
+    original <- suppressWarnings(as.numeric(data[[variable]]))
+    if (any(!is.na(data[[variable]]) & is.na(original))) stop("Category-collapse variable is not numeric: ", variable, call. = FALSE)
+    affected <- sum(original %in% from_values, na.rm = TRUE)
+    data[[variable]] <<- ifelse(original %in% from_values, to_value, original)
+    tibble::tibble(variable = variable, transformation = "collapse_values", minimum = NA_real_, maximum = NA_real_, nonmissing_n = sum(!is.na(original)), from_values = paste(from_values, collapse = ","), to_value = to_value, affected_n = affected)
+  })
+  attr(data, "transformation_audit") <- dplyr::bind_rows(audit, collapse_audit)
+  data
+}
+
 apply_can_filter <- function(data, filter) {
   if (is.null(filter$variable) || !nzchar(filter$variable)) return(data)
   variable <- as.character(filter$variable)
@@ -76,23 +110,26 @@ coerce_ordinal_nodes <- function(data, node_ids, levels) {
     }
     observed <- sort(unique(numeric_values[!is.na(numeric_values)]))
     if (length(observed) < 2L) stop("Node `", node, "` has fewer than two observed levels.", call. = FALSE)
-    if (any(observed < 1 | observed > levels)) {
-      warning("Node `", node, "` has observed values outside 1..", levels, ". Check coding.", call. = FALSE)
+    node_levels <- levels[[node]]
+    if (any(observed < 1 | observed > node_levels)) {
+      warning("Node `", node, "` has observed values outside 1..", node_levels, ". Check coding.", call. = FALSE)
     }
     converted[[node]] <<- numeric_values
-    tibble::tibble(node = node, observed_levels = paste(observed, collapse = ","), n_levels = length(observed))
+    tibble::tibble(node = node, observed_levels = paste(observed, collapse = ","), n_levels = length(observed), declared_levels = node_levels)
   })
   list(data = converted, level_diagnostics = dplyr::bind_rows(diagnostics))
 }
 
 prepare_can_data <- function(config) {
-  raw <- read_can_data(config)
+  raw <- apply_can_transformations(read_can_data(config), config)
   validate_analysis_variables(raw, config)
   filtered <- apply_can_filter(raw, config$sample$filter)
   node_ids <- config_node_ids(config)
   labels <- config_node_labels(config)
   domains <- config_node_domains(config)
-  ordinal <- coerce_ordinal_nodes(filtered, node_ids, config$network$node_levels)
+  node_types <- config_node_types(config)
+  node_levels <- config_node_levels(config)
+  ordinal <- coerce_ordinal_nodes(filtered, node_ids, node_levels)
   node_data <- ordinal$data
   names(node_data) <- labels
 
@@ -110,8 +147,8 @@ prepare_can_data <- function(config) {
     source_variable = node_ids,
     label = labels,
     domain = domains,
-    node_type = config$network$node_type,
-    levels = config$network$node_levels
+    node_type = unname(node_types[node_ids]),
+    levels = unname(node_levels[node_ids])
   )
 
   list(
@@ -123,6 +160,7 @@ prepare_can_data <- function(config) {
     complete_rows = complete_rows,
     node_map = node_map,
     level_diagnostics = ordinal$level_diagnostics,
+    transformation_audit = attr(raw, "transformation_audit"),
     source_path = attr(raw, "source_path"),
     source_checksum = attr(raw, "source_checksum")
   )
@@ -144,6 +182,7 @@ write_data_audit <- function(prepared, config) {
   readr::write_csv(node_missingness, file.path(sample_dir, "node_missingness.csv"))
   readr::write_csv(prepared$level_diagnostics, file.path(sample_dir, "node_level_diagnostics.csv"))
   readr::write_csv(prepared$node_map, file.path(sample_dir, "node_map.csv"))
+  readr::write_csv(prepared$transformation_audit %||% tibble::tibble(), file.path(sample_dir, "transformation_audit.csv"))
 
   sample_summary <- tibble::tibble(
     statistic = c("raw_rows", "filtered_rows", "primary_network_rows", "excluded_for_complete_case"),

@@ -24,6 +24,18 @@ config_node_domains <- function(config) {
   vapply(config$network$nodes, function(node) as.character(node$domain), character(1))
 }
 
+config_node_types <- function(config) {
+  ids <- config_node_ids(config)
+  values <- vapply(config$network$nodes, function(node) as.character(node$node_type %||% config$network$node_type %||% "ordinal"), character(1))
+  stats::setNames(values, ids)
+}
+
+config_node_levels <- function(config) {
+  ids <- config_node_ids(config)
+  values <- vapply(config$network$nodes, function(node) as.integer(node$levels %||% config$network$node_levels %||% NA_integer_), integer(1))
+  stats::setNames(values, ids)
+}
+
 config_output_path <- function(config, element) {
   root <- attr(config, "root") %||% can_project_root()
   can_relative_path(config$output[[element]], root)
@@ -40,8 +52,10 @@ validate_can_config <- function(config, check_input = TRUE) {
   if (length(node_ids) < 3L) stop("Specify at least three network nodes.", call. = FALSE)
   if (anyDuplicated(node_ids)) stop("Network node identifiers must be unique.", call. = FALSE)
 
-  levels <- config$network$node_levels %||% NA_integer_
-  if (!is.na(levels) && levels < 2L) stop("network.node_levels must be at least 2.", call. = FALSE)
+  levels <- config_node_levels(config)
+  if (any(is.na(levels) | levels < 2L)) stop("Every network node must declare or inherit at least two response levels.", call. = FALSE)
+  node_types <- config_node_types(config)
+  if (any(!node_types %in% c("ordinal", "continuous", "categorical"))) stop("Network node types must be ordinal, continuous, or categorical.", call. = FALSE)
 
   filter <- config$sample$filter
   if (!is.null(filter$operator) && !filter$operator %in% c("equals", "not_equals", "in")) {

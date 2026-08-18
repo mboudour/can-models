@@ -11,15 +11,15 @@ RUNS = ROOT / "user_runs"
 
 
 def main() -> None:
-    source = ROOT / "data" / "raw" / "chatgpt_global_survey" / "finaldataset.xlsx"
-    sample = pd.read_excel(source, sheet_name="final dataset", nrows=150)
+    source = ROOT / "data" / "raw" / "abadi_study2_2020" / "abadi_2023_four_country_study2.csv"
+    sample = pd.read_csv(source, nrows=150)
     payload = sample.to_csv(index=False).encode("utf-8")
 
     before = set(RUNS.glob("run_*"))
     app = AppTest.from_file(str(ROOT / "app" / "app.py"))
     app.run(timeout=90)
     app.radio[0].set_value("Bring your own data").run(timeout=90)
-    app.file_uploader[0].upload("chatgpt_subset.csv", payload, "text/csv").run(timeout=90)
+    app.file_uploader[0].upload("abadi_study2_subset.csv", payload, "text/csv").run(timeout=90)
 
     assert not app.exception, app.exception
     assert any(element.value == "Data preview" for element in app.subheader)

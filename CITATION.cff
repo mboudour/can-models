@@ -9,7 +9,7 @@ version: 0.1.0
 date-released: 2026-08-18
 license: MIT
 repository-code: "https://github.com/mboudour/can-models"
-abstract: "A configuration-driven R workflow that implements the Abadi et al. Causal Attitude Network computational pipeline, with public ChatGPT perception survey data as a reproducible example."
+abstract: "A configuration-driven R workflow that implements the Abadi et al. Causal Attitude Network computational pipeline, with the authors’ public original four-country Study 2 data as a reproducible example and Study 1 explicitly access-gated."
 references:
   - type: article
     authors:

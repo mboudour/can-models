@@ -68,16 +68,18 @@ estimate_mgm_network <- function(data, config) {
   require_can_packages(c("mgm", "qgraph", "tibble", "dplyr"))
   if (!is.data.frame(data)) data <- as.data.frame(data)
   if (anyNA(data)) stop("MGM estimation requires a complete node dataset. Use complete-case preparation or imputation first.", call. = FALSE)
-  mgm_category_preflight(data)
-  node_type <- config$network$node_type
-  # mgm represents ordered Likert responses through its categorical family. The order
-  # is retained in the original integer coding and documented in configuration.
-  mgm_type <- switch(node_type, ordinal = "c", continuous = "g", categorical = "c", stop("Unsupported network node type: ", node_type, call. = FALSE))
+  mgm_category_preflight(data, minimum_events = config$network$minimum_category_events %||% 2L)
+  declared_types <- unname(config_node_types(config))
+  declared_levels <- unname(config_node_levels(config))
+  # mgm represents ordinal responses through its categorical family. Each original
+  # study item retains its own documented response range in the configuration.
+  mgm_types <- vapply(declared_types, function(node_type) switch(node_type, ordinal = "c", continuous = "g", categorical = "c", stop("Unsupported network node type: ", node_type, call. = FALSE)), character(1))
   p <- ncol(data)
+  if (length(mgm_types) != p || length(declared_levels) != p) stop("Network configuration metadata does not match the number of prepared nodes.", call. = FALSE)
   fit <- mgm::mgm(
     data = as.matrix(data),
-    type = rep(mgm_type, p),
-    level = rep(config$network$node_levels, p),
+    type = mgm_types,
+    level = declared_levels,
     k = 2,
     lambdaSel = "EBIC",
     lambdaGam = config$network$ebic_gamma,

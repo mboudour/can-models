@@ -1,0 +1,30 @@
+node_number,source_variable,label,domain,node_type,levels
+1,Country,Country of residence,Demographics,categorical,4
+2,A3.1,Gender,Demographics,categorical,2
+3,A3.2,Age category,Demographics,ordinal,6
+4,A3.7,Subjective social status,Socioeconomic status,ordinal,10
+5,A3.8,Religion,Demographics,categorical,12
+6,A3.10,Highest education level,Socioeconomic status,ordinal,8
+7,A9.1,Afraid of losing job,Realistic threat,ordinal,7
+8,A9.2,Fear proper housing is difficult,Realistic threat,ordinal,7
+9,A9.3*,Living standards will decline,Realistic threat,ordinal,7
+10,A9.4,Anxious about the future,Realistic threat,ordinal,7
+11,A9.5,Important norms and values are no longer important,Symbolic threat,ordinal,7
+12,A9.6,Women should stay home and care for children,Symbolic threat,ordinal,7
+13,A9.7,Immigration threatens my values,Symbolic threat,ordinal,7
+14,A9.8*,Multicultural influences harm national traditions,Symbolic threat,ordinal,7
+15,A20.1,Politicians should listen to people,Populist attitudes,ordinal,7
+16,A20.2,Politicians should spend time among ordinary people,Populist attitudes,ordinal,7
+17,A20.3,Will of the people is the highest political principle,Populist attitudes,ordinal,7
+18,A21.1,Government is run by big interests,Populist attitudes,ordinal,7
+19,A21.2*,Government officials do not improve people lives,Populist attitudes,ordinal,7
+20,A22.1,Political views reveal if a person is good or bad,Populist attitudes,ordinal,7
+21,A22.2,Political opponents are misinformed,Populist attitudes,ordinal,7
+22,A23.1,Elites failed to protect cultural identity,Nativism,ordinal,7
+23,A23.2,Natives should receive priority over immigrants,Nativism,ordinal,7
+24,A23.3,Immigrants should give up their culture,Nativism,ordinal,7
+25,A24.1,Public is not informed about important events,Conspiracy mentality,ordinal,7
+26,A24.2,Politicians conceal true motives,Conspiracy mentality,ordinal,7
+27,A24.3,Government agencies closely monitor citizens,Conspiracy mentality,ordinal,7
+28,A24.4,Events result from secret activities,Conspiracy mentality,ordinal,7
+29,A24.5,Secret organizations influence political decisions,Conspiracy mentality,ordinal,7

@@ -1,0 +1,269 @@
+project:
+  id: abadi_study2_public_replication
+  title: "Abadi et al. public Study 2 replication (April 2020)"
+  seed: 20260818
+  interpretive_notice: "This configuration independently reimplements documented Study 2 computations on the authors' public April 2020 four-country data. Undirected cross-sectional network edges are conditional associations, not verified directional causal effects."
+
+input:
+  path: data/raw/abadi_study2_2020/abadi_2023_four_country_study2.csv
+  sheet: ""
+  format: csv
+  questionnaire: data/raw/abadi_study2_2020/abadi_2023_qualtrics_codebook.pdf
+  source_doi: https://doi.org/10.21942/uva.17085719.v1
+  source_license: "Figshare metadata: CC BY 4.0; repository description: CC BY-SA (preserve source citation and review before redistribution)"
+
+audit:
+  mardia_max_n: 2030
+
+preprocessing:
+  reverse_code:
+    - variable: A9.3*
+      minimum: 1
+      maximum: 7
+    - variable: A9.8*
+      minimum: 1
+      maximum: 7
+    - variable: A21.2*
+      minimum: 1
+      maximum: 7
+  collapse_values:
+    - variable: A3.2
+      from: [7]
+      to: 6
+
+sample:
+  filter:
+    variable: A3.1
+    operator: not_equals
+    value: 3
+    label: "Exclude the one gender=other respondent, following the Study 2 paper"
+  complete_case_primary_network: true
+
+variables:
+  country: Country
+  language: ""
+  study_field: ""
+  gender: A3.1
+  age: A3.2
+  subjective_social_status: A3.7
+  religion: A3.8
+  education: A3.10
+  political_orientation: A3.9
+  use_frequency: ""
+  use_experience: ""
+
+network:
+  estimator: mgm
+  regularization: LASSO
+  model_selection: EBIC
+  ebic_gamma: 0.25
+  node_type: ordinal
+  node_levels: 7
+  minimum_category_events: 2
+  nodes:
+    - id: Country
+      label: Country of residence
+      domain: Demographics
+      node_type: categorical
+      levels: 4
+    - id: A3.1
+      label: Gender
+      domain: Demographics
+      node_type: categorical
+      levels: 2
+    - id: A3.2
+      label: Age category
+      domain: Demographics
+      node_type: ordinal
+      levels: 6
+    - id: A3.7
+      label: Subjective social status
+      domain: Socioeconomic status
+      node_type: ordinal
+      levels: 10
+    - id: A3.8
+      label: Religion
+      domain: Demographics
+      node_type: categorical
+      levels: 12
+    - id: A3.10
+      label: Highest education level
+      domain: Socioeconomic status
+      node_type: ordinal
+      levels: 8
+    - id: A9.1
+      label: Afraid of losing job
+      domain: Realistic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.2
+      label: Fear proper housing is difficult
+      domain: Realistic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.3*
+      label: Living standards will decline
+      domain: Realistic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.4
+      label: Anxious about the future
+      domain: Realistic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.5
+      label: Important norms and values are no longer important
+      domain: Symbolic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.6
+      label: Women should stay home and care for children
+      domain: Symbolic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.7
+      label: Immigration threatens my values
+      domain: Symbolic threat
+      node_type: ordinal
+      levels: 7
+    - id: A9.8*
+      label: Multicultural influences harm national traditions
+      domain: Symbolic threat
+      node_type: ordinal
+      levels: 7
+    - id: A20.1
+      label: Politicians should listen to people
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A20.2
+      label: Politicians should spend time among ordinary people
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A20.3
+      label: Will of the people is the highest political principle
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A21.1
+      label: Government is run by big interests
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A21.2*
+      label: Government officials do not improve people lives
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A22.1
+      label: Political views reveal if a person is good or bad
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A22.2
+      label: Political opponents are misinformed
+      domain: Populist attitudes
+      node_type: ordinal
+      levels: 7
+    - id: A23.1
+      label: Elites failed to protect cultural identity
+      domain: Nativism
+      node_type: ordinal
+      levels: 7
+    - id: A23.2
+      label: Natives should receive priority over immigrants
+      domain: Nativism
+      node_type: ordinal
+      levels: 7
+    - id: A23.3
+      label: Immigrants should give up their culture
+      domain: Nativism
+      node_type: ordinal
+      levels: 7
+    - id: A24.1
+      label: Public is not informed about important events
+      domain: Conspiracy mentality
+      node_type: ordinal
+      levels: 7
+    - id: A24.2
+      label: Politicians conceal true motives
+      domain: Conspiracy mentality
+      node_type: ordinal
+      levels: 7
+    - id: A24.3
+      label: Government agencies closely monitor citizens
+      domain: Conspiracy mentality
+      node_type: ordinal
+      levels: 7
+    - id: A24.4
+      label: Events result from secret activities
+      domain: Conspiracy mentality
+      node_type: ordinal
+      levels: 7
+    - id: A24.5
+      label: Secret organizations influence political decisions
+      domain: Conspiracy mentality
+      node_type: ordinal
+      levels: 7
+
+factor_models:
+  - id: populist_attitudes_study2
+    label: "Study 2 seven-item populist attitudes scale"
+    items: [A20.1, A20.2, A20.3, A21.1, A21.2*, A22.1, A22.2]
+    estimator: MLR
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: true
+  - id: nativism_study2
+    label: "Study 2 three-item nativism scale"
+    items: [A23.1, A23.2, A23.3]
+    estimator: MLR
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: true
+
+bootstrapping:
+  edge_bootstrap_iterations: 250
+  case_drop_bootstrap_iterations: 250
+  case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
+
+community_detection:
+  primary_algorithm: walktrap
+  bootstrap_consensus_iterations: 100
+
+comparisons:
+  split_sample:
+    enabled: false
+    proportion_first_sample: 0.50
+    label: "Disabled: no random split is reported as a substitute for the original two-study comparison"
+  use_frequency_median_split:
+    enabled: false
+    variable: ""
+    exclude_from_network: true
+    label: "Disabled: Study 2 PA/nativism group comparisons must depend on validated original scales"
+  country:
+    enabled: true
+    variable: Country
+    minimum_n: 450
+    network_estimator: ggm_spearman
+    all_pairwise_nct: true
+    nct_iterations: 1000
+    p_adjustments: [bonferroni, fdr]
+  networktree:
+    enabled: true
+    moderators: [Country, A3.9]
+
+contextual_associations:
+  categorical_variables: [Country, A3.1, A3.8, A3.10]
+  effect_size: cramers_v
+
+output:
+  computations_dir: new_computations/abadi_study2_public
+  figures_dir: figures/abadi_study2_public
+  report_dir: reports/abadi_study2_public
+  save_rds: true
+  save_csv: true
+  figure_width: 16
+  figure_height: 12
+  figure_dpi: 180

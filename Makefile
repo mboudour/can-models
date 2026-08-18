@@ -1,4 +1,4 @@
-CONFIG ?= config/chatgpt_example.yml
+CONFIG ?= config/abadi_study2_public.yml
 R ?= Rscript
 
 .PHONY: setup validate example report streamlit test-app clean

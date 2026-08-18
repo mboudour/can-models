@@ -1,0 +1,2 @@
+model_id,group,converged,chisq,df,pvalue,cfi,tli,rmsea,srmr,aic,bic
+nativism_study2,pooled,TRUE,0,0,NA,1,1,0,1.0404977029329165e-9,21765.592590798013,21799.287337230227

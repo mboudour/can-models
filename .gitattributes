@@ -1,0 +1,2 @@
+# Preserve the original public respondent-data formatting without whitespace diagnostics.
+data/raw/abadi_study2_2020/abadi_2023_four_country_study2.csv -whitespace

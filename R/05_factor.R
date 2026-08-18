@@ -6,6 +6,17 @@ factor_model_syntax <- function(items, factor_name = "latent") {
   paste0(factor_name, " =~ ", paste(items, collapse = " + "))
 }
 
+factor_safe_names <- function(items) {
+  stats::setNames(make.names(items, unique = TRUE), items)
+}
+
+factor_lavaan_data <- function(data, items) {
+  subset <- data[, items, drop = FALSE]
+  safe_names <- factor_safe_names(items)
+  names(subset) <- unname(safe_names[items])
+  list(data = subset, safe_names = safe_names)
+}
+
 extract_cfa_fit <- function(fit, model_id, group = "pooled") {
   measures <- c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr", "aic", "bic")
   values <- tryCatch(lavaan::fitMeasures(fit, measures), error = function(e) rep(NA_real_, length(measures)))
@@ -19,9 +30,10 @@ run_cfa <- function(data, model_spec, group = "pooled") {
   if (nrow(complete) < max(100L, length(items) * 10L)) {
     return(list(fit = NULL, fit_table = tibble::tibble(model_id = model_spec$id, group = group, converged = FALSE, reason = "insufficient complete cases"), loadings = tibble::tibble()))
   }
-  syntax <- factor_model_syntax(items, factor_name = model_spec$id)
+  lavaan_input <- factor_lavaan_data(complete, items)
+  syntax <- factor_model_syntax(unname(lavaan_input$safe_names[items]), factor_name = model_spec$id)
   fit <- tryCatch(
-    lavaan::cfa(syntax, data = complete, estimator = model_spec$estimator %||% "MLR", std.lv = TRUE),
+    lavaan::cfa(syntax, data = lavaan_input$data, estimator = model_spec$estimator %||% "MLR", std.lv = TRUE),
     error = function(e) e
   )
   if (inherits(fit, "error")) {
@@ -29,7 +41,7 @@ run_cfa <- function(data, model_spec, group = "pooled") {
   }
   loadings <- lavaan::parameterEstimates(fit, standardized = TRUE) |>
     dplyr::filter(.data$op == "=~") |>
-    dplyr::transmute(model_id = model_spec$id, group = group, factor = .data$lhs, item = .data$rhs, estimate = .data$est, standardized_loading = .data$std.all, p_value = .data$pvalue)
+    dplyr::transmute(model_id = model_spec$id, group = group, factor = .data$lhs, item = names(lavaan_input$safe_names)[match(.data$rhs, lavaan_input$safe_names)], estimate = .data$est, standardized_loading = .data$std.all, p_value = .data$pvalue)
   list(fit = fit, fit_table = extract_cfa_fit(fit, model_spec$id, group), loadings = loadings)
 }
 
@@ -53,7 +65,9 @@ run_country_cfa <- function(context_data, config, model_spec) {
   invariance_data <- invariance_data[stats::complete.cases(invariance_data), , drop = FALSE]
   if (length(eligible) < 2L || nrow(invariance_data) < 250L) return(list(country_fit = country_fit, invariance = tibble::tibble()))
 
-  syntax <- factor_model_syntax(items, factor_name = model_spec$id)
+  safe_names <- factor_safe_names(items)
+  names(invariance_data)[match(items, names(invariance_data))] <- unname(safe_names[items])
+  syntax <- factor_model_syntax(unname(safe_names[items]), factor_name = model_spec$id)
   configural <- tryCatch(lavaan::cfa(syntax, data = invariance_data, group = country_variable, estimator = model_spec$estimator %||% "MLR", std.lv = TRUE), error = function(e) e)
   metric <- tryCatch(lavaan::cfa(syntax, data = invariance_data, group = country_variable, group.equal = "loadings", estimator = model_spec$estimator %||% "MLR", std.lv = TRUE), error = function(e) e)
   scalar <- tryCatch(lavaan::cfa(syntax, data = invariance_data, group = country_variable, group.equal = c("loadings", "intercepts"), estimator = model_spec$estimator %||% "MLR", std.lv = TRUE), error = function(e) e)
