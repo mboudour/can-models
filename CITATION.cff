@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use can-models, please cite the software and the original CAN and data sources."
+title: "can-models: Configurable Causal Attitude Network analyses"
+type: software
+authors:
+  - family-names: Boudourides
+    given-names: Moses
+version: 0.1.0
+date-released: 2026-08-18
+license: MIT
+repository-code: "https://github.com/mboudour/can-models"
+abstract: "A configuration-driven R workflow that implements the Abadi et al. Causal Attitude Network computational pipeline, with public ChatGPT perception survey data as a reproducible example."
+references:
+  - type: article
+    authors:
+      - family-names: Abadi
+        given-names: David
+      - family-names: Bertlich
+        given-names: Tisa
+      - family-names: Dalege
+        given-names: Jonas
+      - family-names: Fischer
+        given-names: Agneta
+    title: "Connecting the Dots with Causal Attitude Network (CAN): A Psychological Network Approach to Populist Attitudes, Nativism, Conspiracy Mentality and Threat Appraisals"
+    doi: "10.1080/15366367.2024.2363718"
+  - type: article
+    authors:
+      - family-names: Dalege
+        given-names: Jonas
+      - family-names: Borsboom
+        given-names: Denny
+      - family-names: van Harreveld
+        given-names: Frenk
+      - family-names: van den Berg
+        given-names: Hans
+      - family-names: Conner
+        given-names: Mark
+      - family-names: van der Maas
+        given-names: Han L. J.
+    title: "Toward a Formalized Account of Attitudes: The Causal Attitude Network (CAN) Model"
+    doi: "10.1037/a0039802"

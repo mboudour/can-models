@@ -1,0 +1,129 @@
+project:
+  id: chatgpt_global_can_example
+  title: "CAN analyses of ChatGPT perceptions among higher-education students"
+  seed: 20260818
+  interpretive_notice: >-
+    The Causal Attitude Network is a substantive theory of interacting attitude elements.
+    With this cross-sectional survey, undirected network edges are conditional associations and
+    do not establish directional causal effects.
+
+input:
+  path: "data/raw/chatgpt_global_survey/finaldataset.xlsx"
+  sheet: "final dataset"
+  format: "xlsx"
+  questionnaire: "data/raw/chatgpt_global_survey/questionnaire.pdf"
+  source_doi: "10.17632/ymg9nsn6kn.2"
+  source_license: "CC BY 4.0"
+
+audit:
+  mardia_max_n: 2000
+
+sample:
+  filter:
+    variable: "Q13"
+    operator: "equals"
+    value: 1
+    label: "Respondents reporting prior ChatGPT use"
+  complete_case_primary_network: true
+
+variables:
+  country: "Q4"
+  language: "source"
+  study_field: "Q10"
+  gender: "Q2"
+  age: "Q3"
+  use_frequency: "Q15"
+  use_experience: "Q16"
+
+network:
+  estimator: "mgm"
+  regularization: "LASSO"
+  model_selection: "EBIC"
+  ebic_gamma: 0.25
+  node_type: "ordinal"
+  node_levels: 5
+  nodes:
+    - {id: "Q15", label: "General ChatGPT use", domain: "Behaviour"}
+    - {id: "Q19d", label: "Provides information efficiently", domain: "Capability beliefs"}
+    - {id: "Q19e", label: "Provides reliable information", domain: "Capability beliefs"}
+    - {id: "Q19g", label: "Simplifies complex information", domain: "Capability beliefs"}
+    - {id: "Q19h", label: "Facilitates classroom learning", domain: "Capability beliefs"}
+    - {id: "Q21a", label: "International regulation is necessary", domain: "Governance evaluation"}
+    - {id: "Q21c", label: "University ethical guidelines are necessary", domain: "Governance evaluation"}
+    - {id: "Q22b", label: "May encourage cheating", domain: "Ethical and risk appraisal"}
+    - {id: "Q22e", label: "May mislead with inaccurate information", domain: "Ethical and risk appraisal"}
+    - {id: "Q22f", label: "May invade privacy", domain: "Ethical and risk appraisal"}
+    - {id: "Q22j", label: "May hinder learning by doing work", domain: "Ethical and risk appraisal"}
+    - {id: "Q24e", label: "Satisfied with level of assistance", domain: "Satisfaction"}
+    - {id: "Q24f", label: "Satisfied with information quality", domain: "Satisfaction"}
+    - {id: "Q24g", label: "Satisfied with information accuracy", domain: "Satisfaction"}
+    - {id: "Q25a", label: "Use is under my control", domain: "Attitude"}
+    - {id: "Q25b", label: "Use is interesting", domain: "Attitude"}
+    - {id: "Q25c", label: "Ability to use is important", domain: "Attitude"}
+    - {id: "Q25d", label: "Helps in everyday life", domain: "Attitude"}
+    - {id: "Q26a", label: "Enhances access to knowledge sources", domain: "Educational outcomes"}
+    - {id: "Q26e", label: "Increases study efficiency", domain: "Educational outcomes"}
+    - {id: "Q26f", label: "Increases motivation to study", domain: "Educational outcomes"}
+    - {id: "Q27e", label: "Enhances learning experience", domain: "Educational outcomes"}
+    - {id: "Q27f", label: "Improves skills", domain: "Educational outcomes"}
+    - {id: "Q30a", label: "Will reduce the number of jobs", domain: "Labour-market appraisal"}
+    - {id: "Q30e", label: "Will increase demand for AI skills", domain: "Labour-market appraisal"}
+    - {id: "Q32b", label: "Hopeful when using ChatGPT", domain: "Affect"}
+    - {id: "Q32e", label: "Calm when using ChatGPT", domain: "Affect"}
+    - {id: "Q32j", label: "Anxious when using ChatGPT", domain: "Affect"}
+    - {id: "Q32l", label: "Curious when using ChatGPT", domain: "Affect"}
+    - {id: "Q32m", label: "Excited when using ChatGPT", domain: "Affect"}
+
+factor_models:
+  - id: "satisfaction_q24"
+    label: "Satisfaction with ChatGPT"
+    items: ["Q24a", "Q24b", "Q24c", "Q24d", "Q24e", "Q24f", "Q24g"]
+    estimator: "MLR"
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: true
+
+bootstrapping:
+  edge_bootstrap_iterations: 250
+  case_drop_bootstrap_iterations: 250
+  case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
+
+community_detection:
+  primary_algorithm: "walktrap"
+  bootstrap_consensus_iterations: 100
+
+comparisons:
+  split_sample:
+    enabled: true
+    proportion_first_sample: 0.50
+    label: "Random split-sample methodological analogue"
+  use_frequency_median_split:
+    enabled: true
+    variable: "Q15"
+    exclude_from_network: true
+    label: "Frequent versus infrequent ChatGPT use"
+  country:
+    enabled: true
+    variable: "Q4"
+    minimum_n: 500
+    network_estimator: "ggm_spearman"
+    all_pairwise_nct: true
+    nct_iterations: 100
+    p_adjustments: ["bonferroni", "fdr"]
+  networktree:
+    enabled: true
+    moderators: ["Q4", "Q10", "Q15"]
+
+contextual_associations:
+  categorical_variables: ["Q4", "Q10", "Q2", "source"]
+  effect_size: "cramers_v"
+
+output:
+  computations_dir: "new_computations"
+  figures_dir: "figures"
+  report_dir: "reports"
+  save_rds: true
+  save_csv: true
+  figure_width: 14
+  figure_height: 11
+  figure_dpi: 180

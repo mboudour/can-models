@@ -1,0 +1,43 @@
+Package: canmodels
+Type: Project
+Title: Configurable Causal Attitude Network Analyses
+Version: 0.1.0
+Authors@R: person("Moses", "Boudourides", role = c("aut", "cre"))
+Description: A configuration-driven R research workflow that implements the CAN
+    computations reported by Abadi et al. using a public ChatGPT perception survey
+    as a reproducible example.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: false
+Imports:
+    bootnet,
+    cluster,
+    digest,
+    dplyr,
+    factoextra,
+    GPArotation,
+    ggplot2,
+    igraph,
+    jsonlite,
+    knitr,
+    lavaan,
+    MASS,
+    mgm,
+    networktools,
+    NetworkComparisonTest,
+    psych,
+    purrr,
+    qgraph,
+    readr,
+    readxl,
+    rmarkdown,
+    scales,
+    semTools,
+    stringr,
+    testthat,
+    tibble,
+    tidyr,
+    withr,
+    yaml
+Suggests:
+    NetworkTree

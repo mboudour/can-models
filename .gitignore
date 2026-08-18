@@ -1,0 +1,31 @@
+# R and renv user libraries
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.Rlib/
+renv/library/
+renv/staging/
+
+# Generated analysis artifacts
+new_computations/*
+!new_computations/.gitkeep
+figures/*
+!figures/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+user_runs/*
+!user_runs/.gitkeep
+app/__pycache__/
+tests/__pycache__/
+
+# Rendered reports and temporary files
+reports/*.html
+reports/*_files/
+*.log
+*.tmp
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db

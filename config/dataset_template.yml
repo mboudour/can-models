@@ -1,0 +1,101 @@
+project:
+  id: "replace_with_project_id"
+  title: "Replace with study title"
+  seed: 20260818
+  interpretive_notice: >-
+    The Causal Attitude Network is a substantive theory of interacting attitude elements.
+    With cross-sectional survey data, undirected network edges are conditional associations and do not
+    establish directional causal effects.
+
+input:
+  path: "data/raw/your_dataset/your_data.xlsx"
+  sheet: "Sheet1"
+  format: "xlsx"  # Supported: xlsx, csv
+  questionnaire: "data/raw/your_dataset/questionnaire.pdf"
+  source_doi: ""
+  source_license: ""
+
+audit:
+  mardia_max_n: 2000  # Deterministic cap for the Mardia diagnostic; full data remain used for networks.
+
+sample:
+  filter:
+    variable: ""
+    operator: "equals"  # Supported: equals, not_equals, in
+    value: ""
+    label: "Define the analytic sample"
+  complete_case_primary_network: true
+
+variables:
+  country: ""
+  language: ""
+  study_field: ""
+  gender: ""
+  age: ""
+  use_frequency: ""
+
+network:
+  estimator: "mgm"
+  regularization: "LASSO"
+  model_selection: "EBIC"
+  ebic_gamma: 0.25
+  node_type: "ordinal"  # Supported: ordinal, continuous, categorical
+  node_levels: 5
+  nodes:
+    - {id: "ITEM_1", label: "Replace with item label", domain: "Beliefs"}
+    - {id: "ITEM_2", label: "Replace with item label", domain: "Feelings"}
+    - {id: "ITEM_3", label: "Replace with item label", domain: "Behaviour"}
+
+factor_models:
+  - id: "candidate_scale"
+    label: "Candidate grouping scale"
+    items: ["ITEM_1", "ITEM_2", "ITEM_3"]
+    estimator: "MLR"
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: false
+
+bootstrapping:
+  edge_bootstrap_iterations: 1000
+  case_drop_bootstrap_iterations: 1000
+  case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
+
+community_detection:
+  primary_algorithm: "walktrap"
+  bootstrap_consensus_iterations: 250
+
+comparisons:
+  split_sample:
+    enabled: true
+    proportion_first_sample: 0.50
+    label: "Random split-sample replication"
+  use_frequency_median_split:
+    enabled: false
+    variable: ""
+    exclude_from_network: true
+    label: "Define a theory-led high/low comparison"
+  country:
+    enabled: false
+    variable: ""
+    minimum_n: 500
+    network_estimator: "ggm_spearman"
+    all_pairwise_nct: true
+    nct_iterations: 1000
+    p_adjustments: ["bonferroni", "fdr"]
+  networktree:
+    enabled: false
+    moderators: []
+
+contextual_associations:
+  categorical_variables: []
+  effect_size: "cramers_v"
+
+output:
+  computations_dir: "new_computations"
+  figures_dir: "figures"
+  report_dir: "reports"
+  save_rds: true
+  save_csv: true
+  figure_width: 14
+  figure_height: 11
+  figure_dpi: 180
