@@ -47,6 +47,8 @@ streamlit run app/app.py
 
 Before any computation is launched, the interface displays an **eligibility table**. It distinguishes modules that are ready from data-supported placeholders: for example, a two-study NCT remains unavailable with a single cross-sectional upload, while country networks require at least two groups that pass the configured minimum sample size. This prevents the app from silently treating non-applicable Abadi et al.–style calculations as completed analyses. See [docs/streamlit_app.md](docs/streamlit_app.md).
 
+For deployment, use [docs/deployment.md](docs/deployment.md). It distinguishes a Streamlit Community Cloud **mapping-only** publication from a Docker-based **full R analysis** deployment.
+
 ## Example dataset
 
 The bundled workbook and questionnaire are distributed under the original **CC BY 4.0** terms. They are not covered by the repository’s MIT code licence. Cite both the dataset and companion paper when using the example data.

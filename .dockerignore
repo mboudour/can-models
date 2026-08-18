@@ -1,0 +1,14 @@
+.git
+.Rhistory
+.RData
+renv/library
+new_computations/*
+!new_computations/.gitkeep
+figures/*
+!figures/.gitkeep
+user_runs/*
+!user_runs/.gitkeep
+__pycache__/
+app/__pycache__/
+tests/__pycache__/
+*.pyc

@@ -25,6 +25,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNS_DIR = ROOT / "user_runs"
+R_AVAILABLE = shutil.which("Rscript") is not None
 ALLOWED_SUFFIXES = {".csv", ".xlsx", ".xls"}
 DOMAIN_OPTIONS = [
     "Beliefs",
@@ -504,7 +505,10 @@ if "config_path" in st.session_state:
     st.code(str(active_config.relative_to(ROOT)), language="text")
     st.download_button("Download generated YAML configuration", data=active_config.read_bytes(), file_name="can_user_config.yml", mime="application/x-yaml")
 
-    if st.button("Validate configuration with the R workflow"):
+    if not R_AVAILABLE:
+        st.info("This deployment is running in mapping-only mode because no R runtime is available. You can upload data, map variables, inspect eligibility, and download a reproducible configuration. Run the analysis locally or on a container host with R and the required packages.")
+
+    if st.button("Validate configuration with the R workflow", disabled=not R_AVAILABLE):
         with st.spinner("Running validation..."):
             return_code, output = invoke_r("validate_config.R", active_config)
         st.code(output or "No console output.", language="text")
@@ -514,7 +518,7 @@ if "config_path" in st.session_state:
             st.error("R-side validation found an issue. Review the log above and adjust the mapping.")
 
     if ready_core:
-        if st.button("Run core analysis (data audit, factor models, primary CAN network)"):
+        if st.button("Run core analysis (data audit, factor models, primary CAN network)", disabled=not R_AVAILABLE):
             with st.spinner("Running the core R workflow. Larger data and more nodes take longer."):
                 return_code, output = invoke_r("run_core_analysis.R", active_config)
             (active_run / "core_analysis_console.log").write_text(output, encoding="utf-8")
@@ -527,7 +531,7 @@ if "config_path" in st.session_state:
         st.info("Core analysis is disabled until the joint-network eligibility row is Ready.")
 
     st.checkbox("I understand that full diagnostics and all pairwise country comparisons can be computationally intensive.", key="full_ack")
-    if st.session_state.get("full_ack", False) and ready_core and st.button("Run full configured workflow"):
+    if st.session_state.get("full_ack", False) and ready_core and st.button("Run full configured workflow", disabled=not R_AVAILABLE):
         with st.spinner("Running the complete configured workflow. This may take a substantial amount of time."):
             return_code, output = invoke_r("run_example.R", active_config)
         (active_run / "full_analysis_console.log").write_text(output, encoding="utf-8")
