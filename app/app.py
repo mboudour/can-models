@@ -329,10 +329,116 @@ def invoke_r(script_name: str, config_path: Path) -> tuple[int, str]:
     return completed.returncode, completed.stdout
 
 
-st.set_page_config(page_title="CAN Models", page_icon="◌", layout="wide")
-st.title("CAN Models: bring your own attitude survey")
-st.caption("A configuration-first interface for Causal Attitude Network analyses. The bundled ChatGPT survey remains available as the repository example; this interface creates a separate, reproducible run bundle for each uploaded dataset.")
+CASE_STUDY_DIR = ROOT / "app" / "assets" / "chatgpt_case_study"
+CHATGPT_DATA_DIR = ROOT / "data" / "raw" / "chatgpt_global_survey"
 
+
+@st.cache_data(show_spinner=False)
+def read_case_table(filename: str) -> pd.DataFrame:
+    return pd.read_csv(CASE_STUDY_DIR / filename)
+
+
+def render_chatgpt_case_study() -> None:
+    """Show the completed full-sample ChatGPT CAN example without requiring R at runtime."""
+    st.header("ChatGPT perceptions: worked CAN case study")
+    st.write(
+        "This tab presents the completed example analysis bundled with the project. It uses the public global higher-education student survey, filters to respondents reporting prior ChatGPT use, and estimates the configured 30-node mixed graphical CAN. The result is a reproducible **case study**, not a causal claim from cross-sectional data."
+    )
+
+    flow = read_case_table("sample_flow.csv").set_index("statistic")["value"]
+    summary = read_case_table("network_summary.csv").iloc[0]
+    metric_columns = st.columns(4)
+    metric_columns[0].metric("Raw survey records", f"{int(flow['raw_rows']):,}")
+    metric_columns[1].metric("Prior ChatGPT users", f"{int(flow['filtered_rows']):,}")
+    metric_columns[2].metric("Complete CAN cases", f"{int(flow['primary_network_rows']):,}")
+    metric_columns[3].metric("CAN nodes", f"{int(summary['p'])}")
+
+    overview_tab, network_tab, method_tab, download_tab = st.tabs(["Overview", "Network results", "Method and scope", "Data and code"])
+
+    with overview_tab:
+        st.subheader("Research object and question")
+        st.write(
+            "The example asks how beliefs about ChatGPT’s capability, governance and risk appraisals, satisfaction, attitudes, educational outcomes, labour-market expectations, and affect are conditionally connected among higher-education students. Nodes are item-level survey responses; colours identify theoretically defined attitude domains."
+        )
+        st.markdown(
+            "**Configured domains:** behaviour; capability beliefs; governance evaluation; ethical and risk appraisal; satisfaction; attitude; educational outcomes; labour-market appraisal; and affect."
+        )
+        st.info(
+            "Interpretive guardrail: the network is an undirected conditional-association model. The word ‘causal’ in CAN describes the substantive theory of linked attitude elements; these cross-sectional estimates do not verify directional causal effects."
+        )
+        config = yaml.safe_load((ROOT / "config" / "chatgpt_example.yml").read_text(encoding="utf-8"))
+        node_map = pd.DataFrame(config["network"]["nodes"])
+        node_map.index = node_map.index + 1
+        node_map.index.name = "Node"
+        st.dataframe(node_map.rename(columns={"id": "Source variable", "label": "Survey item", "domain": "CAN domain"}), width="stretch", height=420)
+
+    with network_tab:
+        st.subheader("Primary 30-node mixed graphical CAN")
+        st.image(str(CASE_STUDY_DIR / "primary_mgm_network.png"), caption="Primary MGM/LASSO/EBIC network. Numbers correspond to the node dictionary in the Overview tab; edge width reflects conditional-association magnitude.", width="stretch")
+        results_columns = st.columns(2)
+        with results_columns[0]:
+            st.markdown("**Network summary**")
+            st.dataframe(pd.DataFrame([summary]).rename(columns={"n": "Complete cases", "p": "Nodes", "density": "Density", "global_strength": "Global strength", "nonzero_edges": "Non-zero edges"}), width="stretch", hide_index=True)
+            strength = read_case_table("centrality.csv").sort_values("Strength", ascending=False).head(10)
+            st.markdown("**Ten highest-strength nodes**")
+            st.dataframe(strength[["node", "Strength", "ExpectedInfluence"]].rename(columns={"node": "Node"}), width="stretch", hide_index=True)
+        with results_columns[1]:
+            edges = read_case_table("edge_table.csv").sort_values("abs_weight", ascending=False).head(12)
+            st.markdown("**Twelve strongest conditional associations**")
+            st.dataframe(edges[["from", "to", "weight", "sign"]].rename(columns={"from": "From", "to": "To", "weight": "Weight", "sign": "Direction"}), width="stretch", hide_index=True)
+            predictability = read_case_table("predictability.csv").sort_values("predictability", ascending=False).head(10)
+            st.markdown("**Highest predictability estimates**")
+            st.dataframe(predictability.rename(columns={"node": "Node", "predictability": "Predictability", "measure": "Measure"}), width="stretch", hide_index=True)
+
+    with method_tab:
+        st.subheader("Reproducible computation")
+        st.write(
+            "The case study applies the reusable workflow configured in `config/chatgpt_example.yml`: numeric 1–5 item coding, complete-case primary network preparation, mixed graphical model estimation with LASSO/EBIC selection, centrality/predictability exports, bootstrap and Walktrap modules, factor-analysis modules, and configurable subgroup/country procedures."
+        )
+        mardia = read_case_table("mardia_multivariate_normality.csv")
+        st.markdown("**Mardia diagnostic**")
+        st.dataframe(mardia, width="stretch", hide_index=True)
+        st.caption("The Mardia diagnostic uses a deterministic 2,000-case subsample for computational feasibility. The primary network uses all 11,964 complete cases.")
+        st.markdown(
+            "The network should be read as a structured description of conditional associations. For a causal or temporal test of the CAN theory, a longitudinal or experimental follow-up would be required."
+        )
+
+    with download_tab:
+        st.subheader("Reuse the full case study")
+        st.write("The original public dataset is released under CC BY 4.0. Download the data, questionnaire, configuration, and selected results below; cite the data source and companion article when reusing them.")
+        download_columns = st.columns(2)
+        downloads = [
+            ("Download original survey workbook", CHATGPT_DATA_DIR / "finaldataset.xlsx", "finaldataset.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
+            ("Download original questionnaire", CHATGPT_DATA_DIR / "questionnaire.pdf", "questionnaire.pdf", "application/pdf"),
+            ("Download CAN configuration", ROOT / "config" / "chatgpt_example.yml", "chatgpt_example.yml", "application/x-yaml"),
+            ("Download centrality results", CASE_STUDY_DIR / "centrality.csv", "chatgpt_can_centrality.csv", "text/csv"),
+            ("Download edge table", CASE_STUDY_DIR / "edge_table.csv", "chatgpt_can_edges.csv", "text/csv"),
+            ("Download network image", CASE_STUDY_DIR / "primary_mgm_network.png", "chatgpt_primary_can_network.png", "image/png"),
+        ]
+        for index, (label, path, name, mime) in enumerate(downloads):
+            with download_columns[index % 2]:
+                st.download_button(label, data=path.read_bytes(), file_name=name, mime=mime, key=f"case_download_{index}")
+        st.markdown(
+            "**Sources:** [Ravšelj et al. dataset](https://doi.org/10.17632/ymg9nsn6kn.2); [Ravšelj et al. companion article](https://doi.org/10.1371/journal.pone.0315011); [Abadi et al. CAN workflow](https://doi.org/10.1080/15366367.2024.2363718); and [Dalege et al. CAN model](https://doi.org/10.1037/a0039802)."
+        )
+
+
+st.set_page_config(page_title="CAN Models", page_icon="◌", layout="wide")
+st.title("CAN Models")
+st.caption("A reproducible Causal Attitude Network workspace with a completed ChatGPT case study and a separate bring-your-own-data workflow.")
+
+workspace = st.radio(
+    "Choose a workspace",
+    ["ChatGPT case study", "Bring your own data"],
+    horizontal=True,
+    label_visibility="collapsed",
+)
+if workspace == "ChatGPT case study":
+    render_chatgpt_case_study()
+    st.stop()
+
+st.header("Bring your own data")
+st.caption("Upload a compatible survey, map its variable names to CAN roles, inspect the available computations, and create a reproducible run bundle.")
 st.warning("Cross-sectional guardrail: estimated network edges are conditional associations. They do not, by themselves, demonstrate directional causal effects.")
 
 with st.sidebar:

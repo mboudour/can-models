@@ -1,0 +1,436 @@
+from,to,weight,abs_weight,sign
+Satisfied with information quality,Satisfied with information accuracy,1.5857362471302812,1.5857362471302812,positive
+Provides information efficiently,Provides reliable information,1.4412947418861548,1.4412947418861548,positive
+Satisfied with level of assistance,Satisfied with information quality,1.375593740719423,1.375593740719423,positive
+Enhances learning experience,Improves skills,1.243126724815137,1.243126724815137,positive
+Increases study efficiency,Increases motivation to study,1.0574028726678812,1.0574028726678812,positive
+International regulation is necessary,University ethical guidelines are necessary,1.0053453934657761,1.0053453934657761,positive
+May mislead with inaccurate information,May invade privacy,0.9653997053338448,0.9653997053338448,positive
+Use is interesting,Ability to use is important,0.8457327957476242,0.8457327957476242,positive
+May encourage cheating,May mislead with inaccurate information,0.7784671861595484,0.7784671861595484,positive
+Will reduce the number of jobs,Will increase demand for AI skills,0.7740612143814027,0.7740612143814027,positive
+General ChatGPT use,Ability to use is important,0.7711427871793117,0.7711427871793117,positive
+Ability to use is important,Helps in everyday life,0.7632570298609778,0.7632570298609778,positive
+Curious when using ChatGPT,Excited when using ChatGPT,0.7450132992453535,0.7450132992453535,positive
+Provides reliable information,Satisfied with information accuracy,0.7144501510625445,0.7144501510625445,positive
+May encourage cheating,May hinder learning by doing work,0.6996148651779485,0.6996148651779485,positive
+Provides reliable information,May mislead with inaccurate information,0.6928448260342429,0.6928448260342429,positive
+Provides reliable information,Simplifies complex information,0.6487717863595652,0.6487717863595652,positive
+Simplifies complex information,Facilitates classroom learning,0.5909410399736932,0.5909410399736932,positive
+Hopeful when using ChatGPT,Excited when using ChatGPT,0.5850833786132605,0.5850833786132605,positive
+Provides information efficiently,Simplifies complex information,0.579942513058934,0.579942513058934,positive
+May mislead with inaccurate information,Satisfied with information accuracy,0.5704224980327988,0.5704224980327988,positive
+Enhances access to knowledge sources,Increases study efficiency,0.5558069375409243,0.5558069375409243,positive
+Hopeful when using ChatGPT,Calm when using ChatGPT,0.5312992012314,0.5312992012314,positive
+Satisfied with level of assistance,Satisfied with information accuracy,0.521840145777987,0.521840145777987,positive
+Use is under my control,Use is interesting,0.5055241759641913,0.5055241759641913,positive
+Increases motivation to study,Enhances learning experience,0.4907209398322974,0.4907209398322974,positive
+Increases study efficiency,Enhances learning experience,0.482004055277377,0.482004055277377,positive
+May invade privacy,May hinder learning by doing work,0.4562665178561536,0.4562665178561536,positive
+Use is interesting,Curious when using ChatGPT,0.4433940962569567,0.4433940962569567,positive
+Increases motivation to study,Improves skills,0.4310932471792954,0.4310932471792954,positive
+May mislead with inaccurate information,May hinder learning by doing work,0.40970750144718826,0.40970750144718826,positive
+May mislead with inaccurate information,Use is interesting,0.3871536846493614,0.3871536846493614,positive
+Provides information efficiently,Satisfied with information quality,0.3834545656473549,0.3834545656473549,positive
+Calm when using ChatGPT,Curious when using ChatGPT,0.3588071495329095,0.3588071495329095,positive
+May encourage cheating,May invade privacy,0.3524014626038867,0.3524014626038867,positive
+Ability to use is important,Hopeful when using ChatGPT,0.3451775301207384,0.3451775301207384,positive
+Provides reliable information,Facilitates classroom learning,0.34129386416864865,0.34129386416864865,positive
+Calm when using ChatGPT,Excited when using ChatGPT,0.33966893693850264,0.33966893693850264,positive
+Simplifies complex information,May mislead with inaccurate information,0.3264936290554415,0.3264936290554415,positive
+Calm when using ChatGPT,Anxious when using ChatGPT,0.32564754424747033,0.32564754424747033,positive
+Hopeful when using ChatGPT,Anxious when using ChatGPT,0.32562268373678016,0.32562268373678016,positive
+May hinder learning by doing work,Will reduce the number of jobs,0.32006263517842454,0.32006263517842454,positive
+Satisfied with level of assistance,Use is interesting,0.31757865221062603,0.31757865221062603,positive
+Use is interesting,Helps in everyday life,0.31698786728443784,0.31698786728443784,positive
+Anxious when using ChatGPT,Excited when using ChatGPT,0.3168044614226898,0.3168044614226898,positive
+Anxious when using ChatGPT,Curious when using ChatGPT,0.31634589663078894,0.31634589663078894,positive
+Provides information efficiently,University ethical guidelines are necessary,0.30796587711872025,0.30796587711872025,positive
+May invade privacy,Use is interesting,0.30230322598842,0.30230322598842,positive
+Provides reliable information,Satisfied with information quality,0.2981687142877535,0.2981687142877535,positive
+General ChatGPT use,Satisfied with level of assistance,0.2980078808719313,0.2980078808719313,positive
+Enhances access to knowledge sources,Improves skills,0.2973297365250128,0.2973297365250128,positive
+Increases motivation to study,Will increase demand for AI skills,0.2919553284886686,0.2919553284886686,positive
+Satisfied with information quality,Ability to use is important,0.28716589238442963,0.28716589238442963,positive
+Use is under my control,Ability to use is important,0.28057181412307286,0.28057181412307286,positive
+Helps in everyday life,Enhances access to knowledge sources,0.27819842911227377,0.27819842911227377,positive
+Ability to use is important,Curious when using ChatGPT,0.2772821703365784,0.2772821703365784,positive
+Provides information efficiently,Ability to use is important,0.2714408501460513,0.2714408501460513,positive
+General ChatGPT use,Satisfied with information accuracy,0.26994987770497464,0.26994987770497464,positive
+Facilitates classroom learning,Increases motivation to study,0.2698259334161579,0.2698259334161579,positive
+Enhances access to knowledge sources,Will reduce the number of jobs,0.26954664442464665,0.26954664442464665,positive
+Simplifies complex information,Will increase demand for AI skills,0.26418508141550345,0.26418508141550345,positive
+Ability to use is important,Increases motivation to study,0.2599343143837868,0.2599343143837868,positive
+University ethical guidelines are necessary,May encourage cheating,0.2586947750783103,0.2586947750783103,positive
+Will increase demand for AI skills,Curious when using ChatGPT,0.25848315521037263,0.25848315521037263,positive
+Provides information efficiently,Satisfied with information accuracy,0.2571656818103095,0.2571656818103095,positive
+Simplifies complex information,Satisfied with level of assistance,0.2564199781580988,0.2564199781580988,positive
+Satisfied with information accuracy,Enhances access to knowledge sources,0.25482291485419806,0.25482291485419806,positive
+May mislead with inaccurate information,Satisfied with level of assistance,0.25480030475257354,0.25480030475257354,positive
+International regulation is necessary,May invade privacy,0.25084216627357153,0.25084216627357153,positive
+International regulation is necessary,Enhances access to knowledge sources,0.24772033719735825,0.24772033719735825,positive
+Provides information efficiently,Satisfied with level of assistance,0.2474705377934432,0.2474705377934432,positive
+Provides reliable information,Satisfied with level of assistance,0.24092505616551238,0.24092505616551238,positive
+Provides information efficiently,Facilitates classroom learning,0.23973654195198935,0.23973654195198935,positive
+Improves skills,Excited when using ChatGPT,0.234128592627968,0.234128592627968,positive
+Simplifies complex information,International regulation is necessary,0.23393401013185094,0.23393401013185094,positive
+May invade privacy,Ability to use is important,0.23074115185920727,0.23074115185920727,positive
+Use is under my control,Will reduce the number of jobs,0.22957567529822154,0.22957567529822154,positive
+Satisfied with information accuracy,Helps in everyday life,0.22740582226851097,0.22740582226851097,positive
+Use is interesting,Enhances learning experience,0.22611846705087024,0.22611846705087024,positive
+Provides reliable information,Helps in everyday life,0.22567274069714105,0.22567274069714105,positive
+Provides reliable information,Curious when using ChatGPT,0.22257463999717877,0.22257463999717877,positive
+University ethical guidelines are necessary,May hinder learning by doing work,0.22092365469310749,0.22092365469310749,positive
+May mislead with inaccurate information,Use is under my control,0.220889630601943,0.220889630601943,positive
+Facilitates classroom learning,Increases study efficiency,0.2202320865166218,0.2202320865166218,positive
+Satisfied with level of assistance,Use is under my control,0.21987371503448166,0.21987371503448166,positive
+Increases motivation to study,Excited when using ChatGPT,0.2198013334266138,0.2198013334266138,positive
+Provides information efficiently,Use is interesting,0.21914248127359226,0.21914248127359226,positive
+Enhances access to knowledge sources,Enhances learning experience,0.21776979821809248,0.21776979821809248,positive
+May mislead with inaccurate information,Increases study efficiency,0.2177353560682092,0.2177353560682092,positive
+Helps in everyday life,Enhances learning experience,0.21681722208974336,0.21681722208974336,positive
+Simplifies complex information,Satisfied with information accuracy,0.2166664733526071,0.2166664733526071,positive
+Satisfied with level of assistance,Increases study efficiency,0.21500150881596194,0.21500150881596194,positive
+Satisfied with level of assistance,Increases motivation to study,0.21484684249035607,0.21484684249035607,positive
+Simplifies complex information,May invade privacy,0.21382084022350173,0.21382084022350173,positive
+Provides reliable information,Will increase demand for AI skills,0.213033168540146,0.213033168540146,positive
+Satisfied with information quality,Improves skills,0.2123728881251522,0.2123728881251522,positive
+Provides reliable information,May hinder learning by doing work,0.2099572553899079,0.2099572553899079,positive
+General ChatGPT use,May invade privacy,0.20941260953614452,0.20941260953614452,positive
+Provides information efficiently,Will increase demand for AI skills,0.20870425721076943,0.20870425721076943,positive
+Use is interesting,Improves skills,0.20810519489019885,0.20810519489019885,positive
+Ability to use is important,Increases study efficiency,0.20704304465912776,0.20704304465912776,positive
+May invade privacy,Satisfied with level of assistance,0.20682283663424916,0.20682283663424916,positive
+Satisfied with information quality,Enhances access to knowledge sources,0.2049716020156025,0.2049716020156025,positive
+Use is under my control,Enhances access to knowledge sources,0.20331584105007383,0.20331584105007383,positive
+General ChatGPT use,Use is interesting,0.20215544316066153,0.20215544316066153,positive
+Facilitates classroom learning,Ability to use is important,0.20055688850961165,0.20055688850961165,positive
+Ability to use is important,Excited when using ChatGPT,0.19861184539274912,0.19861184539274912,positive
+Satisfied with level of assistance,Calm when using ChatGPT,0.19851874631958288,0.19851874631958288,positive
+General ChatGPT use,Increases study efficiency,0.19835727356094918,0.19835727356094918,positive
+Provides information efficiently,May invade privacy,0.19811605183630418,0.19811605183630418,positive
+May invade privacy,Satisfied with information accuracy,0.19800886442340793,0.19800886442340793,positive
+Satisfied with information quality,Increases motivation to study,0.19597225985252686,0.19597225985252686,positive
+May invade privacy,Will reduce the number of jobs,0.19506306003795096,0.19506306003795096,positive
+Enhances access to knowledge sources,Hopeful when using ChatGPT,0.1940968943829287,0.1940968943829287,positive
+Facilitates classroom learning,International regulation is necessary,0.19379902098140045,0.19379902098140045,positive
+Ability to use is important,Improves skills,0.19244265709727457,0.19244265709727457,positive
+Provides reliable information,Enhances access to knowledge sources,0.19235889572093817,0.19235889572093817,positive
+General ChatGPT use,Simplifies complex information,0.19195494770145027,0.19195494770145027,positive
+Satisfied with information accuracy,Curious when using ChatGPT,0.19131763634775834,0.19131763634775834,positive
+May invade privacy,Increases motivation to study,0.1908455390214437,0.1908455390214437,positive
+Use is interesting,Increases study efficiency,0.19078064028462116,0.19078064028462116,positive
+Enhances access to knowledge sources,Increases motivation to study,0.19025956871106303,0.19025956871106303,positive
+University ethical guidelines are necessary,Use is interesting,0.18975240346211913,0.18975240346211913,positive
+Satisfied with information accuracy,Improves skills,0.18675303721101263,0.18675303721101263,positive
+Satisfied with information accuracy,Will increase demand for AI skills,0.1865769569045292,0.1865769569045292,positive
+Improves skills,Calm when using ChatGPT,0.18613172499561995,0.18613172499561995,positive
+May invade privacy,Use is under my control,0.18515324105299424,0.18515324105299424,positive
+Simplifies complex information,May encourage cheating,0.18442631740751714,0.18442631740751714,positive
+May mislead with inaccurate information,Ability to use is important,0.18317449552402443,0.18317449552402443,positive
+International regulation is necessary,Enhances learning experience,0.18314756468438304,0.18314756468438304,positive
+Provides information efficiently,Increases motivation to study,0.18254563400617524,0.18254563400617524,positive
+Simplifies complex information,Curious when using ChatGPT,0.18252469068490962,0.18252469068490962,positive
+General ChatGPT use,Facilitates classroom learning,0.18173228235251013,0.18173228235251013,positive
+Hopeful when using ChatGPT,Curious when using ChatGPT,0.18151944429640354,0.18151944429640354,positive
+Enhances learning experience,Will increase demand for AI skills,0.18072756817761704,0.18072756817761704,positive
+May encourage cheating,Satisfied with information accuracy,0.1806834379140193,0.1806834379140193,positive
+Use is interesting,Increases motivation to study,0.17993252884433517,0.17993252884433517,positive
+General ChatGPT use,Will increase demand for AI skills,0.1794382544879115,0.1794382544879115,positive
+Enhances access to knowledge sources,Anxious when using ChatGPT,0.1794038885625853,0.1794038885625853,positive
+General ChatGPT use,Hopeful when using ChatGPT,0.1792677329469509,0.1792677329469509,positive
+International regulation is necessary,Increases study efficiency,0.17919381901997253,0.17919381901997253,positive
+General ChatGPT use,May mislead with inaccurate information,0.1787217862691152,0.1787217862691152,positive
+Facilitates classroom learning,Improves skills,0.177000319972769,0.177000319972769,positive
+Provides reliable information,Enhances learning experience,0.17599945853693472,0.17599945853693472,positive
+Satisfied with information accuracy,Enhances learning experience,0.17504267854385916,0.17504267854385916,positive
+Use is interesting,Will increase demand for AI skills,0.17473701014660847,0.17473701014660847,positive
+Facilitates classroom learning,Excited when using ChatGPT,0.17455227887546634,0.17455227887546634,positive
+General ChatGPT use,Improves skills,0.1744802201041954,0.1744802201041954,positive
+May hinder learning by doing work,Improves skills,0.1742737126741098,0.1742737126741098,positive
+International regulation is necessary,Will reduce the number of jobs,0.1742175855076165,0.1742175855076165,positive
+Facilitates classroom learning,Use is under my control,0.17414021360358678,0.17414021360358678,positive
+May hinder learning by doing work,Will increase demand for AI skills,0.17318547458556288,0.17318547458556288,positive
+Satisfied with level of assistance,Will increase demand for AI skills,0.171194218261006,0.171194218261006,positive
+Facilitates classroom learning,May hinder learning by doing work,0.1708176970338437,0.1708176970338437,positive
+Simplifies complex information,Use is under my control,0.16943111240471373,0.16943111240471373,positive
+International regulation is necessary,May encourage cheating,0.16912464387753384,0.16912464387753384,positive
+General ChatGPT use,Use is under my control,0.1690725951283961,0.1690725951283961,positive
+Satisfied with information quality,Helps in everyday life,0.16877011990330143,0.16877011990330143,positive
+Facilitates classroom learning,May invade privacy,0.16821994167374066,0.16821994167374066,positive
+May encourage cheating,Use is interesting,0.16817893769887993,0.16817893769887993,positive
+General ChatGPT use,Excited when using ChatGPT,0.16755168933608167,0.16755168933608167,positive
+Satisfied with level of assistance,Enhances access to knowledge sources,0.16735412788214338,0.16735412788214338,positive
+Helps in everyday life,Improves skills,0.16703007165778422,0.16703007165778422,positive
+Simplifies complex information,Ability to use is important,0.16696565001753216,0.16696565001753216,positive
+Satisfied with level of assistance,Curious when using ChatGPT,0.16562687630850748,0.16562687630850748,positive
+Provides reliable information,University ethical guidelines are necessary,0.16479805498192268,0.16479805498192268,positive
+Facilitates classroom learning,Helps in everyday life,0.16439175291556257,0.16439175291556257,positive
+Satisfied with information accuracy,Use is under my control,0.1639424626989355,0.1639424626989355,positive
+Use is interesting,Anxious when using ChatGPT,0.16149032616350184,0.16149032616350184,positive
+Helps in everyday life,Increases study efficiency,0.16142662384833234,0.16142662384833234,positive
+Use is interesting,Enhances access to knowledge sources,0.16019187273690805,0.16019187273690805,positive
+Improves skills,Anxious when using ChatGPT,0.1594314227270021,0.1594314227270021,positive
+Improves skills,Will increase demand for AI skills,0.15876831615029932,0.15876831615029932,positive
+Enhances learning experience,Will reduce the number of jobs,0.15813147138126799,0.15813147138126799,positive
+Simplifies complex information,Excited when using ChatGPT,0.1573612477525357,0.1573612477525357,positive
+Provides information efficiently,Helps in everyday life,0.15730155593623893,0.15730155593623893,positive
+Satisfied with information accuracy,Ability to use is important,0.1572980394353129,0.1572980394353129,positive
+May invade privacy,Anxious when using ChatGPT,0.15696425850884843,0.15696425850884843,positive
+International regulation is necessary,Satisfied with information quality,0.15646075652678093,0.15646075652678093,positive
+Provides information efficiently,Calm when using ChatGPT,0.15514999940094543,0.15514999940094543,positive
+May mislead with inaccurate information,Excited when using ChatGPT,0.15461164920437553,0.15461164920437553,positive
+Use is under my control,Calm when using ChatGPT,0.1544915337559014,0.1544915337559014,positive
+Simplifies complex information,Satisfied with information quality,0.15291417059456433,0.15291417059456433,positive
+Provides information efficiently,Enhances access to knowledge sources,0.1528939917993512,0.1528939917993512,positive
+Satisfied with information accuracy,Hopeful when using ChatGPT,0.1525794916360776,0.1525794916360776,positive
+International regulation is necessary,May hinder learning by doing work,0.15243636719214132,0.15243636719214132,positive
+May invade privacy,Will increase demand for AI skills,0.15218449052116753,0.15218449052116753,positive
+Increases study efficiency,Improves skills,0.15140759498391448,0.15140759498391448,positive
+Use is interesting,Hopeful when using ChatGPT,0.15100948206829368,0.15100948206829368,positive
+Provides reliable information,Increases study efficiency,0.15093527915315708,0.15093527915315708,positive
+May mislead with inaccurate information,Satisfied with information quality,0.14987290101691353,0.14987290101691353,positive
+Satisfied with information accuracy,Increases motivation to study,0.14974207403987708,0.14974207403987708,positive
+Satisfied with level of assistance,Excited when using ChatGPT,0.14900719394387024,0.14900719394387024,positive
+Provides reliable information,Use is under my control,0.1479510582029555,0.1479510582029555,positive
+May encourage cheating,Will reduce the number of jobs,0.14739359826384568,0.14739359826384568,positive
+Use is interesting,Excited when using ChatGPT,0.14615920636748816,0.14615920636748816,positive
+Satisfied with information quality,Use is under my control,0.1448016695424502,0.1448016695424502,positive
+May hinder learning by doing work,Use is interesting,0.14467736571710532,0.14467736571710532,positive
+Provides information efficiently,Increases study efficiency,0.14459624535065005,0.14459624535065005,positive
+Increases motivation to study,Will reduce the number of jobs,0.1426902627633213,0.1426902627633213,positive
+Will reduce the number of jobs,Anxious when using ChatGPT,0.14189664285326736,0.14189664285326736,positive
+May mislead with inaccurate information,Improves skills,0.14128987343713806,0.14128987343713806,positive
+May hinder learning by doing work,Increases motivation to study,0.14123511083304072,0.14123511083304072,positive
+May encourage cheating,Increases motivation to study,0.1409452070927268,0.1409452070927268,positive
+Helps in everyday life,Will increase demand for AI skills,0.14075509664881442,0.14075509664881442,positive
+Enhances access to knowledge sources,Curious when using ChatGPT,0.14062885709161027,0.14062885709161027,positive
+Ability to use is important,Enhances learning experience,0.13975477954419244,0.13975477954419244,positive
+Provides reliable information,Will reduce the number of jobs,0.13972311500735413,0.13972311500735413,positive
+Facilitates classroom learning,Enhances learning experience,0.13968138764062396,0.13968138764062396,positive
+Satisfied with information quality,Use is interesting,0.1379101249599621,0.1379101249599621,positive
+Satisfied with information quality,Anxious when using ChatGPT,0.1378652288612266,0.1378652288612266,positive
+Use is under my control,Increases motivation to study,0.13758333289334126,0.13758333289334126,positive
+Provides information efficiently,May mislead with inaccurate information,0.1367161298852627,0.1367161298852627,positive
+Satisfied with information accuracy,Excited when using ChatGPT,0.1363494424678552,0.1363494424678552,positive
+Provides reliable information,Increases motivation to study,0.13484104535210295,0.13484104535210295,positive
+University ethical guidelines are necessary,Enhances access to knowledge sources,0.13428648486922112,0.13428648486922112,positive
+May mislead with inaccurate information,Increases motivation to study,0.13359353356511283,0.13359353356511283,positive
+May mislead with inaccurate information,Will reduce the number of jobs,0.13330831403251253,0.13330831403251253,positive
+Provides reliable information,Improves skills,0.13328693491834018,0.13328693491834018,positive
+Increases motivation to study,Anxious when using ChatGPT,0.13268824294285,0.13268824294285,positive
+Satisfied with level of assistance,Enhances learning experience,0.13242693831148902,0.13242693831148902,positive
+University ethical guidelines are necessary,Ability to use is important,0.1321998798237203,0.1321998798237203,positive
+International regulation is necessary,May mislead with inaccurate information,0.13193101880382468,0.13193101880382468,positive
+May mislead with inaccurate information,Helps in everyday life,0.1313552887163114,0.1313552887163114,positive
+Facilitates classroom learning,University ethical guidelines are necessary,0.13080456309672356,0.13080456309672356,positive
+General ChatGPT use,Helps in everyday life,0.13035794368344122,0.13035794368344122,positive
+International regulation is necessary,Use is interesting,0.12991208931049902,0.12991208931049902,positive
+Provides information efficiently,Hopeful when using ChatGPT,0.12923857900696906,0.12923857900696906,positive
+General ChatGPT use,Enhances learning experience,0.12898082296427102,0.12898082296427102,positive
+University ethical guidelines are necessary,May mislead with inaccurate information,0.12890251343160025,0.12890251343160025,positive
+May hinder learning by doing work,Enhances learning experience,0.12814802799664865,0.12814802799664865,positive
+Satisfied with level of assistance,Will reduce the number of jobs,0.12764907425447627,0.12764907425447627,positive
+Increases study efficiency,Will increase demand for AI skills,0.12707148327259501,0.12707148327259501,positive
+International regulation is necessary,Satisfied with information accuracy,0.12680824736186008,0.12680824736186008,positive
+May hinder learning by doing work,Ability to use is important,0.12657294159135316,0.12657294159135316,positive
+Provides reliable information,Excited when using ChatGPT,0.12651222729991612,0.12651222729991612,positive
+Simplifies complex information,Helps in everyday life,0.12636939692467497,0.12636939692467497,positive
+Simplifies complex information,University ethical guidelines are necessary,0.12622468304554857,0.12622468304554857,positive
+Provides reliable information,May invade privacy,0.12604873130467611,0.12604873130467611,positive
+University ethical guidelines are necessary,Will increase demand for AI skills,0.12548703862063718,0.12548703862063718,positive
+Use is under my control,Curious when using ChatGPT,0.1252246361156162,0.1252246361156162,positive
+International regulation is necessary,Satisfied with level of assistance,0.1251620070369494,0.1251620070369494,positive
+Enhances learning experience,Calm when using ChatGPT,0.12492858666255227,0.12492858666255227,positive
+Provides information efficiently,Improves skills,0.1248920134936159,0.1248920134936159,positive
+May hinder learning by doing work,Satisfied with information accuracy,0.12463950918660122,0.12463950918660122,positive
+Use is under my control,Helps in everyday life,0.12433393124093978,0.12433393124093978,positive
+Facilitates classroom learning,May encourage cheating,0.12426278487951833,0.12426278487951833,positive
+May invade privacy,Enhances access to knowledge sources,0.12383489314161242,0.12383489314161242,positive
+Simplifies complex information,Enhances access to knowledge sources,0.12375341544752932,0.12375341544752932,positive
+Facilitates classroom learning,Calm when using ChatGPT,0.12368156356722768,0.12368156356722768,positive
+May invade privacy,Helps in everyday life,0.12301472761971886,0.12301472761971886,positive
+Simplifies complex information,Anxious when using ChatGPT,0.12271335061470362,0.12271335061470362,positive
+University ethical guidelines are necessary,Increases motivation to study,0.12262081510254719,0.12262081510254719,positive
+Satisfied with level of assistance,Helps in everyday life,0.12253007103986294,0.12253007103986294,positive
+Provides information efficiently,Enhances learning experience,0.12238684805403839,0.12238684805403839,positive
+Use is under my control,Increases study efficiency,0.12228395202842635,0.12228395202842635,positive
+Increases study efficiency,Will reduce the number of jobs,0.12224349945799881,0.12224349945799881,positive
+Provides reliable information,Hopeful when using ChatGPT,0.12173556612893363,0.12173556612893363,positive
+Ability to use is important,Anxious when using ChatGPT,0.12170606051583803,0.12170606051583803,positive
+University ethical guidelines are necessary,Excited when using ChatGPT,0.12165442292625162,0.12165442292625162,positive
+May invade privacy,Increases study efficiency,0.12159320438716845,0.12159320438716845,positive
+Helps in everyday life,Calm when using ChatGPT,0.12126753092913625,0.12126753092913625,positive
+Helps in everyday life,Increases motivation to study,0.12123323723906346,0.12123323723906346,positive
+Satisfied with information accuracy,Increases study efficiency,0.12117756599710058,0.12117756599710058,positive
+Provides information efficiently,Curious when using ChatGPT,0.12070784512164967,0.12070784512164967,positive
+Improves skills,Will reduce the number of jobs,0.12062634985711801,0.12062634985711801,positive
+May hinder learning by doing work,Anxious when using ChatGPT,0.12059417026646244,0.12059417026646244,positive
+Increases motivation to study,Calm when using ChatGPT,0.1200200793010531,0.1200200793010531,positive
+Simplifies complex information,Increases study efficiency,0.11999188907747962,0.11999188907747962,positive
+Provides reliable information,Use is interesting,0.11885735540000816,0.11885735540000816,positive
+Simplifies complex information,Use is interesting,0.11756733489664709,0.11756733489664709,positive
+Simplifies complex information,Calm when using ChatGPT,0.11660788417224557,0.11660788417224557,positive
+Satisfied with information quality,Calm when using ChatGPT,0.1160606793272973,0.1160606793272973,positive
+Facilitates classroom learning,Satisfied with information accuracy,0.11601189052970214,0.11601189052970214,positive
+International regulation is necessary,Anxious when using ChatGPT,0.11574146377194611,0.11574146377194611,positive
+International regulation is necessary,Will increase demand for AI skills,0.11561775484772122,0.11561775484772122,positive
+Enhances access to knowledge sources,Will increase demand for AI skills,0.11525417983417721,0.11525417983417721,positive
+University ethical guidelines are necessary,Hopeful when using ChatGPT,0.11520852948050354,0.11520852948050354,positive
+Satisfied with information quality,Will increase demand for AI skills,0.11498622339105169,0.11498622339105169,positive
+Simplifies complex information,Increases motivation to study,0.11493104652401545,0.11493104652401545,positive
+Provides reliable information,Ability to use is important,0.11377892013669744,0.11377892013669744,positive
+Satisfied with information accuracy,Anxious when using ChatGPT,0.11360980274914856,0.11360980274914856,positive
+Satisfied with information accuracy,Use is interesting,0.1123838405078019,0.1123838405078019,positive
+Satisfied with information quality,Increases study efficiency,0.11233604705761013,0.11233604705761013,positive
+General ChatGPT use,May encourage cheating,0.11160747373415188,0.11160747373415188,positive
+May hinder learning by doing work,Increases study efficiency,0.11154079027788451,0.11154079027788451,positive
+Use is under my control,Will increase demand for AI skills,0.11090650654931102,0.11090650654931102,positive
+Facilitates classroom learning,Will increase demand for AI skills,0.11033797061459313,0.11033797061459313,positive
+International regulation is necessary,Increases motivation to study,0.11019530400901689,0.11019530400901689,positive
+Provides information efficiently,May hinder learning by doing work,0.1101426719052627,0.1101426719052627,positive
+May invade privacy,Enhances learning experience,0.1096571852406042,0.1096571852406042,positive
+May invade privacy,Improves skills,0.109593746976631,0.109593746976631,positive
+May hinder learning by doing work,Enhances access to knowledge sources,0.10946337753048678,0.10946337753048678,positive
+Helps in everyday life,Excited when using ChatGPT,0.10931046738320366,0.10931046738320366,positive
+Enhances learning experience,Excited when using ChatGPT,0.10926396360070581,0.10926396360070581,positive
+Improves skills,Curious when using ChatGPT,0.10852681657308763,0.10852681657308763,positive
+Simplifies complex information,Improves skills,0.10807734738358007,0.10807734738358007,positive
+University ethical guidelines are necessary,May invade privacy,0.10793797282139658,0.10793797282139658,positive
+Enhances learning experience,Hopeful when using ChatGPT,0.10790308087029876,0.10790308087029876,positive
+International regulation is necessary,Curious when using ChatGPT,0.10779938811332654,0.10779938811332654,positive
+Satisfied with level of assistance,Ability to use is important,0.10776696560337513,0.10776696560337513,positive
+May encourage cheating,Use is under my control,0.10687863173506564,0.10687863173506564,positive
+Satisfied with level of assistance,Anxious when using ChatGPT,0.10683241016529688,0.10683241016529688,positive
+Simplifies complex information,May hinder learning by doing work,0.10671741028193188,0.10671741028193188,positive
+Use is interesting,Will reduce the number of jobs,0.10565618016935871,0.10565618016935871,positive
+Satisfied with information accuracy,Will reduce the number of jobs,0.10539581632740785,0.10539581632740785,positive
+May hinder learning by doing work,Excited when using ChatGPT,0.1047463740622879,0.1047463740622879,positive
+Satisfied with information quality,Enhances learning experience,0.10456078311960837,0.10456078311960837,positive
+Simplifies complex information,Hopeful when using ChatGPT,0.10452152661483123,0.10452152661483123,positive
+Facilitates classroom learning,Enhances access to knowledge sources,0.10448170317589558,0.10448170317589558,positive
+Enhances access to knowledge sources,Calm when using ChatGPT,0.10380038764110461,0.10380038764110461,positive
+General ChatGPT use,Provides information efficiently,0.10355520415338976,0.10355520415338976,positive
+General ChatGPT use,Curious when using ChatGPT,0.10353092309183336,0.10353092309183336,positive
+May encourage cheating,Anxious when using ChatGPT,0.1031951037001424,0.1031951037001424,positive
+May mislead with inaccurate information,Curious when using ChatGPT,0.10317999196455438,0.10317999196455438,positive
+Use is under my control,Excited when using ChatGPT,0.10312084511592559,0.10312084511592559,positive
+Use is under my control,Anxious when using ChatGPT,0.10301351500059297,0.10301351500059297,positive
+General ChatGPT use,Satisfied with information quality,0.10262888439343276,0.10262888439343276,positive
+International regulation is necessary,Hopeful when using ChatGPT,0.10249398552607059,0.10249398552607059,positive
+Ability to use is important,Will reduce the number of jobs,0.10221546676000093,0.10221546676000093,positive
+Facilitates classroom learning,Anxious when using ChatGPT,0.10170326739951588,0.10170326739951588,positive
+Increases study efficiency,Curious when using ChatGPT,0.10057780461655638,0.10057780461655638,positive
+Facilitates classroom learning,May mislead with inaccurate information,0.10049754222068191,0.10049754222068191,positive
+Use is under my control,Hopeful when using ChatGPT,0.09993020184922172,0.09993020184922172,positive
+May invade privacy,Curious when using ChatGPT,0.09974358707856279,0.09974358707856279,positive
+University ethical guidelines are necessary,Increases study efficiency,0.09942011363999222,0.09942011363999222,positive
+Enhances access to knowledge sources,Excited when using ChatGPT,0.0993547544212992,0.0993547544212992,positive
+May encourage cheating,Satisfied with information quality,0.09886955728631569,0.09886955728631569,positive
+Increases motivation to study,Hopeful when using ChatGPT,0.09851921507653363,0.09851921507653363,positive
+University ethical guidelines are necessary,Calm when using ChatGPT,0.09818872796330812,0.09818872796330812,positive
+May mislead with inaccurate information,Anxious when using ChatGPT,0.09802126972628211,0.09802126972628211,positive
+Ability to use is important,Enhances access to knowledge sources,0.09791086938322449,0.09791086938322449,positive
+Provides information efficiently,Excited when using ChatGPT,0.09753859996261516,0.09753859996261516,positive
+Ability to use is important,Will increase demand for AI skills,0.09637659398244129,0.09637659398244129,positive
+International regulation is necessary,Excited when using ChatGPT,0.09627379131821479,0.09627379131821479,positive
+Enhances learning experience,Curious when using ChatGPT,0.09527996911176331,0.09527996911176331,positive
+International regulation is necessary,Improves skills,0.09469400805769601,0.09469400805769601,positive
+Simplifies complex information,Enhances learning experience,0.09414098968249829,0.09414098968249829,positive
+Will reduce the number of jobs,Curious when using ChatGPT,0.09409485319444763,0.09409485319444763,positive
+General ChatGPT use,Enhances access to knowledge sources,0.09397270384987236,0.09397270384987236,positive
+May hinder learning by doing work,Satisfied with level of assistance,0.09376678737356064,0.09376678737356064,positive
+Provides information efficiently,International regulation is necessary,0.09337115272602295,0.09337115272602295,positive
+University ethical guidelines are necessary,Use is under my control,0.09281260462928856,0.09281260462928856,positive
+May encourage cheating,Curious when using ChatGPT,0.09160727896586773,0.09160727896586773,positive
+May mislead with inaccurate information,Enhances access to knowledge sources,0.09075860356387308,0.09075860356387308,positive
+Satisfied with information quality,Hopeful when using ChatGPT,0.0902638026939629,0.0902638026939629,positive
+Provides reliable information,Anxious when using ChatGPT,0.0900577333238409,0.0900577333238409,positive
+University ethical guidelines are necessary,Satisfied with level of assistance,0.08961294438571321,0.08961294438571321,positive
+Facilitates classroom learning,Satisfied with information quality,0.08947450892739656,0.08947450892739656,positive
+Provides information efficiently,Use is under my control,0.08902835975803694,0.08902835975803694,positive
+May hinder learning by doing work,Use is under my control,0.08877283259213442,0.08877283259213442,positive
+May mislead with inaccurate information,Enhances learning experience,0.08836860823388712,0.08836860823388712,positive
+Will increase demand for AI skills,Excited when using ChatGPT,0.08751851227679436,0.08751851227679436,positive
+Will increase demand for AI skills,Anxious when using ChatGPT,0.08711646904770022,0.08711646904770022,positive
+Helps in everyday life,Will reduce the number of jobs,0.08666485382847108,0.08666485382847108,positive
+Will increase demand for AI skills,Calm when using ChatGPT,0.08612277056450567,0.08612277056450567,positive
+Increases study efficiency,Excited when using ChatGPT,0.08582883887789863,0.08582883887789863,positive
+May hinder learning by doing work,Satisfied with information quality,0.08554248328488825,0.08554248328488825,positive
+Satisfied with level of assistance,Hopeful when using ChatGPT,0.08542779546042997,0.08542779546042997,positive
+Use is interesting,Calm when using ChatGPT,0.08510589909464572,0.08510589909464572,positive
+May encourage cheating,Enhances learning experience,0.08476379120621033,0.08476379120621033,positive
+Helps in everyday life,Curious when using ChatGPT,0.08320042049601771,0.08320042049601771,positive
+University ethical guidelines are necessary,Anxious when using ChatGPT,0.082972658701902,0.082972658701902,positive
+Enhances learning experience,Anxious when using ChatGPT,0.0821683525723239,0.0821683525723239,positive
+Improves skills,Hopeful when using ChatGPT,0.0817126329582746,0.0817126329582746,positive
+Provides reliable information,May encourage cheating,0.0814632639149766,0.0814632639149766,positive
+General ChatGPT use,Provides reliable information,0.08141004378462802,0.08141004378462802,positive
+University ethical guidelines are necessary,Improves skills,0.0809780808124724,0.0809780808124724,positive
+General ChatGPT use,University ethical guidelines are necessary,0.08047640321342289,0.08047640321342289,positive
+Facilitates classroom learning,Curious when using ChatGPT,0.08041674156513022,0.08041674156513022,positive
+Satisfied with level of assistance,Improves skills,0.08006407278307957,0.08006407278307957,positive
+May encourage cheating,Will increase demand for AI skills,0.079856825916876,0.079856825916876,positive
+Facilitates classroom learning,Hopeful when using ChatGPT,0.07944599773460395,0.07944599773460395,positive
+Provides information efficiently,Anxious when using ChatGPT,0.07885874851774158,0.07885874851774158,positive
+Increases motivation to study,Curious when using ChatGPT,0.0788197293378166,0.0788197293378166,positive
+Will reduce the number of jobs,Excited when using ChatGPT,0.07800565313054994,0.07800565313054994,positive
+International regulation is necessary,Helps in everyday life,0.07799282274400363,0.07799282274400363,positive
+Will reduce the number of jobs,Hopeful when using ChatGPT,0.07691859880735583,0.07691859880735583,positive
+Helps in everyday life,Anxious when using ChatGPT,0.0767532899558164,0.0767532899558164,positive
+May hinder learning by doing work,Hopeful when using ChatGPT,0.07630422729510321,0.07630422729510321,positive
+International regulation is necessary,Use is under my control,0.07581526206757859,0.07581526206757859,positive
+May encourage cheating,Ability to use is important,0.07580745409824119,0.07580745409824119,positive
+Use is under my control,Improves skills,0.07543375533460098,0.07543375533460098,positive
+May hinder learning by doing work,Curious when using ChatGPT,0.07500794735878347,0.07500794735878347,positive
+University ethical guidelines are necessary,Helps in everyday life,0.07466956972019276,0.07466956972019276,positive
+University ethical guidelines are necessary,Enhances learning experience,0.0731950323210309,0.0731950323210309,positive
+May invade privacy,Calm when using ChatGPT,0.07282570874029438,0.07282570874029438,positive
+Facilitates classroom learning,Satisfied with level of assistance,0.07277541216478471,0.07277541216478471,positive
+May encourage cheating,Increases study efficiency,0.07273980328753193,0.07273980328753193,positive
+University ethical guidelines are necessary,Satisfied with information accuracy,0.07194736731353285,0.07194736731353285,positive
+University ethical guidelines are necessary,Satisfied with information quality,0.07187791979905869,0.07187791979905869,positive
+May encourage cheating,Helps in everyday life,0.07111976856136694,0.07111976856136694,positive
+General ChatGPT use,Anxious when using ChatGPT,0.06973858167529853,0.06973858167529853,positive
+General ChatGPT use,International regulation is necessary,0.06926493730149248,0.06926493730149248,positive
+May mislead with inaccurate information,Hopeful when using ChatGPT,0.06913592343650454,0.06913592343650454,positive
+Ability to use is important,Calm when using ChatGPT,0.0691276908577646,0.0691276908577646,positive
+General ChatGPT use,Calm when using ChatGPT,0.06879136431054003,0.06879136431054003,positive
+Increases study efficiency,Anxious when using ChatGPT,0.06859755170332857,0.06859755170332857,positive
+Provides reliable information,Calm when using ChatGPT,0.06853075528357938,0.06853075528357938,positive
+Will increase demand for AI skills,Hopeful when using ChatGPT,0.06810345494268984,0.06810345494268984,positive
+Satisfied with information quality,Excited when using ChatGPT,0.06799584349856327,0.06799584349856327,positive
+May mislead with inaccurate information,Will increase demand for AI skills,0.06778035757319575,0.06778035757319575,positive
+Increases study efficiency,Hopeful when using ChatGPT,0.06513144259443117,0.06513144259443117,positive
+Satisfied with information quality,Curious when using ChatGPT,0.06483618028737637,0.06483618028737637,positive
+May invade privacy,Hopeful when using ChatGPT,0.06478378962773527,0.06478378962773527,positive
+Helps in everyday life,Hopeful when using ChatGPT,0.0645721494047698,0.0645721494047698,positive
+Facilitates classroom learning,Use is interesting,0.064017685365993,0.064017685365993,positive
+May hinder learning by doing work,Helps in everyday life,0.06378810817461576,0.06378810817461576,positive
+Provides information efficiently,Will reduce the number of jobs,0.0637109919212795,0.0637109919212795,positive
+May encourage cheating,Calm when using ChatGPT,0.06287723420096067,0.06287723420096067,positive
+May encourage cheating,Enhances access to knowledge sources,0.06284199797789033,0.06284199797789033,positive
+Satisfied with information accuracy,Calm when using ChatGPT,0.06208955339814095,0.06208955339814095,positive
+General ChatGPT use,May hinder learning by doing work,0.06177242800322409,0.06177242800322409,positive
+General ChatGPT use,Increases motivation to study,0.061343984819650726,0.061343984819650726,positive
+May encourage cheating,Improves skills,0.060298941719528557,0.060298941719528557,positive
+Simplifies complex information,Will reduce the number of jobs,0.05963634760178334,0.05963634760178334,positive
+May hinder learning by doing work,Calm when using ChatGPT,0.058455133282044325,0.058455133282044325,positive
+Provides information efficiently,May encourage cheating,0.058297930662106145,0.058297930662106145,positive
+Will reduce the number of jobs,Calm when using ChatGPT,0.0582838485927477,0.0582838485927477,positive
+International regulation is necessary,Calm when using ChatGPT,0.05757747669635116,0.05757747669635116,positive
+Use is under my control,Enhances learning experience,0.05511019042377974,0.05511019042377974,positive
+May invade privacy,Satisfied with information quality,0.05431449382572133,0.05431449382572133,positive
+May invade privacy,Excited when using ChatGPT,0.054056832895165274,0.054056832895165274,positive
+International regulation is necessary,Ability to use is important,0.05372662608349823,0.05372662608349823,positive
+May encourage cheating,Satisfied with level of assistance,0.053599640197140135,0.053599640197140135,positive
+May mislead with inaccurate information,Calm when using ChatGPT,0.05170199642059005,0.05170199642059005,positive
+Facilitates classroom learning,Will reduce the number of jobs,0.05140101951624672,0.05140101951624672,positive
+May encourage cheating,Hopeful when using ChatGPT,0.05088075444509953,0.05088075444509953,positive
+Satisfied with information quality,Will reduce the number of jobs,0.049595532270905324,0.049595532270905324,positive
+May encourage cheating,Excited when using ChatGPT,0.04863226015980444,0.04863226015980444,positive
+University ethical guidelines are necessary,Will reduce the number of jobs,0.04606729634686993,0.04606729634686993,positive
+University ethical guidelines are necessary,Curious when using ChatGPT,0.04596299312676637,0.04596299312676637,positive
+Provides reliable information,International regulation is necessary,0.04375369061215967,0.04375369061215967,positive
+Increases study efficiency,Calm when using ChatGPT,0.041270747457995624,0.041270747457995624,positive
+General ChatGPT use,Will reduce the number of jobs,0.0388382209822183,0.0388382209822183,positive

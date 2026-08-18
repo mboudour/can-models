@@ -36,16 +36,16 @@ Rscript scripts/render_report.R --config config/chatgpt_example.yml
 
 The first command installs project-local packages and creates `renv.lock`. The run writes generated tables, matrices, logs, and provenance files to `new_computations/`, and figures to `figures/`. Generated files are intentionally ignored by Git so that each analyst can reproduce them locally.
 
-## Streamlit interface for participant datasets
+## Streamlit case study and participant workspace
 
-The repository also includes a local **Streamlit interface** at `app/app.py`. Participants can upload a CSV or Excel dataset, map their own raw variable names to CAN nodes and contextual roles, inspect response coding, and generate a standalone YAML configuration without touching the ChatGPT example files.
+The repository includes a **Streamlit application** at `app/app.py` with two explicit workspaces. **ChatGPT case study** is the default view: it presents the completed 30-node primary CAN, full-sample flow, centrality and strongest-edge tables, node dictionary, methods, and downloads for the public Ravšelj et al. data. **Bring your own data** is a separate workflow in which participants upload a CSV or Excel dataset, map arbitrary raw variable names to CAN nodes and contextual roles, inspect response coding, and generate a standalone YAML configuration without touching the case-study files.
 
 ```bash
 sudo pip3 install -r requirements-streamlit.txt
 streamlit run app/app.py
 ```
 
-Before any computation is launched, the interface displays an **eligibility table**. It distinguishes modules that are ready from data-supported placeholders: for example, a two-study NCT remains unavailable with a single cross-sectional upload, while country networks require at least two groups that pass the configured minimum sample size. This prevents the app from silently treating non-applicable Abadi et al.–style calculations as completed analyses. See [docs/streamlit_app.md](docs/streamlit_app.md).
+Before any participant-data computation is launched, the BYOD workspace displays an **eligibility table**. It distinguishes modules that are ready from data-supported placeholders: for example, a two-study NCT remains unavailable with a single cross-sectional upload, while country networks require at least two groups that pass the configured minimum sample size. This prevents the app from silently treating non-applicable Abadi et al.–style calculations as completed analyses. See [docs/streamlit_app.md](docs/streamlit_app.md).
 
 For deployment, use [docs/deployment.md](docs/deployment.md). It distinguishes a Streamlit Community Cloud **mapping-only** publication from a Docker-based **full R analysis** deployment.
 

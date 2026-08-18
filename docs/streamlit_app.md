@@ -1,6 +1,6 @@
-# Streamlit interface: participant workflow
+# Streamlit application: ChatGPT case study and participant workflow
 
-The Streamlit interface is a **configuration generator and local analysis launcher** for `can-models`. It is designed for datasets whose variable names do not resemble the ChatGPT example and therefore never assumes that a variable is called `Q15`, `country`, or anything else.
+The Streamlit application has two separate workspaces. **ChatGPT case study** is the default public-facing view and presents the completed, full-sample 30-node ChatGPT CAN: the network figure, node dictionary, sample flow, centrality, strongest associations, method notes, and reusable downloads. **Bring your own data** is a configuration generator and local analysis launcher for datasets whose variable names do not resemble the ChatGPT example and therefore never assumes that a variable is called `Q15`, `country`, or anything else.
 
 Run it from the repository root after installing the Python requirements.
 
@@ -9,7 +9,7 @@ sudo pip3 install -r requirements-streamlit.txt
 streamlit run app/app.py
 ```
 
-## How variable names are handled
+## How participant variable names are handled
 
 After a participant uploads a CSV or Excel file, the app profiles every column: data type, non-missing count, missingness, number of unique values, and—where meaningful—numeric range. The participant then selects their own source columns as CAN nodes and assigns each a readable label and an attitude-system domain. The saved YAML configuration stores this mapping explicitly.
 

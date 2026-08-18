@@ -18,6 +18,7 @@ def main() -> None:
     before = set(RUNS.glob("run_*"))
     app = AppTest.from_file(str(ROOT / "app" / "app.py"))
     app.run(timeout=90)
+    app.radio[0].set_value("Bring your own data").run(timeout=90)
     app.file_uploader[0].upload("chatgpt_subset.csv", payload, "text/csv").run(timeout=90)
 
     assert not app.exception, app.exception
