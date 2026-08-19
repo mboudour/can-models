@@ -1,6 +1,6 @@
 # Streamlit application: original Study 2 replication and participant workflow
 
-The Streamlit application has two distinct workspaces. **Abadi et al. Study 2 replication** is the default public view. It uses the authors’ original public April 2020 four-country data and Qualtrics codebook, rather than a topic-adjacent example. It displays the Study 2 sample flow, logged transformations, original 29-node mixed graphical model, centrality and edge exports, scale diagnostics, and a transparent paper-wide ledger. **Bring your own data** is a separate configuration generator and local analysis launcher; it never assumes a participant’s raw variables follow any predefined naming convention.
+The Streamlit application has three distinct workspaces. **Abadi et al. Study 2 replication** is the default public view. It uses the authors’ original public April 2020 four-country data and Qualtrics codebook, rather than a topic-adjacent example. It displays the Study 2 sample flow, logged transformations, original 29-node mixed graphical model, centrality and edge exports, scale diagnostics, and a transparent paper-wide ledger. **ESS CRONOS-3 / SoGreen Wave 6** is a source-cited climate-attitudes case with an approved 15-node specification and an explicit publication gate; it does not host ESS microdata or present unreviewed network output. **Bring your own data** is a separate configuration generator and local analysis launcher; it never assumes a participant’s raw variables follow any predefined naming convention.
 
 Run the application from the repository root after installing the Python requirements.
 
@@ -24,6 +24,12 @@ The application classifies every paper component as one of three states:
 The public Study 2 joint MGM, sample preparation, Mardia diagnostic, centrality/predictability exports, and PA/nativism CFA/EFA workflow are executed. The seven-item one-factor PA model fits poorly, and the interface therefore does not silently treat it as a validated score for high/low PA networks. The original Study 2 data support RQ2–RQ4, including political-orientation and country comparisons, but the app labels those modules as pending until the published grouping rules are verified and their intensive computations complete.
 
 The 2019 15-country Study 1 data are restricted by the article’s H2020/GDPR data-availability statement. The application presents an email-free required-materials checklist for enabling the access-gated module. It does not present a fabricated Study 1 network, a cross-study NCT, or two-study substantive conclusions. The detailed boundary is in [abadi_genuine_replication_scope.md](abadi_genuine_replication_scope.md).
+
+## ESS CRONOS-3 / SoGreen Wave 6 publication-gated case
+
+The ESS case links users to the official CRONOS-3 Data Portal and exposes the approved variable map, source checksum, local/Docker commands, and evidence ledger. The CSV and codebook are never included in the repository or public Streamlit deployment because ESS recommends portal linking rather than external dataset hosting. The initial output is deliberately shown as **results pending** until the feasibility, bootstrap/stability, and replication gate is passed.
+
+Although CRONOS-3 is a panel, the initial Wave 6 MGM is a between-person baseline network. It must be interpreted as conditional associations, not as temporal, within-person, or directional causal effects. A later temporal extension needs documented item overlap in a released later wave and a pre-specified longitudinal model. The complete scope is in [ess_cronos3_sogreen_case.md](ess_cronos3_sogreen_case.md).
 
 ## How participant variable names and study design are handled
 

@@ -13,6 +13,12 @@ The public record describes 2,031 April 2020 respondents from Germany, Spain, th
 
 The Figshare metadata declares **CC BY 4.0**, while the record description says **CC BY-SA**. The code is MIT-licensed, but the source data are not covered by the repository code licence. Retain the dataset citation and check the current source record before redistribution or derivative publication.
 
+## ESS CRONOS-3 / SoGreen Wave 6 is official-access only
+
+The second worked case does **not** bundle the ESS CRONOS-3 Wave 6 data or codebook. ESS recommends linking to the ESS Data Portal instead of hosting its datasets externally, and its data are licensed CC BY-NC-SA 4.0. Download the official `CRON3w6e01.csv` and codebook from the [CRONOS-3 Data Portal](https://ess.sikt.no/en/series/a46bcac5-b030-444b-9280-441ec97e1bce), then keep them in the Git-ignored location described in [`data/external/README.md`](external/README.md).
+
+The case configuration records the official Wave 6 DOI ([10.21338/cron3w6e01](https://doi.org/10.21338/cron3w6e01)) and expected SHA-256 file fingerprint. Use `scripts/verify_ess_cronos3_source.R` before analysis; never commit, redistribute, or expose the ESS respondent-level files in the public Streamlit app.
+
 ## Study 1 is not bundled
 
 The August 2019 15-country Study 1 data are restricted by the article’s H2020/GDPR data-availability statement. This repository does not reconstruct or simulate Study 1. The full two-study ledger remains disabled until the authors authorize a de-identified Study 1 analytic file and documentation.

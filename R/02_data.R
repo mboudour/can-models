@@ -19,12 +19,24 @@ read_can_data <- function(config) {
 }
 
 apply_can_transformations <- function(data, config) {
+  missing_specs <- config$preprocessing$missing_values %||% list()
+  missing_audit <- unlist(lapply(missing_specs, function(spec) {
+    variables <- as.character(unlist(spec$variables %||% spec$variable, use.names = FALSE))
+    missing_values <- as.numeric(unlist(spec$values %||% spec$value, use.names = FALSE))
+    if (!length(variables) || any(!nzchar(variables))) stop("Missing-value specification needs one or more variables.", call. = FALSE)
+    if (!length(missing_values) || any(is.na(missing_values))) stop("Missing-value specification needs numeric values.", call. = FALSE)
+    lapply(variables, function(variable) {
+      if (!variable %in% names(data)) stop("Missing-value variable not present: ", variable, call. = FALSE)
+      original <- suppressWarnings(as.numeric(data[[variable]]))
+      if (any(!is.na(data[[variable]]) & is.na(original))) stop("Missing-value variable is not numeric: ", variable, call. = FALSE)
+      affected <- sum(original %in% missing_values, na.rm = TRUE)
+      data[[variable]] <<- ifelse(original %in% missing_values, NA_real_, original)
+      tibble::tibble(variable = variable, transformation = "missing_values_to_na", missing_values = paste(missing_values, collapse = ","), affected_n = affected, nonmissing_n = sum(!is.na(data[[variable]])))
+    })
+  }), recursive = FALSE)
+
   reverse_specs <- config$preprocessing$reverse_code %||% list()
-  if (!length(reverse_specs)) {
-    attr(data, "transformation_audit") <- tibble::tibble()
-    return(data)
-  }
-  audit <- lapply(reverse_specs, function(spec) {
+  reverse_audit <- lapply(reverse_specs, function(spec) {
     variable <- as.character(spec$variable)
     minimum <- as.numeric(spec$minimum %||% 1)
     maximum <- as.numeric(spec$maximum)
@@ -35,6 +47,7 @@ apply_can_transformations <- function(data, config) {
     data[[variable]] <<- ifelse(is.na(original), NA_real_, minimum + maximum - original)
     tibble::tibble(variable = variable, transformation = "reverse_code", minimum = minimum, maximum = maximum, nonmissing_n = sum(!is.na(original)))
   })
+
   collapse_specs <- config$preprocessing$collapse_values %||% list()
   collapse_audit <- lapply(collapse_specs, function(spec) {
     variable <- as.character(spec$variable)
@@ -48,7 +61,8 @@ apply_can_transformations <- function(data, config) {
     data[[variable]] <<- ifelse(original %in% from_values, to_value, original)
     tibble::tibble(variable = variable, transformation = "collapse_values", minimum = NA_real_, maximum = NA_real_, nonmissing_n = sum(!is.na(original)), from_values = paste(from_values, collapse = ","), to_value = to_value, affected_n = affected)
   })
-  attr(data, "transformation_audit") <- dplyr::bind_rows(audit, collapse_audit)
+
+  attr(data, "transformation_audit") <- dplyr::bind_rows(missing_audit, reverse_audit, collapse_audit)
   data
 }
 

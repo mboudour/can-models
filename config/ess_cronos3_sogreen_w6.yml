@@ -1,0 +1,176 @@
+project:
+  id: ess_cronos3_sogreen_w6
+  title: "ESS CRONOS-3 Wave 6 SoGreen climate-attitudes baseline"
+  seed: 20260819
+  study_design: "Longitudinal or panel study"
+  interpretive_notice: "This Wave 6 worked case estimates a between-person conditional-association network within a panel survey. It does not by itself estimate within-person change, temporal direction, or verified causal effects. A longitudinal extension requires item overlap across released waves and a pre-specified temporal model."
+
+input:
+  path: data/external/ess_cronos3_sogreen/CRON3w6e01.csv
+  sheet: ""
+  format: csv
+  questionnaire: data/external/ess_cronos3_sogreen/CRON3w6e01 codebook.html
+  source_doi: https://doi.org/10.21338/cron3w6e01
+  source_license: "ESS data: CC BY-NC-SA 4.0. Do not distribute through this repository or app; download the official file from the ESS Data Portal."
+  expected_checksum_sha256: "0a3a647e1b530e33a0e542ce573e53aa4449fba49856af097bb1cdac15b3fe59"
+
+audit:
+  mardia_max_n: 2000
+
+preprocessing:
+  missing_values:
+    - variables: [w6sgq11, w6sgq12, w6sgq13, w6sgq14, w6sgq15, w6sgq16, w6sgq17, w6sgq18, w6sgq19, w6sgq20, w6sgq21, w6sgq22, w6sgq23, w6seq2, w6seq4]
+      values: [9, 99]
+
+sample:
+  filter:
+    variable: ""
+    operator: equals
+    value: ""
+    label: "All released CRONOS-3 Wave 6 respondents"
+  complete_case_primary_network: true
+
+variables:
+  country: cntry
+  language: ""
+  study_field: ""
+  gender: ""
+  age: w6age
+  subjective_social_status: ""
+  religion: ""
+  education: ""
+  political_orientation: ""
+  use_frequency: ""
+  use_experience: ""
+
+network:
+  estimator: mgm
+  regularization: LASSO
+  model_selection: EBIC
+  ebic_gamma: 0.25
+  node_type: ordinal
+  node_levels: 5
+  minimum_category_events: 2
+  nodes:
+    - id: w6sgq11
+      label: Climate-change worry
+      domain: Climate appraisal
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq12
+      label: Personal responsibility to reduce climate change
+      domain: Climate appraisal
+      node_type: ordinal
+      levels: 11
+    - id: w6seq2
+      label: Worry about local extreme weather
+      domain: Climate appraisal
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq13
+      label: Trust in government to address climate change
+      domain: Institutional capacity
+      node_type: ordinal
+      levels: 5
+    - id: w6seq4
+      label: Government preparedness for extreme weather
+      domain: Institutional capacity
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq14
+      label: Environment versus economic growth priority
+      domain: Policy orientation and legitimacy
+      node_type: ordinal
+      levels: 2
+    - id: w6sgq15
+      label: Familiarity with national climate policies
+      domain: Policy orientation and legitimacy
+      node_type: ordinal
+      levels: 4
+    - id: w6sgq16
+      label: Confidence climate policies consider everyone views
+      domain: Policy orientation and legitimacy
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq17
+      label: Confidence in fair climate-policy outcomes
+      domain: Policy orientation and legitimacy
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq18
+      label: Expected climate-policy impact on jobs
+      domain: Expected transition impacts
+      node_type: ordinal
+      levels: 4
+    - id: w6sgq19
+      label: Expected lifestyle changes from climate policies
+      domain: Expected transition impacts
+      node_type: ordinal
+      levels: 11
+    - id: w6sgq20
+      label: Expected daily-life impact of lifestyle changes
+      domain: Expected transition impacts
+      node_type: ordinal
+      levels: 6
+    - id: w6sgq21
+      label: Concern about ability to pay energy bills
+      domain: Personal-cost concerns
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq22
+      label: Concern about increased transport costs
+      domain: Personal-cost concerns
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq23
+      label: Concern about future job loss
+      domain: Personal-cost concerns
+      node_type: ordinal
+      levels: 6
+
+factor_models: []
+
+bootstrapping:
+  edge_bootstrap_iterations: 250
+  case_drop_bootstrap_iterations: 250
+  case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
+
+community_detection:
+  primary_algorithm: walktrap
+  bootstrap_consensus_iterations: 100
+
+comparisons:
+  split_sample:
+    enabled: true
+    proportion_first_sample: 0.50
+    label: "Pre-specified split-sample reproducibility check; not a longitudinal or causal comparison"
+  use_frequency_median_split:
+    enabled: false
+    variable: ""
+    exclude_from_network: true
+    label: "Not applicable to the Wave 6 baseline case"
+  country:
+    enabled: true
+    variable: cntry
+    minimum_n: 500
+    network_estimator: ggm_spearman
+    all_pairwise_nct: true
+    nct_iterations: 250
+    p_adjustments: [bonferroni, fdr]
+  networktree:
+    enabled: false
+    moderators: []
+
+contextual_associations:
+  categorical_variables: [cntry]
+  effect_size: cramers_v
+
+output:
+  computations_dir: new_computations/ess_cronos3_sogreen_w6
+  figures_dir: figures/ess_cronos3_sogreen_w6
+  report_dir: reports/ess_cronos3_sogreen_w6
+  save_rds: true
+  save_csv: true
+  figure_width: 16
+  figure_height: 12
+  figure_dpi: 180

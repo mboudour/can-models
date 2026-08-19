@@ -26,6 +26,10 @@ reports/*_files/
 *.tmp
 *.bak
 
+# Official external datasets: retain locally and never commit or serve them
+/data/external/*
+!/data/external/README.md
+
 # OS files
 .DS_Store
 Thumbs.db
