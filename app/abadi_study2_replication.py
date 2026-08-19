@@ -76,7 +76,7 @@ def replication_ledger() -> pd.DataFrame:
                 "Paper component": "Study 1: August 2019 15-country analyses",
                 "Original-paper requirement": "Reproduce the 15-country Study 1 network, country comparisons, and clustering.",
                 "Public-data status": "Access-gated",
-                "Evidence / boundary": "The paper’s data-availability statement restricts the Study 1 data under H2020 GDPR agreements. The app provides an access request and required-data checklist; it does not manufacture outputs.",
+                "Evidence / boundary": "The paper’s data-availability statement restricts the Study 1 data under H2020 GDPR agreements. The access gate lists the material required for an authorized replication; it does not manufacture outputs.",
             },
             {
                 "Paper component": "Cross-study NCT and two-study conclusions",
@@ -240,16 +240,21 @@ def render_abadi_study2_replication() -> None:
         st.write(
             "The genuine two-study ledger will be enabled only after an authorized de-identified Study 1 file, codebook, response coding, exclusions, questionnaire translations, and variable map have been received and verified against the article. A secure analysis environment or author-run checksum-verifiable script would also be acceptable if data transfer is not permitted."
         )
-        st.code(
-            "Subject: Request for restricted Study 1 data/materials for a computational replication\n\n"
-            "Dear Dr Abadi,\n\n"
-            "I am preparing a transparent computational replication of Abadi et al. (2025), ‘Connecting the Dots with Causal Attitude Network (CAN)’. I have reproduced the public Study 2 workflow using the authors’ Figshare dataset and would like to complete the corresponding Study 1 and cross-study analyses.\n\n"
-            "Could you advise whether access to a de-identified Study 1 analytic file is possible under the H2020/GDPR agreement? The requested materials are the cleaned analytic sample, codebook and response coding, reverse-coding and exclusion rules, country identifiers, questionnaire translations, and the exact published network-variable map. If raw transfer is not possible, I would be happy to use a secure analysis environment or an author-run script with checksum-verifiable output.\n\n"
-            "The purpose is a non-commercial methodological replication. I will follow any data-access agreement, security controls, citation requirements, and restrictions on redistribution.\n\n"
-            "Kind regards,\n[Name / affiliation]",
-            language="text",
+        st.markdown("**Materials required before the Study 1 module can be enabled**")
+        st.dataframe(
+            pd.DataFrame(
+                [
+                    {"Required material": "De-identified analytic file", "Purpose": "Reconstruct the 15-country Study 1 network and comparison samples."},
+                    {"Required material": "Codebook and response-value coding", "Purpose": "Map the original variables and preserve ordinal/categorical treatment."},
+                    {"Required material": "Reverse coding, exclusions, and country identifiers", "Purpose": "Reproduce preprocessing and country-specific analysis branches."},
+                    {"Required material": "Questionnaire translations and original variable map", "Purpose": "Audit cross-country measurement and published node selection."},
+                    {"Required material": "Authorized execution arrangement, if applicable", "Purpose": "Support secure remote analysis or author-run reproducibility checks without public data transfer."},
+                ]
+            ),
+            width="stretch",
+            hide_index=True,
         )
-        st.caption("The app does not send this request. The corresponding-author address in the paper is `d.r.abadi@uva.nl`.")
+        st.caption("No contact template or personal contact details are displayed in this application.")
 
     with data_tab:
         st.subheader("Original public Study 2 data and reproducibility files")

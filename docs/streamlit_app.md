@@ -23,11 +23,13 @@ The application classifies every paper component as one of three states:
 
 The public Study 2 joint MGM, sample preparation, Mardia diagnostic, centrality/predictability exports, and PA/nativism CFA/EFA workflow are executed. The seven-item one-factor PA model fits poorly, and the interface therefore does not silently treat it as a validated score for high/low PA networks. The original Study 2 data support RQ2–RQ4, including political-orientation and country comparisons, but the app labels those modules as pending until the published grouping rules are verified and their intensive computations complete.
 
-The 2019 15-country Study 1 data are restricted by the article’s H2020/GDPR data-availability statement. The application shows a request template and a precise required-materials checklist. It does not present a fabricated Study 1 network, a cross-study NCT, or two-study substantive conclusions. The detailed boundary is in [abadi_genuine_replication_scope.md](abadi_genuine_replication_scope.md).
+The 2019 15-country Study 1 data are restricted by the article’s H2020/GDPR data-availability statement. The application presents an email-free required-materials checklist for enabling the access-gated module. It does not present a fabricated Study 1 network, a cross-study NCT, or two-study substantive conclusions. The detailed boundary is in [abadi_genuine_replication_scope.md](abadi_genuine_replication_scope.md).
 
-## How participant variable names are handled
+## How participant variable names and study design are handled
 
 After a participant uploads a CSV or Excel file, the app profiles every column: data type, non-missing count, missingness, unique values, and—where meaningful—numeric range. The participant then selects their own source columns as CAN nodes and assigns each a readable label and an attitude-system domain. The saved YAML configuration stores this mapping explicitly.
+
+The BYOD landing page does not assume that every uploaded dataset is cross-sectional. Users may optionally record whether their study is cross-sectional, longitudinal/panel, or experimental/quasi-experimental. Interpretation guidance is shown only after data upload and reflects that selection. The current core workflow estimates network structure; it does not automatically estimate temporal, within-person, or intervention effects merely because a longitudinal or experimental dataset is uploaded.
 
 | User action | What the app saves | Why it matters |
 |---|---|---|
@@ -70,4 +72,4 @@ Rscript scripts/run_example.R --config user_runs/<run-id>/config.yml
 
 The interface labels **Quick mode** as a feasibility check. Full bootstrap, exhaustive country NCT, and clustering workflows can be substantially slower and should be selected only after the mapping and core network have been validated.
 
-> **Interpretive limit.** The interface implements a CAN-informed workflow, not an automatic causal-inference engine. Cross-sectional network edges are conditional associations. Directional causal claims require an appropriate longitudinal or experimental design.
+> **Interpretive limit.** The interface implements a CAN-informed workflow, not an automatic causal-inference engine. The interpretation shown in a run follows the user-selected study design. Cross-sectional network edges are conditional associations; longitudinal and experimental causal claims require a design-appropriate model and estimand.

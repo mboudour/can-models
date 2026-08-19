@@ -10,7 +10,7 @@ The public application will no longer present the Ravšelj et al. ChatGPT data a
 
 | Paper study | Original design | Available data | Replication status |
 |---|---|---|---|
-| **Study 1** | August 2019; 15 European countries; reported final *N* = 8,046 | Restricted under the paper’s H2020 GDPR data-availability statement | **Access-gated.** The workspace exposes the exact required data package and a request template, but does not fabricate results. |
+| **Study 1** | August 2019; 15 European countries; reported final *N* = 8,046 | Restricted under the paper’s H2020 GDPR data-availability statement | **Access-gated.** The workspace exposes the exact required data package but does not fabricate results. |
 | **Study 2** | April 2020; Germany, Spain, Netherlands, United Kingdom; reported final *N* = 2,030 | Public Figshare CSV and Qualtrics codebook; raw file contains 2,031 valid respondents | **Public replication.** The workspace will implement the documented exclusions and reported analyses. |
 
 ## Faithful Study 2 replication ledger
@@ -36,7 +36,7 @@ The stars are part of the original CSV and codebook notation for reverse-coded i
 
 ## Study 1 data package required before enabling the remaining ledger
 
-The study-access request will ask for a de-identified data file and codebook that provide, at minimum, the cleaned Study 1 analytic sample, country codes, original item names/labels, response-value coding, reverse-coding rules, exclusion flags, questionnaire translations, and the exact variable set included in the published model. If raw transfer is not permissible, a secure analysis environment or an author-run replication script with checksum-verifiable output would also support the access-gated module.
+The access-gated module requires a de-identified data file and codebook that provide, at minimum, the cleaned Study 1 analytic sample, country codes, original item names/labels, response-value coding, reverse-coding rules, exclusion flags, questionnaire translations, and the exact variable set included in the published model. If raw transfer is not permissible, a secure analysis environment or an author-run replication script with checksum-verifiable output would also support the access-gated module.
 
 ## Interpretive limit
 

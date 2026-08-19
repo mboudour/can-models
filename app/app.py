@@ -99,12 +99,38 @@ def parse_filter_value(value: str) -> Any:
         return stripped
 
 
+def select_study2_workspace() -> None:
+    st.session_state["workspace_selector"] = "Abadi et al. Study 2 replication"
+
+
+def design_interpretive_notice(study_design: str) -> str:
+    if study_design == "Cross-sectional survey":
+        return (
+            "The uploaded study is marked as cross-sectional. Undirected network edges are conditional "
+            "associations and do not establish directional causal effects."
+        )
+    if study_design == "Longitudinal or panel study":
+        return (
+            "The uploaded study is marked as longitudinal or panel. The current workflow estimates "
+            "cross-sectional network structures; temporal or within-person claims require a pre-specified "
+            "longitudinal model and design-appropriate analysis."
+        )
+    if study_design == "Experimental or quasi-experimental study":
+        return (
+            "The uploaded study is marked as experimental or quasi-experimental. The current workflow "
+            "summarizes network structure; causal claims depend on the assignment mechanism, intervention "
+            "fidelity, and a design-appropriate estimand."
+        )
+    return "Study design has not been specified. The app will not assign a causal interpretation to network estimates."
+
+
 def build_config(
     *,
     run_dir: Path,
     data_path: Path,
     sheet: str | None,
     project_title: str,
+    study_design: str,
     node_mapping: list[dict[str, str]],
     node_type: str,
     levels: int,
@@ -140,10 +166,8 @@ def build_config(
             "id": re.sub(r"[^a-z0-9_]+", "_", project_title.lower()).strip("_") or "user_can_analysis",
             "title": project_title,
             "seed": 20260818,
-            "interpretive_notice": (
-                "The Causal Attitude Network is a substantive theory of interacting attitude elements. "
-                "With cross-sectional survey data, undirected network edges are conditional associations and do not establish directional causal effects."
-            ),
+            "study_design": study_design,
+            "interpretive_notice": design_interpretive_notice(study_design),
         },
         "input": {
             "path": str(data_path.resolve()),
@@ -340,6 +364,7 @@ workspace = st.radio(
     ["Abadi et al. Study 2 replication", "Bring your own data"],
     horizontal=True,
     label_visibility="collapsed",
+    key="workspace_selector",
 )
 if workspace == "Abadi et al. Study 2 replication":
     render_abadi_study2_replication()
@@ -347,11 +372,27 @@ if workspace == "Abadi et al. Study 2 replication":
 
 st.header("Bring your own data")
 st.caption("Upload a compatible survey, map its variable names to CAN roles, inspect the available computations, and create a reproducible run bundle.")
-st.warning("Cross-sectional guardrail: estimated network edges are conditional associations. They do not, by themselves, demonstrate directional causal effects.")
 
 with st.sidebar:
+    st.button(
+        "← Return to Study 2 replication",
+        on_click=select_study2_workspace,
+        use_container_width=True,
+        help="Return to the original-data Abadi et al. Study 2 replication workspace.",
+    )
+    st.divider()
     st.header("1. Upload data")
     uploaded = st.file_uploader("CSV or Excel workbook", type=["csv", "xlsx", "xls"], help="Upload one row per participant. The file is stored only in a local run directory when you choose to create a run bundle.")
+    study_design = st.selectbox(
+        "Study design",
+        [
+            "Not specified",
+            "Cross-sectional survey",
+            "Longitudinal or panel study",
+            "Experimental or quasi-experimental study",
+        ],
+        help="This optional selection records the study design in the configuration and controls the interpretation guidance shown after data upload.",
+    )
     quick_mode = st.toggle("Quick mode", value=True, help="Uses fewer bootstrap and permutation iterations for feasibility checks. Full mode retains the larger configured analysis settings.")
 
 if uploaded is None:
@@ -396,6 +437,10 @@ with right:
 with st.expander("Variable profile and coding check", expanded=True):
     st.dataframe(profile, width="stretch", height=350)
     st.caption("The current R workflow expects numeric codes for network nodes. Categorical text labels should be recoded before estimation; their variable names can still be mapped here without requiring any predefined naming convention.")
+
+if study_design != "Not specified":
+    with st.expander("Interpretation guidance for the selected study design", expanded=False):
+        st.info(design_interpretive_notice(study_design))
 
 st.header("2. Map your data to CAN roles")
 st.write("Select item-level survey variables as network nodes. The labels and theoretical domains below are displayed in output figures and never need to match the raw column names.")
@@ -451,6 +496,7 @@ if st.button("Create configuration and run bundle", type="primary"):
         data_path=provisional_data_path,
         sheet=sheet,
         project_title=project_title,
+        study_design=study_design,
         node_mapping=node_mapping,
         node_type=node_type,
         levels=int(levels),
@@ -473,6 +519,7 @@ if st.button("Create configuration and run bundle", type="primary"):
         data_path=temporary_data_path,
         sheet=sheet,
         project_title=project_title,
+        study_design=study_design,
         node_mapping=node_mapping,
         node_type=node_type,
         levels=int(levels),
@@ -494,6 +541,7 @@ if st.button("Create configuration and run bundle", type="primary"):
         data_path=actual_data_path,
         sheet=sheet,
         project_title=project_title,
+        study_design=study_design,
         node_mapping=node_mapping,
         node_type=node_type,
         levels=int(levels),
@@ -556,4 +604,4 @@ if "config_path" in st.session_state:
             st.error("The full workflow did not complete. Inspect the saved console log and module status files.")
 
 st.divider()
-st.caption("The app does not infer substantive theory from variable names. Users must map their own variables and labels to a CAN node set, and the eligibility table records every unsupported or inapplicable computational step.")
+st.caption("The app does not infer substantive theory from variable names. Users must map their own variables and labels to a CAN node set, select the study design when known, and use the eligibility table to identify unsupported or inapplicable computational steps.")

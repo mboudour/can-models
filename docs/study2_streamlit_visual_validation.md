@@ -13,3 +13,7 @@ The locally served Streamlit application was inspected in a browser after the Ch
 The ledger visibly identifies the executed Study 2 sample preparation and joint network, pending Study 2 diagnostic/group/country outputs, restricted Study 1, and access-gated cross-study comparison. This confirms that the interface no longer presents the unrelated ChatGPT survey as an Abadi et al. replication.
 
 The RQ1 joint-network tab was also inspected. It rendered the 29-node original Study 2 MGM figure, the joint-network summary (*N* = 2,030; 29 nodes; 378 non-zero edges), centrality table, edge table, and Mardia output without a broken image or missing-table error. The figure uses numbered nodes that map to the original-variable node key in the Study 2 scope tab.
+
+## BYOD refinement validation
+
+The revised BYOD landing view was inspected in a browser. The left sidebar contains a visible **“← Return to Study 2 replication”** control above the upload section and an optional **Study design** selector defaulting to **“Not specified.”** The main BYOD landing content shows only the upload prompt; it no longer displays a blanket cross-sectional guardrail before any data are uploaded or a design is selected.
