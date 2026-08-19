@@ -20,4 +20,9 @@ stopifnot(nrow(workflow$eligible_groups) == 1L)
 stopifnot(workflow$eligible_groups$status[[1]] == "completed")
 stopifnot(workflow$networks[[1]]$result$estimator == "mgm_lasso_ebic")
 
+fr_index <- prepared$primary_context$cntry == "FR"
+fr_data <- refresh_mgm_subset_metadata(prepared$primary_data[fr_index, , drop = FALSE], config)
+fr_result <- estimate_mgm_network(fr_data, config)
+stopifnot(fr_result$estimator == "mgm_lasso_ebic")
+
 cat("ESS country MGM estimator test passed.\n")

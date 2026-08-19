@@ -31,46 +31,90 @@ community_agreement <- function(primary_membership, bootstrap_memberships) {
   tibble::tibble(node_1 = rownames(coassignment)[index[, 1]], node_2 = colnames(coassignment)[index[, 2]], coassignment = coassignment[index])
 }
 
+diagnostic_cores <- function(config) {
+  requested <- as.integer(config$bootstrapping$n_cores %||% 1L)
+  available <- parallel::detectCores(logical = FALSE)
+  if (is.na(available) || available < 1L) available <- 1L
+  if (.Platform$OS.type == "windows") return(1L)
+  max(1L, min(requested, available))
+}
+
 bootstrap_community_consensus <- function(data, config) {
   iterations <- config$community_detection$bootstrap_consensus_iterations
   nodes <- colnames(data)
-  memberships <- vector("list", iterations)
-  for (i in seq_len(iterations)) {
-    indices <- sample.int(nrow(data), size = nrow(data), replace = TRUE)
-    fit <- tryCatch(estimate_mgm_network(data[indices, , drop = FALSE], config), error = function(e) NULL)
-    if (!is.null(fit)) {
-      membership <- walktrap_communities(fit$adjacency)$community
-      names(membership) <- walktrap_communities(fit$adjacency)$node
-      memberships[[i]] <- membership[nodes]
-    }
-  }
+  cores <- diagnostic_cores(config)
+  memberships <- parallel::mclapply(
+    seq_len(iterations),
+    function(i) {
+      set.seed(config$project$seed + i)
+      indices <- sample.int(nrow(data), size = nrow(data), replace = TRUE)
+      fit <- tryCatch(estimate_mgm_network(data[indices, , drop = FALSE], config), error = function(e) NULL)
+      if (is.null(fit)) return(NULL)
+      membership <- walktrap_communities(fit$adjacency)
+      values <- membership$community
+      names(values) <- membership$node
+      values[nodes]
+    },
+    mc.cores = cores
+  )
   Filter(Negate(is.null), memberships)
 }
 
 run_bootnet_diagnostics <- function(data, config) {
   require_can_package("bootnet")
   set.seed(config$project$seed)
-  estimated <- tryCatch(
-    bootnet::estimateNetwork(
-      data,
-      default = "mgm",
-      type = rep("c", ncol(data)),
-      level = rep(config$network$node_levels, ncol(data)),
-      verbose = FALSE
-    ),
-    error = function(e) e
-  )
-  if (inherits(estimated, "error")) return(list(error = conditionMessage(estimated)))
+  cores <- diagnostic_cores(config)
+  diagnostic_estimator <- config$bootstrapping$stability_estimator %||% "mgm"
 
+  if (identical(diagnostic_estimator, "ordinal_ggm")) {
+    estimated <- tryCatch(
+      bootnet::estimateNetwork(
+        data,
+        default = "EBICglasso",
+        corMethod = "cor_auto",
+        tuning = config$network$ebic_gamma,
+        verbose = FALSE
+      ),
+      error = function(e) e
+    )
+    estimator_label <- "ordinal_ggm_ebicglasso_sensitivity"
+  } else if (identical(diagnostic_estimator, "mgm")) {
+    effective_levels <- attr(data, "mgm_levels")
+    if (is.null(effective_levels)) effective_levels <- rep(config$network$node_levels, ncol(data))
+    if (length(effective_levels) != ncol(data)) stop("Prepared MGM levels do not match the network data columns.", call. = FALSE)
+    effective_levels <- stats::setNames(as.integer(unname(effective_levels)), colnames(data))
+    effective_types <- attr(data, "mgm_types")
+    if (is.null(effective_types)) effective_types <- rep(config$network$node_type, ncol(data))
+    if (length(effective_types) != ncol(data)) stop("Prepared MGM types do not match the network data columns.", call. = FALSE)
+    effective_types <- stats::setNames(as.character(unname(effective_types)), colnames(data))
+    bootnet_types <- ifelse(effective_types == "continuous", "g", "c")
+    estimated <- tryCatch(
+      bootnet::estimateNetwork(
+        data,
+        default = "mgm",
+        type = unname(bootnet_types),
+        level = unname(effective_levels),
+        verbose = FALSE
+      ),
+      error = function(e) e
+    )
+    estimator_label <- "mgm_bootstrap"
+  } else {
+    stop("Unsupported bootstrapping.stability_estimator: ", diagnostic_estimator, call. = FALSE)
+  }
+
+  if (inherits(estimated, "error")) return(list(error = paste0("bootnet estimation: ", conditionMessage(estimated))))
   edge_boot <- tryCatch(
-    bootnet::bootnet(estimated, nBoots = config$bootstrapping$edge_bootstrap_iterations, type = "nonparametric", statistics = c("edge", "strength"), nCores = 1),
+    bootnet::bootnet(estimated, nBoots = config$bootstrapping$edge_bootstrap_iterations, type = "nonparametric", statistics = c("edge", "strength"), nCores = cores),
     error = function(e) e
   )
   case_boot <- tryCatch(
-    bootnet::bootnet(estimated, nBoots = config$bootstrapping$case_drop_bootstrap_iterations, type = "case", statistics = c("strength"), nCores = 1),
+    bootnet::bootnet(estimated, nBoots = config$bootstrapping$case_drop_bootstrap_iterations, type = "case", statistics = c("strength"), nCores = cores),
     error = function(e) e
   )
-  list(estimated = estimated, edge_boot = edge_boot, case_boot = case_boot)
+  if (inherits(edge_boot, "error")) return(list(error = paste0("bootnet edge bootstrap: ", conditionMessage(edge_boot))))
+  if (inherits(case_boot, "error")) return(list(error = paste0("bootnet case-drop bootstrap: ", conditionMessage(case_boot))))
+  list(estimated = estimated, edge_boot = edge_boot, case_boot = case_boot, estimator_label = estimator_label)
 }
 
 save_bootnet_diagnostics <- function(diagnostics, config) {

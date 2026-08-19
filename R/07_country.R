@@ -17,6 +17,32 @@ eligible_country_groups <- function(context_data, config) {
     as.character()
 }
 
+refresh_mgm_subset_metadata <- function(network_data, config) {
+  levels <- attr(network_data, "mgm_levels")
+  types <- attr(network_data, "mgm_types")
+  if (is.null(levels)) levels <- rep(config$network$node_levels, ncol(network_data))
+  if (is.null(types)) types <- rep(config$network$node_type, ncol(network_data))
+  if (length(levels) != ncol(network_data) || length(types) != ncol(network_data)) {
+    stop("Subset MGM metadata do not match the network data columns.", call. = FALSE)
+  }
+
+  refreshed <- network_data
+  effective_levels <- integer(ncol(network_data))
+  for (index in seq_len(ncol(network_data))) {
+    if (types[[index]] %in% c("ordinal", "categorical")) {
+      observed <- sort(unique(refreshed[[index]][!is.na(refreshed[[index]])]))
+      if (length(observed) < 2L) stop("Country subset has fewer than two observed response levels for `", colnames(network_data)[[index]], "`.", call. = FALSE)
+      refreshed[[index]] <- match(refreshed[[index]], observed)
+      effective_levels[[index]] <- length(observed)
+    } else {
+      effective_levels[[index]] <- NA_integer_
+    }
+  }
+  attr(refreshed, "mgm_levels") <- stats::setNames(effective_levels, colnames(refreshed))
+  attr(refreshed, "mgm_types") <- stats::setNames(as.character(unname(types)), colnames(refreshed))
+  refreshed
+}
+
 run_country_networks <- function(prepared, config) {
   groups <- eligible_country_groups(prepared$primary_context, config)
   output_dir <- can_dir_create(file.path(config_output_path(config, "computations_dir"), "country_networks"))
@@ -36,6 +62,10 @@ run_country_networks <- function(prepared, config) {
   attempts <- lapply(groups, function(group_name) {
     index <- prepared$primary_context[[country_variable]] == group_name
     network_data <- prepared$primary_data[index, , drop = FALSE]
+    network_data <- tryCatch(refresh_mgm_subset_metadata(network_data, config), error = function(error) error)
+    if (inherits(network_data, "error")) {
+      return(list(name = group_name, data = prepared$primary_data[index, , drop = FALSE], result = NULL, error = conditionMessage(network_data)))
+    }
     result <- tryCatch(estimate_country_network(network_data, config), error = function(error) error)
     if (inherits(result, "error")) {
       return(list(name = group_name, data = network_data, result = NULL, error = conditionMessage(result)))

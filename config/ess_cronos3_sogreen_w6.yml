@@ -182,13 +182,15 @@ factor_models:
     country_invariance: true
 
 bootstrapping:
-  edge_bootstrap_iterations: 1000
-  case_drop_bootstrap_iterations: 1000
+  edge_bootstrap_iterations: 250
+  case_drop_bootstrap_iterations: 250
   case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
+  n_cores: 2
+  stability_estimator: ordinal_ggm
 
 community_detection:
   primary_algorithm: walktrap
-  bootstrap_consensus_iterations: 1000
+  bootstrap_consensus_iterations: 50
 
 comparisons:
   split_sample:
@@ -206,7 +208,7 @@ comparisons:
     minimum_n: 400
     network_estimator: mgm
     all_pairwise_nct: true
-    nct_iterations: 1000
+    nct_iterations: 250
     p_adjustments: [bonferroni, fdr]
   networktree:
     enabled: false

@@ -56,17 +56,17 @@ The protocol converts documented `9` and `99` nonresponse values to missing. To 
 7. Cluster country network edge matrices using the project’s multiple clustering procedures.
 8. Treat any temporal panel extension as a separate future protocol. Wave 6 alone provides no temporal or within-person effects.
 
-## Publication boundary
+## Completed publication gate
 
-The public application displays **no substantive network output** until the following gate is met:
+The completed worked case passed the project’s pre-specified gate:
 
-1. Source provenance and item coding have been verified.
-2. The pooled network is non-trivial and not saturated or dominated by artefacts.
-3. CFA/EFA, bootstrap edge accuracy, and case-drop centrality stability have been reviewed.
-4. The split-sample and cross-country results are complete and interpretation is stable across the specified checks.
-5. All claims preserve the conditional-association, cross-sectional-within-wave, and non-causal boundaries.
+1. Source provenance and item coding were verified against the documented release and SHA-256 fingerprint.
+2. The redesigned 21-node pooled network was non-trivial and non-saturated, although its 0.700 density requires caution for smaller edges.
+3. Factor probes, ordinal-GGM bootstrap sensitivity, case-drop centrality stability, Walktrap communities, and community-resampling output were reviewed.
+4. The split-sample check, eleven country MGMs, 55 pairwise NCTs, and country-network clustering completed successfully.
+5. The application preserves the conditional-association, cross-sectional-within-wave, and non-causal boundaries.
 
-A failed gate is a reportable methodological result, not a reason to display an uninformative graph.
+The public application therefore displays the non-row-level pooled and country-level result bundle. If a later configuration fails this gate, it must be reported as a methodological result rather than used to display an uninformative graph.
 
 ## Commands
 
@@ -75,11 +75,13 @@ Run from the repository root after the official data files are placed locally:
 ```bash
 Rscript --vanilla scripts/verify_ess_cronos3_source.R
 Rscript --vanilla scripts/validate_config.R --config config/ess_cronos3_sogreen_w6.yml
-Rscript --vanilla scripts/run_ess_cronos3_w6.R
-Rscript --vanilla scripts/run_ess_cronos3_green_transition_full.R
+Rscript --vanilla scripts/run_ess_cronos3_green_transition_results.R
+Rscript --vanilla scripts/run_ess_cronos3_green_transition_diagnostics.R
+Rscript --vanilla scripts/run_ess_cronos3_green_transition_country_nct.R
+Rscript --vanilla scripts/build_ess_streamlit_assets.R
 ```
 
-The final command is computationally intensive because it includes bootstraps, the country workflow, pairwise NCTs, and clustering.
+The staged runners save the pooled, country, diagnostic, and pairwise NCT outputs independently so that a long analysis can be resumed without repeating completed computation.
 
 ## References
 
@@ -90,3 +92,8 @@ The final command is computationally intensive because it includes bootstraps, t
 [3] Haslbeck, J. M. B., & Waldorp, L. J. (2020). *mgm: Estimating time-varying mixed graphical models in high-dimensional data*. *Journal of Statistical Software, 93*(8), 1–46. [https://doi.org/10.18637/jss.v093.i08](https://doi.org/10.18637/jss.v093.i08)
 
 [4] Epskamp, S., Borsboom, D., & Fried, E. I. (2018). *Estimating psychological networks and their accuracy: A tutorial paper*. *Behavior Research Methods, 50*, 195–212. [https://doi.org/10.3758/s13428-017-0862-1](https://doi.org/10.3758/s13428-017-0862-1)
+
+
+## Post-completion Streamlit visual validation
+
+Validated locally on 2026-08-19 after generation of the completed result bundle. The ESS workspace opens from the main selector and displays the completed-results status, cross-sectional interpretation boundary, 7,841 primary-network cases, 21 nodes, 147 non-zero pooled edges, and 11 country networks. The results-overview tab renders the pooled density, split-sample correlation, top-node table, and strongest-edge table without exposing respondent-level ESS data. The application-level caption was updated to identify this as a completed, rather than publication-gated, ESS case.

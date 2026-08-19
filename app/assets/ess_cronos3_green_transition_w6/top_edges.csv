@@ -1,0 +1,148 @@
+from,to,weight,abs_weight,sign
+Confidence policies consider everyone views,Confidence in fair climate-policy outcomes,1.8126300698651552,1.8126300698651552,positive
+Concern about ability to pay energy bills,Concern about increased transport costs,1.3738805640628269,1.3738805640628269,positive
+Local air-pollution concern,Climate-change worry,1.01961722417692,1.01961722417692,positive
+Climate-change worry,Personal responsibility to reduce climate change,1.0179151757414706,1.0179151757414706,positive
+Climate-change worry,Worry about local extreme weather,0.860291123566346,0.860291123566346,positive
+Trust in government to address climate change,Confidence policies consider everyone views,0.7402336329906412,0.7402336329906412,positive
+Concern about ability to pay energy bills,Concern about future job loss,0.6905763586224971,0.6905763586224971,positive
+Trust in government to address climate change,Confidence in fair climate-policy outcomes,0.6715991426614034,0.6715991426614034,positive
+Trust in government to address climate change,Government preparedness for extreme weather,0.6683895695214832,0.6683895695214832,positive
+Climate-change worry,Environment versus economic-growth priority,0.6258656788940165,0.6258656788940165,positive
+Worry about local extreme weather,Experienced severe flooding,0.5867621345767471,0.5867621345767471,positive
+Government preparedness for extreme weather,Confidence in fair climate-policy outcomes,0.5630327211293324,0.5630327211293324,positive
+Concern about increased transport costs,Concern about future job loss,0.5174116939822253,0.5174116939822253,positive
+Worry about local extreme weather,Experienced extended extreme heat,0.4545176514849901,0.4545176514849901,positive
+Experienced drought,Experienced extended extreme heat,0.44719184165592313,0.44719184165592313,positive
+Familiarity with national climate policies,Confidence policies consider everyone views,0.4245508436671856,0.4245508436671856,positive
+Experienced severe flooding,Experienced wildfire,0.4199023133037221,0.4199023133037221,positive
+Energy-efficient appliance choice,Confidence policies consider everyone views,0.4093857120543661,0.4093857120543661,positive
+Climate-change worry,Trust in government to address climate change,0.4020935565278913,0.4020935565278913,positive
+Local air-pollution concern,Worry about local extreme weather,0.3976140329080155,0.3976140329080155,positive
+Energy-efficient appliance choice,Familiarity with national climate policies,0.39625267561650146,0.39625267561650146,positive
+Worry about local extreme weather,Experienced drought,0.3914257338852333,0.3914257338852333,positive
+Local air-pollution concern,Concern about ability to pay energy bills,0.3579361026553596,0.3579361026553596,positive
+Familiarity with national climate policies,Participated in an environmental-protection organisation,0.3494751639365885,0.3494751639365885,positive
+Worry about local extreme weather,Concern about ability to pay energy bills,0.3367217129854333,0.3367217129854333,positive
+Environment versus economic-growth priority,Participated in an environmental-protection organisation,0.33244097052767335,0.33244097052767335,positive
+Personal responsibility to reduce climate change,Confidence in fair climate-policy outcomes,0.3257798144846835,0.3257798144846835,positive
+Energy-efficient appliance choice,Personal responsibility to reduce climate change,0.3240749712181724,0.3240749712181724,positive
+Confidence in fair climate-policy outcomes,Concern about future job loss,0.323685171830782,0.323685171830782,positive
+Worry about local extreme weather,Concern about future job loss,0.3201781679267963,0.3201781679267963,positive
+Experienced wildfire,Concern about future job loss,0.32012975095167656,0.32012975095167656,positive
+Worry about local extreme weather,Experienced heavy storm,0.3182725609894601,0.3182725609894601,positive
+Personal responsibility to reduce climate change,Government preparedness for extreme weather,0.31686225135382845,0.31686225135382845,positive
+Confidence in fair climate-policy outcomes,Concern about increased transport costs,0.2949973995743495,0.2949973995743495,positive
+Climate-change worry,Familiarity with national climate policies,0.28751968066471456,0.28751968066471456,positive
+Experienced severe flooding,Experienced heavy storm,0.28726317483740893,0.28726317483740893,positive
+Worry about local extreme weather,Experienced wildfire,0.2830536523435638,0.2830536523435638,positive
+Personal responsibility to reduce climate change,Trust in government to address climate change,0.28144383051838734,0.28144383051838734,positive
+Energy-efficient appliance choice,Climate-change worry,0.2787217214985654,0.2787217214985654,positive
+Experienced heavy storm,Experienced extended extreme heat,0.27744539263382284,0.27744539263382284,positive
+Government preparedness for extreme weather,Familiarity with national climate policies,0.27188696683922997,0.27188696683922997,positive
+Local air-pollution concern,Familiarity with national climate policies,0.2604705534823011,0.2604705534823011,positive
+Experienced drought,Experienced wildfire,0.2591874142398593,0.2591874142398593,positive
+Climate-change worry,Confidence policies consider everyone views,0.25129553933607995,0.25129553933607995,positive
+Climate-change worry,Concern about future job loss,0.24902543865706173,0.24902543865706173,positive
+Public-transport use,Concern about future job loss,0.23702720217552076,0.23702720217552076,positive
+Local air-pollution concern,Energy-efficient appliance choice,0.2312146757739828,0.2312146757739828,positive
+Local air-pollution concern,Government preparedness for extreme weather,0.2299788324579537,0.2299788324579537,positive
+Local air-pollution concern,Concern about future job loss,0.2261179013067184,0.2261179013067184,positive
+Local air-pollution concern,Public-transport use,0.2260485894685804,0.2260485894685804,positive
+Personal responsibility to reduce climate change,Worry about local extreme weather,0.2247797301360102,0.2247797301360102,positive
+Environment versus economic-growth priority,Concern about increased transport costs,0.2243537954120517,0.2243537954120517,positive
+Familiarity with national climate policies,Concern about future job loss,0.22147776351141535,0.22147776351141535,positive
+Local air-pollution concern,Personal responsibility to reduce climate change,0.21405732618478593,0.21405732618478593,positive
+Government preparedness for extreme weather,Confidence policies consider everyone views,0.2127520261950871,0.2127520261950871,positive
+Confidence in fair climate-policy outcomes,Concern about ability to pay energy bills,0.2115576190556221,0.2115576190556221,positive
+Climate-change worry,Concern about ability to pay energy bills,0.2101960013837416,0.2101960013837416,positive
+Climate-change worry,Participated in an environmental-protection organisation,0.20929505729543,0.20929505729543,positive
+Energy-efficient appliance choice,Worry about local extreme weather,0.20848670483985135,0.20848670483985135,positive
+Government preparedness for extreme weather,Concern about future job loss,0.2078039991019652,0.2078039991019652,positive
+Worry about local extreme weather,Government preparedness for extreme weather,0.2071241530710205,0.2071241530710205,positive
+Trust in government to address climate change,Concern about future job loss,0.2063301265688952,0.2063301265688952,positive
+Trust in government to address climate change,Concern about increased transport costs,0.2033934484334999,0.2033934484334999,positive
+Energy-efficient appliance choice,Government preparedness for extreme weather,0.20069825130178076,0.20069825130178076,positive
+Confidence policies consider everyone views,Concern about ability to pay energy bills,0.19872496957283867,0.19872496957283867,positive
+Experienced wildfire,Participated in an environmental-protection organisation,0.19850747308233296,0.19850747308233296,positive
+Familiarity with national climate policies,Concern about ability to pay energy bills,0.1975442876694269,0.1975442876694269,positive
+Environment versus economic-growth priority,Familiarity with national climate policies,0.1949524167238922,0.1949524167238922,positive
+Climate-change worry,Government preparedness for extreme weather,0.19077543777953607,0.19077543777953607,positive
+Personal responsibility to reduce climate change,Confidence policies consider everyone views,0.18966760623380896,0.18966760623380896,positive
+Worry about local extreme weather,Confidence policies consider everyone views,0.18576083751145972,0.18576083751145972,positive
+Experienced drought,Experienced heavy storm,0.1845822181858901,0.1845822181858901,positive
+Personal responsibility to reduce climate change,Concern about ability to pay energy bills,0.1829281193787094,0.1829281193787094,positive
+Trust in government to address climate change,Familiarity with national climate policies,0.18190704747403577,0.18190704747403577,positive
+Personal responsibility to reduce climate change,Concern about increased transport costs,0.1801810397361634,0.1801810397361634,positive
+Familiarity with national climate policies,Concern about increased transport costs,0.17970561824367864,0.17970561824367864,positive
+Personal responsibility to reduce climate change,Familiarity with national climate policies,0.17923009136395762,0.17923009136395762,positive
+Trust in government to address climate change,Concern about ability to pay energy bills,0.17754619707495106,0.17754619707495106,positive
+Climate-change worry,Confidence in fair climate-policy outcomes,0.16426480902577284,0.16426480902577284,positive
+Public-transport use,Familiarity with national climate policies,0.16401797179521954,0.16401797179521954,positive
+Climate-change worry,Experienced extended extreme heat,0.1625325067875951,0.1625325067875951,positive
+Energy-efficient appliance choice,Concern about ability to pay energy bills,0.15963914074907126,0.15963914074907126,positive
+Government preparedness for extreme weather,Concern about increased transport costs,0.15705983819409317,0.15705983819409317,positive
+Public-transport use,Climate-change worry,0.15670223797904906,0.15670223797904906,positive
+Experienced wildfire,Experienced extended extreme heat,0.15328700358886793,0.15328700358886793,positive
+Environment versus economic-growth priority,Concern about future job loss,0.1527281979736692,0.1527281979736692,positive
+Familiarity with national climate policies,Confidence in fair climate-policy outcomes,0.15130891040443753,0.15130891040443753,positive
+Personal responsibility to reduce climate change,Concern about future job loss,0.1476813799049581,0.1476813799049581,positive
+Local air-pollution concern,Trust in government to address climate change,0.14299019202513524,0.14299019202513524,positive
+Local air-pollution concern,Confidence in fair climate-policy outcomes,0.1423326979036723,0.1423326979036723,positive
+Climate-change worry,Concern about increased transport costs,0.14209442134518535,0.14209442134518535,positive
+Energy-efficient appliance choice,Concern about future job loss,0.13945150174118742,0.13945150174118742,positive
+Government preparedness for extreme weather,Concern about ability to pay energy bills,0.13776394468811246,0.13776394468811246,positive
+Personal responsibility to reduce climate change,Experienced wildfire,0.13758112877574122,0.13758112877574122,positive
+Local air-pollution concern,Concern about increased transport costs,0.13425432968557166,0.13425432968557166,positive
+Trust in government to address climate change,Environment versus economic-growth priority,0.13398151071983347,0.13398151071983347,positive
+Energy-efficient appliance choice,Trust in government to address climate change,0.12917864344272278,0.12917864344272278,positive
+Local air-pollution concern,Confidence policies consider everyone views,0.12624846618099772,0.12624846618099772,positive
+Experienced drought,Government preparedness for extreme weather,0.12583131488417806,0.12583131488417806,positive
+Energy-efficient appliance choice,Environment versus economic-growth priority,0.12506152441577964,0.12506152441577964,positive
+Experienced severe flooding,Government preparedness for extreme weather,0.123867062935112,0.123867062935112,positive
+Energy-efficient appliance choice,Concern about increased transport costs,0.12285452700718484,0.12285452700718484,positive
+Experienced severe flooding,Trust in government to address climate change,0.12154235449859922,0.12154235449859922,positive
+Public-transport use,Energy-efficient appliance choice,0.12110644849374712,0.12110644849374712,positive
+Environment versus economic-growth priority,Confidence policies consider everyone views,0.12004162409472574,0.12004162409472574,positive
+Worry about local extreme weather,Familiarity with national climate policies,0.11986387956760468,0.11986387956760468,positive
+Confidence policies consider everyone views,Concern about increased transport costs,0.11869376102930432,0.11869376102930432,positive
+Energy-efficient appliance choice,Experienced drought,0.117312597379708,0.117312597379708,positive
+Public-transport use,Trust in government to address climate change,0.11497825383341637,0.11497825383341637,positive
+Local air-pollution concern,Environment versus economic-growth priority,0.1136352869007452,0.1136352869007452,positive
+Confidence policies consider everyone views,Concern about future job loss,0.11186598514855922,0.11186598514855922,positive
+Public-transport use,Confidence policies consider everyone views,0.1103430892780943,0.1103430892780943,positive
+Public-transport use,Personal responsibility to reduce climate change,0.10953710932047615,0.10953710932047615,positive
+Public-transport use,Confidence in fair climate-policy outcomes,0.10870796073132873,0.10870796073132873,positive
+Energy-efficient appliance choice,Confidence in fair climate-policy outcomes,0.1086963294525044,0.1086963294525044,positive
+Worry about local extreme weather,Concern about increased transport costs,0.10663767968420364,0.10663767968420364,positive
+Personal responsibility to reduce climate change,Environment versus economic-growth priority,0.10234119066876704,0.10234119066876704,positive
+Public-transport use,Concern about increased transport costs,0.09168943029168362,0.09168943029168362,positive
+Public-transport use,Experienced extended extreme heat,0.09080793641593644,0.09080793641593644,positive
+Worry about local extreme weather,Environment versus economic-growth priority,0.09011100504547044,0.09011100504547044,positive
+Public-transport use,Worry about local extreme weather,0.08771364379827759,0.08771364379827759,positive
+Local air-pollution concern,Experienced wildfire,0.08592239406381569,0.08592239406381569,positive
+Experienced severe flooding,Concern about increased transport costs,0.08553889863848457,0.08553889863848457,positive
+Experienced heavy storm,Concern about future job loss,0.08481713962713143,0.08481713962713143,positive
+Experienced severe flooding,Concern about future job loss,0.08476740660337506,0.08476740660337506,positive
+Climate-change worry,Experienced wildfire,0.08417106792030117,0.08417106792030117,positive
+Experienced severe flooding,Experienced drought,0.0809990230239239,0.0809990230239239,positive
+Local air-pollution concern,Participated in an environmental-protection organisation,0.08055652591874252,0.08055652591874252,positive
+Environment versus economic-growth priority,Concern about ability to pay energy bills,0.0797803967718973,0.0797803967718973,positive
+Experienced drought,Trust in government to address climate change,0.07946697212690604,0.07946697212690604,positive
+Worry about local extreme weather,Trust in government to address climate change,0.07554284962890637,0.07554284962890637,positive
+Public-transport use,Concern about ability to pay energy bills,0.07362124919461001,0.07362124919461001,positive
+Worry about local extreme weather,Confidence in fair climate-policy outcomes,0.0731289655617392,0.0731289655617392,positive
+Experienced extended extreme heat,Trust in government to address climate change,0.07293520159180675,0.07293520159180675,positive
+Experienced extended extreme heat,Government preparedness for extreme weather,0.06900288945363085,0.06900288945363085,positive
+Public-transport use,Participated in an environmental-protection organisation,0.06878950871566819,0.06878950871566819,positive
+Experienced drought,Participated in an environmental-protection organisation,0.06325363799941287,0.06325363799941287,positive
+Experienced drought,Confidence policies consider everyone views,0.06015903945207982,0.06015903945207982,positive
+Public-transport use,Government preparedness for extreme weather,0.05194174727577119,0.05194174727577119,positive
+Experienced extended extreme heat,Environment versus economic-growth priority,0.05095098729464335,0.05095098729464335,positive
+Public-transport use,Environment versus economic-growth priority,0.0479760578692178,0.0479760578692178,positive
+Experienced drought,Confidence in fair climate-policy outcomes,0.04287325913134939,0.04287325913134939,positive
+Local air-pollution concern,Experienced drought,0.03953767933532465,0.03953767933532465,positive
+Experienced severe flooding,Concern about ability to pay energy bills,0.03634015296728735,0.03634015296728735,positive
+Government preparedness for extreme weather,Environment versus economic-growth priority,0.03442233733242736,0.03442233733242736,positive
+Experienced drought,Environment versus economic-growth priority,0.02823846625637063,0.02823846625637063,positive
+Climate-change worry,Experienced drought,0.02646861024913164,0.02646861024913164,positive
