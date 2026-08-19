@@ -30,6 +30,30 @@ def main() -> None:
     assert len(app.multiselect) >= 2
     assert any("Coverage and placeholders" in element.value for element in app.header)
 
+    restored_nodes = [str(column) for column in sample.columns[:3]]
+    restored_mapping = {
+        "project": {"title": "Restored test analysis", "study_design": "Cross-sectional survey"},
+        "sample": {"filter": {"variable": "", "operator": "equals", "value": ""}},
+        "variables": {"country": "", "use_frequency": ""},
+        "network": {
+            "node_type": "ordinal",
+            "node_levels": 5,
+            "nodes": [{"id": node, "label": f"Restored {node}", "domain": "Beliefs"} for node in restored_nodes],
+        },
+        "factor_models": [{"items": restored_nodes}],
+        "bootstrapping": {"edge_bootstrap_iterations": 25},
+        "comparisons": {"country": {"minimum_n": 500}},
+        "contextual_associations": {"categorical_variables": []},
+    }
+    app.file_uploader[1].upload("saved_can_mapping.yml", yaml.safe_dump(restored_mapping).encode("utf-8"), "application/x-yaml").run(timeout=90)
+    restore_button = next(button for button in app.button if button.label == "Restore saved mapping")
+    restore_button.click().run(timeout=90)
+    assert not app.exception, app.exception
+    restored_design = next(control for control in app.selectbox if control.label == "Study design")
+    restored_node_control = next(control for control in app.multiselect if control.label == "Network-node variables")
+    assert restored_design.value == "Cross-sectional survey"
+    assert restored_node_control.value == restored_nodes
+
     create_button = next(button for button in app.button if button.label == "Create configuration and run bundle")
     create_button.click().run(timeout=90)
     assert not app.exception, app.exception
@@ -41,8 +65,8 @@ def main() -> None:
     assert (run_dir / "variable_profile.csv").exists()
     assert (run_dir / "manifest.json").exists()
     generated_config = yaml.safe_load((run_dir / "config.yml").read_text(encoding="utf-8"))
-    assert generated_config["project"]["study_design"] == "Not specified"
-    assert "will not assign a causal interpretation" in generated_config["project"]["interpretive_notice"]
+    assert generated_config["project"]["study_design"] == "Cross-sectional survey"
+    assert "conditional associations" in generated_config["project"]["interpretive_notice"]
     print("Streamlit upload, mapping, eligibility, and run-bundle test passed.")
     shutil.rmtree(run_dir)
 
