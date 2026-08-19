@@ -69,10 +69,13 @@ estimate_mgm_network <- function(data, config) {
   if (!is.data.frame(data)) data <- as.data.frame(data)
   if (anyNA(data)) stop("MGM estimation requires a complete node dataset. Use complete-case preparation or imputation first.", call. = FALSE)
   mgm_category_preflight(data, minimum_events = config$network$minimum_category_events %||% 2L)
-  declared_types <- unname(config_node_types(config))
-  declared_levels <- unname(config_node_levels(config))
-  # mgm represents ordinal responses through its categorical family. Each original
-  # study item retains its own documented response range in the configuration.
+  declared_types <- attr(data, "mgm_types") %||% config_node_types(config)
+  declared_levels <- attr(data, "mgm_levels") %||% config_node_levels(config)
+  declared_types <- unname(declared_types)
+  declared_levels <- unname(declared_levels)
+  # mgm represents ordinal responses through its categorical family. Ordinal
+  # variables have already been recoded to contiguous observed categories and
+  # therefore carry their actual post-filtering response-level count.
   mgm_types <- vapply(declared_types, function(node_type) switch(node_type, ordinal = "c", continuous = "g", categorical = "c", stop("Unsupported network node type: ", node_type, call. = FALSE)), character(1))
   p <- ncol(data)
   if (length(mgm_types) != p || length(declared_levels) != p) stop("Network configuration metadata does not match the number of prepared nodes.", call. = FALSE)

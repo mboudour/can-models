@@ -98,8 +98,9 @@ validate_analysis_variables <- function(data, config) {
   invisible(TRUE)
 }
 
-coerce_ordinal_nodes <- function(data, node_ids, levels) {
+coerce_ordinal_nodes <- function(data, node_ids, levels, node_types) {
   converted <- data[, node_ids, drop = FALSE]
+  effective_levels <- stats::setNames(rep(NA_integer_, length(node_ids)), node_ids)
   diagnostics <- lapply(node_ids, function(node) {
     values <- converted[[node]]
     if (is.factor(values)) values <- as.character(values)
@@ -110,14 +111,31 @@ coerce_ordinal_nodes <- function(data, node_ids, levels) {
     }
     observed <- sort(unique(numeric_values[!is.na(numeric_values)]))
     if (length(observed) < 2L) stop("Node `", node, "` has fewer than two observed levels.", call. = FALSE)
-    node_levels <- levels[[node]]
-    if (any(observed < 1 | observed > node_levels)) {
-      warning("Node `", node, "` has observed values outside 1..", node_levels, ". Check coding.", call. = FALSE)
+    declared_levels <- levels[[node]]
+    node_type <- node_types[[node]]
+    # mgm requires categorical observations to be contiguous 1..K and `level`
+    # to equal the actual K. Filtering can remove a response category even when
+    # an item was originally a five-point scale, so preserve an explicit audit
+    # and recode only the estimator-facing copy.
+    if (node_type %in% c("ordinal", "categorical")) {
+      converted_values <- match(numeric_values, observed)
+      converted_values[is.na(numeric_values)] <- NA_integer_
+      converted[[node]] <<- converted_values
+      effective_levels[[node]] <<- length(observed)
+    } else {
+      converted[[node]] <<- numeric_values
+      effective_levels[[node]] <<- NA_integer_
     }
-    converted[[node]] <<- numeric_values
-    tibble::tibble(node = node, observed_levels = paste(observed, collapse = ","), n_levels = length(observed), declared_levels = node_levels)
+    tibble::tibble(
+      node = node,
+      observed_levels = paste(observed, collapse = ","),
+      n_levels = length(observed),
+      declared_levels = declared_levels,
+      effective_mgm_levels = effective_levels[[node]],
+      recoded_for_mgm = node_type %in% c("ordinal", "categorical")
+    )
   })
-  list(data = converted, level_diagnostics = dplyr::bind_rows(diagnostics))
+  list(data = converted, level_diagnostics = dplyr::bind_rows(diagnostics), effective_levels = effective_levels)
 }
 
 prepare_can_data <- function(config) {
@@ -129,7 +147,7 @@ prepare_can_data <- function(config) {
   domains <- config_node_domains(config)
   node_types <- config_node_types(config)
   node_levels <- config_node_levels(config)
-  ordinal <- coerce_ordinal_nodes(filtered, node_ids, node_levels)
+  ordinal <- coerce_ordinal_nodes(filtered, node_ids, node_levels, node_types)
   node_data <- ordinal$data
   names(node_data) <- labels
 
@@ -148,8 +166,16 @@ prepare_can_data <- function(config) {
     label = labels,
     domain = domains,
     node_type = unname(node_types[node_ids]),
-    levels = unname(node_levels[node_ids])
+    levels = unname(ordinal$effective_levels[node_ids])
   )
+
+  # Keep item-specific estimator metadata on the prepared matrices. These
+  # attributes survive ordinary data-frame handling and prevent a blanket
+  # five-level declaration from failing when observed categories differ.
+  attr(node_data, "mgm_levels") <- ordinal$effective_levels
+  attr(primary_data, "mgm_levels") <- ordinal$effective_levels
+  attr(node_data, "mgm_types") <- node_types
+  attr(primary_data, "mgm_types") <- node_types
 
   list(
     raw = raw,
