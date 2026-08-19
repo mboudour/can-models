@@ -2,7 +2,7 @@
 
 ## Principle
 
-The public application will no longer present the Ravšelj et al. ChatGPT data as an Abadi et al. case study. Its replication workspace will be anchored in the authors’ **original April 2020 four-country dataset**, which the authors publicly deposited on UvA Figshare. This supports a genuine **Study 2 data replication and independent computational reimplementation** of the reported methods. It cannot, on its own, be described as a full two-study replication of Abadi et al. (2025).
+The public replication workspace is anchored in the authors’ **original April 2020 four-country dataset**, which the authors publicly deposited on UvA Figshare. This supports a genuine **Study 2 data replication and independent computational reimplementation** of the reported methods. It cannot, on its own, be described as a full two-study replication of Abadi et al. (2025).
 
 > **Terminology.** “Study 2 replication” means re-running the paper’s documented computations on the public Study 2 respondent-level data with the original variables, item wording, country sample, and documented exclusions. “Two-study replication” will be used only after authorized Study 1 data are received and verified.
 

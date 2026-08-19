@@ -12,7 +12,7 @@ source(file.path(getwd(), "R", "08_cluster.R"))
 source(file.path(getwd(), "R", "09_networktree.R"))
 source(file.path(getwd(), "R", "10_context.R"))
 
-config <- read_can_config("config/chatgpt_example.yml")
+config <- read_can_config("config/abadi_study2_public.yml")
 # A compact real-data subset keeps the smoke test tractable while exercising every module.
 config$network$nodes <- config$network$nodes[seq_len(12L)]
 config$factor_models <- list()

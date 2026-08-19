@@ -6,7 +6,7 @@ source(file.path(getwd(), "R", "02_data.R"))
 source(file.path(getwd(), "R", "03_network.R"))
 source(file.path(getwd(), "R", "06_compare.R"))
 
-config <- read_can_config("config/chatgpt_example.yml")
+config <- read_can_config("config/abadi_study2_public.yml")
 config$comparisons$country$nct_iterations <- 2L
 config$output$computations_dir <- "new_computations/nct_export_test"
 prepared <- prepare_can_data(config)

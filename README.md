@@ -2,7 +2,7 @@
 
 `can-models` is a **configuration-driven R project for Causal Attitude Network (CAN) analyses**. It implements the computational workflow reported by Abadi et al.—mixed graphical models, LASSO/EBIC estimation, centrality, bootstrap diagnostics, Walktrap communities, CFA/EFA, Network Comparison Tests, country-network clustering, and NetworkTree partitioning—while retaining dataset-specific decisions in YAML files.
 
-The repository has two worked examples. The first is a genuine **public Study 2 replication workspace** based on the Abadi et al. authors’ original April 2020 four-country dataset. The second is an evidence-aware application of the reusable workflow to the public Ravšelj et al. global ChatGPT-perception survey; it is explicitly labelled as a non-replication application and retains its dense-network diagnostic rather than overstating substantive conclusions. Study 1 remains explicitly access-gated because the original 15-country 2019 data are restricted under the article’s H2020/GDPR data-availability statement.
+The repository centres on a genuine **public Study 2 replication workspace** based on the Abadi et al. authors’ original April 2020 four-country dataset. Study 1 remains explicitly access-gated because the original 15-country 2019 data are restricted under the article’s H2020/GDPR data-availability statement.
 
 > **Interpretive guardrail.** CAN is a substantive theory in which beliefs, feelings, and behavioural tendencies may influence one another. With cross-sectional survey data, the undirected network edges estimated here are **conditional associations**, not verified directional causal effects. Do not interpret an edge or centrality ranking as proof of a causal intervention target.
 
@@ -34,12 +34,11 @@ The core command performs the data audit, factor-model workflow, and primary ori
 
 ## Streamlit public workspace and BYOD workflow
 
-The repository includes a **Streamlit application** at `app/app.py` with three explicit workspaces.
+The repository includes a **Streamlit application** at `app/app.py` with two explicit workspaces.
 
 | Workspace | Purpose |
 |---|---|
 | **Abadi et al. Study 2 replication** | The default public workspace. It displays the original-data sample flow, logged transformations, 29-node joint network, factor-model results, a paper-wide replication ledger, and the precise Study 1 access gate. |
-| **Ravšelj et al. ChatGPT example** | A source-cited, non-replication application. It displays the completed dense-network diagnostic, a focused-model sensitivity, the analysis limitations, and a publication-readiness assessment without claiming causal or centrality findings. |
 | **Bring your own data** | A separate participant workflow. Users upload a CSV/XLSX file, map arbitrary raw variable names to CAN nodes and domains, inspect eligibility, and download a reproducible YAML configuration. |
 
 ```bash
@@ -103,7 +102,3 @@ docs/                Methodological, reuse, deployment, and access-gate document
 [5] Epskamp, S., Borsboom, D., & Fried, E. I. (2018). *Estimating psychological networks and their accuracy: A tutorial paper*. *Behavior Research Methods, 50*, 195–212. [https://doi.org/10.3758/s13428-017-0862-1](https://doi.org/10.3758/s13428-017-0862-1)
 
 [6] Haslbeck, J. M. B., & Waldorp, L. J. (2020). *mgm: Estimating time-varying mixed graphical models in high-dimensional data*. *Journal of Statistical Software, 93*(8), 1–46. [https://doi.org/10.18637/jss.v093.i08](https://doi.org/10.18637/jss.v093.i08)
-
-[7] Ravšelj, D., et al. (2025). *Higher education students’ perceptions of ChatGPT: A global study of early reactions*. *PLOS ONE*. [https://doi.org/10.1371/journal.pone.0315011](https://doi.org/10.1371/journal.pone.0315011)
-
-[8] Ravšelj, D., et al. (2025). *Higher Education Students’ Early Perceptions of ChatGPT: Global Survey Data*, Version 2. Mendeley Data. [https://doi.org/10.17632/ymg9nsn6kn.2](https://doi.org/10.17632/ymg9nsn6kn.2)

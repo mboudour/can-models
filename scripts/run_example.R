@@ -3,7 +3,7 @@
 args <- commandArgs(trailingOnly = TRUE)
 config_index <- match("--config", args)
 if (is.na(config_index) || config_index == length(args)) {
-  stop("Usage: Rscript scripts/run_example.R --config config/chatgpt_example.yml", call. = FALSE)
+  stop("Usage: Rscript scripts/run_example.R --config config/abadi_study2_public.yml", call. = FALSE)
 }
 config_path <- args[[config_index + 1L]]
 

@@ -28,7 +28,7 @@ Use this mode when participants must run the entire CAN workflow in a browser. T
 2. Authorize the host to read the private `mboudour/can-models` GitHub repository.
 3. Create a new service from the repository and choose **Dockerfile / container build**. The supplied Dockerfile is the build specification; no separate start command is required.
 4. Set the service port to `8501` or configure the provider’s `PORT` mapping to the Streamlit command. The container exposes `8501` and has a health check at `/_stcore/health`.
-5. Allocate resources based on the intended workload. The full primary ChatGPT example estimates a 30-node mixed graphical model over 11,964 complete cases; country comparisons and bootstrap diagnostics are materially more demanding. Begin with a private test deployment, Quick mode, a smaller test dataset, and a strict upload-size policy.
+5. Allocate resources based on the intended workload. Larger node sets, country comparisons, and bootstrap diagnostics are materially more demanding. Begin with a private test deployment, Quick mode, a smaller test dataset, and a strict upload-size policy.
 6. Configure privacy controls. The app stores each user run under `user_runs/` while it is active. For a production service, add scheduled deletion, authentication, HTTPS, usage limits, and—if data must persist—an encrypted storage policy before accepting participant uploads.
 7. Use the provider’s logs and a simple test upload to confirm that `Rscript` is present. In full mode, the R-side **Validate configuration** and **Run core analysis** buttons become enabled automatically.
 

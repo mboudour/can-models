@@ -12,7 +12,7 @@ source(file.path(getwd(), "R", "08_cluster.R"))
 source(file.path(getwd(), "R", "09_networktree.R"))
 source(file.path(getwd(), "R", "10_context.R"))
 
-config <- read_can_config("config/chatgpt_example.yml")
+config <- read_can_config("config/abadi_study2_public.yml")
 config$bootstrapping$edge_bootstrap_iterations <- 5L
 config$bootstrapping$case_drop_bootstrap_iterations <- 5L
 config$community_detection$bootstrap_consensus_iterations <- 2L
