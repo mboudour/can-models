@@ -26,10 +26,17 @@ run_country_networks <- function(prepared, config) {
   }
 
   country_variable <- config$comparisons$country$variable
+  country_estimator <- config$comparisons$country$network_estimator %||% "ggm_spearman"
+  estimate_country_network <- switch(
+    country_estimator,
+    mgm = estimate_mgm_network,
+    ggm_spearman = estimate_ggm_spearman_network,
+    stop("Unsupported comparisons.country.network_estimator: ", country_estimator, call. = FALSE)
+  )
   attempts <- lapply(groups, function(group_name) {
     index <- prepared$primary_context[[country_variable]] == group_name
     network_data <- prepared$primary_data[index, , drop = FALSE]
-    result <- tryCatch(estimate_ggm_spearman_network(network_data, config), error = function(error) error)
+    result <- tryCatch(estimate_country_network(network_data, config), error = function(error) error)
     if (inherits(result, "error")) {
       return(list(name = group_name, data = network_data, result = NULL, error = conditionMessage(result)))
     }

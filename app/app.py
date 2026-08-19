@@ -395,7 +395,7 @@ def invoke_r(script_name: str, config_path: Path) -> tuple[int, str]:
 
 st.set_page_config(page_title="CAN Models", page_icon="◌", layout="wide")
 st.title("CAN Models")
-st.caption("A reproducible Causal Attitude Network workspace with an original-data Abadi et al. Study 2 replication, an ESS CRONOS-3 Wave 6 climate-attitudes case under a publication gate, and a bring-your-own-data workflow.")
+st.caption("A reproducible Causal Attitude Network workspace with an original-data Abadi et al. Study 2 replication, an ESS CRONOS-3 Wave 6 Green Transition Attitude Network under a publication gate, and a bring-your-own-data workflow.")
 
 workspace = st.radio(
     "Choose a workspace",

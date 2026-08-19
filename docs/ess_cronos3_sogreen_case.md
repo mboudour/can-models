@@ -1,12 +1,14 @@
-# ESS CRONOS-3 / SoGreen Wave 6 climate-attitudes worked case
+# ESS CRONOS-3 / SoGreen Wave 6 Green Transition Attitude Network
 
 ## Scope
 
-This is the project’s **second worked case**, separate from the genuine Abadi et al. Study 2 replication. It uses the ESS CRONOS-3 Wave 6 SoGreen climate-attitudes module, which was fielded in October–November 2025 in eleven countries and is available through the ESS Data Portal.[1][2]
+This is the project’s **second worked case**, separate from the genuine Abadi et al. Study 2 replication. It adapts the *logic* of Abadi et al.’s CAN workflow to the ESS CRONOS-3 Wave 6 SoGreen module: a focal attitude system is analysed together with its appraisals, contextual encounter, behavioural elements, and cross-national heterogeneity.[1]
 
-The case is a **locally reproducible baseline specification**, not a public microdata mirror. ESS recommends linking to its Data Portal rather than making ESS datasets available on external websites; ESS data are CC BY-NC-SA 4.0.[3] Accordingly, the repository and Streamlit Community Cloud deployment contain no respondent-level ESS data or codebook copy.
+The attitude object is the **green transition**. The project does not treat the initial narrow bundle of climate-policy evaluation items as the entire attitude system. That bundle produced a near-saturated private feasibility network and is not shown as a substantive result. The approved protocol instead represents environmental encounter, climate and extreme-weather appraisal, institutional legitimacy, perceived transition costs, and green behaviour/engagement.
 
-## Official source and local acquisition
+## Official access and protected data
+
+ESS recommends linking to its Data Portal rather than hosting ESS datasets externally, and its data are CC BY-NC-SA 4.0.[2] The repository and public Streamlit deployment therefore contain no respondent-level Wave 6 data or codebook copy.
 
 | Item | Requirement |
 |---|---|
@@ -17,55 +19,74 @@ The case is a **locally reproducible baseline specification**, not a public micr
 | Expected source SHA-256 | `0a3a647e1b530e33a0e542ce573e53aa4449fba49856af097bb1cdac15b3fe59` |
 | Source verification | `Rscript --vanilla scripts/verify_ess_cronos3_source.R` |
 
-All content inside `data/external/` is ignored by Git, except the acquisition instructions in `data/external/README.md`.
+All content in `data/external/` is ignored by Git, except the acquisition instructions in `data/external/README.md`. The folder is also excluded from Docker build contexts.
 
-## Approved 15-node baseline
+## Approved 21-node model
 
-The Wave 6 baseline deliberately represents a focused climate-policy attitude system. It excludes the separate transport and appliance behavioural questions, which should be investigated in a future dedicated behavioural-subsystem analysis rather than mixed mechanically into the first network.
+> **Green Transition Attitude Network:** the interconnected environmental encounters, appraisals, legitimacy evaluations, cost concerns, and behavioural/engagement elements through which citizens encounter and judge climate-oriented societal transition.
 
-| Domain | Variables |
+| CAN component | Wave 6 variables |
 |---|---|
-| Climate appraisal | `w6sgq11` climate-change worry; `w6sgq12` personal responsibility to reduce climate change; `w6seq2` worry about local extreme weather |
-| Institutional capacity | `w6sgq13` trust in government to address climate change; `w6seq4` government preparedness for extreme weather |
-| Policy orientation and legitimacy | `w6sgq14` environment versus economic growth; `w6sgq15` policy familiarity; `w6sgq16` confidence that policies consider everyone’s views; `w6sgq17` confidence in fair policy outcomes |
-| Expected transition impacts | `w6sgq18` job-market impact; `w6sgq19` required lifestyle changes; `w6sgq20` daily-life impact |
-| Personal-cost concerns | `w6sgq21` energy-bill concern; `w6sgq22` transport-cost concern; `w6sgq23` future job-loss concern |
+| Environmental encounter | `w6sgq2` local air-pollution concern; `w6seq1_1` flooding; `w6seq1_2` drought; `w6seq1_3` wildfire; `w6seq1_4` heavy storm; `w6seq1_5` extended extreme heat |
+| Affective appraisal and responsibility | `w6sgq11` climate-change worry; `w6seq2` local extreme-weather worry; `w6sgq12` personal responsibility |
+| Institutional capacity and policy legitimacy | `w6sgq13` government climate trust; `w6seq4` government preparedness; `w6sgq14` environment-versus-growth priority; `w6sgq15` policy familiarity; `w6sgq16` inclusive policy process; `w6sgq17` fair policy outcomes |
+| Personal transition-cost concerns | `w6sgq21` energy-bill concern; `w6sgq22` transport-cost concern; `w6sgq23` job-loss concern |
+| Green behaviour and engagement | `w6sgq6` public-transport use; `w6sgq9` energy-efficient appliance choice; `w6vq5_2` participation in an environmental-protection organisation |
 
-The configuration converts the documented `9` and `99` nonresponse values to missing before complete-case network preparation. It retains `0` as a valid response where the Wave 6 item uses an 0–10 scale.
+The protocol converts documented `9` and `99` nonresponse values to missing. To make every country MGM estimable with the same coding, it applies the same adjacent-category collapse of the rare top category for `w6sgq16` and `w6sgq17` in every country. This is logged in the transformation audit and must be retained in sensitivity reporting.
 
-## Analytical boundaries
+## Abadi-style research questions
 
-Wave 6 is collected within a panel, but the initial configuration estimates a **between-person, undirected MGM at one wave**. Its edges are conditional associations. They do not demonstrate temporal order, within-person effects, or verified causal relations. A temporal extension must first document identical items in later released waves and specify a design-appropriate longitudinal model.
+| Research question | Purpose |
+|---|---|
+| RQ1: Joint system | Estimate conditional associations connecting encounter, appraisal, legitimacy, personal cost, and behaviour in the pooled network. |
+| RQ2: Bridge structure | Test whether appraisal or legitimacy items bridge cost concerns with green behaviour and civic engagement. |
+| RQ3: Cross-national heterogeneity | Compare the same MGM specification in all eleven countries. |
+| RQ4: Network types | Cluster country edge matrices and identify configurations distinguished by legitimacy versus cost connections. |
+| RQ5: Measurement boundary | Use CFA/EFA to assess the policy-legitimacy and personal-cost item families without replacing network items with scores unless justified. |
 
-The configuration declares a split-sample methodological check and country-replication workflow. These are not substitutes for a longitudinal model, and country comparisons remain conditional on the documented minimum sample size, the completed diagnostics, and appropriate multiplicity control.
+## Analysis protocol
 
-## Publication gate
+1. Verify the official data file and codebook against the recorded SHA-256 fingerprint.
+2. Estimate the 21-node mixed graphical model (MGM) with LASSO/EBIC and report sample flow, category diagnostics, density, edge distribution, predictability, and ordinal-data caveats.[3]
+3. Run CFA/EFA and, where eligible, country invariance diagnostics for the three-item policy-legitimacy and personal-cost families.
+4. Run nonparametric edge bootstraps, case-drop centrality stability, and Walktrap/community-consensus diagnostics. No bridge or centrality result is substantively interpreted unless its stability is adequate.[4]
+5. Conduct the pre-specified split-sample replication check.
+6. Estimate the identically coded MGM in all eleven countries. The configuration sets `minimum_n: 400`, uses `network_estimator: mgm`, provides pairwise Network Comparison Tests with multiplicity adjustment, and exports country edge-matrix correlations.
+7. Cluster country network edge matrices using the project’s multiple clustering procedures.
+8. Treat any temporal panel extension as a separate future protocol. Wave 6 alone provides no temporal or within-person effects.
 
-The public application intentionally displays no substantive network output until all of the following are reviewed:
+## Publication boundary
 
-1. The official source file and codebook match the recorded edition and checksum.
-2. The 15 approved items have adequate response variation after documented missing-value recoding.
-3. The regularised primary network is non-trivial and not saturated or dominated by artefacts.
-4. Bootstrap edge-accuracy and case-drop centrality-stability diagnostics are complete and acceptable.
-5. The split-sample and/or pre-specified country replication evidence is reviewed.
-6. The final interpretation preserves the conditional-association and panel-design boundaries.
+The public application displays **no substantive network output** until the following gate is met:
 
-If this gate is not passed, the repository will retain the data-access instructions and transparent specification but will not present a graph or centrality ranking as a substantive CAN finding.
+1. Source provenance and item coding have been verified.
+2. The pooled network is non-trivial and not saturated or dominated by artefacts.
+3. CFA/EFA, bootstrap edge accuracy, and case-drop centrality stability have been reviewed.
+4. The split-sample and cross-country results are complete and interpretation is stable across the specified checks.
+5. All claims preserve the conditional-association, cross-sectional-within-wave, and non-causal boundaries.
+
+A failed gate is a reportable methodological result, not a reason to display an uninformative graph.
 
 ## Commands
 
-Run these commands from the repository root after the official files have been placed locally:
+Run from the repository root after the official data files are placed locally:
 
 ```bash
 Rscript --vanilla scripts/verify_ess_cronos3_source.R
 Rscript --vanilla scripts/validate_config.R --config config/ess_cronos3_sogreen_w6.yml
 Rscript --vanilla scripts/run_ess_cronos3_w6.R
+Rscript --vanilla scripts/run_ess_cronos3_green_transition_full.R
 ```
+
+The final command is computationally intensive because it includes bootstraps, the country workflow, pairwise NCTs, and clustering.
 
 ## References
 
-[1] European Social Survey. *New panel survey data on climate change now available* (9 April 2026). https://www.europeansocialsurvey.org/news/article/new-panel-survey-data-climate-change-now-available
+[1] Abadi, D., Bertlich, T., Dalege, J., & Fischer, A. (2025). *Connecting the dots with Causal Attitude Network (CAN): A psychological network approach to populist attitudes, nativism, conspiracy mentality and threat appraisals*. *Measurement: Interdisciplinary Research and Perspectives, 23*(4), 393–417. [https://doi.org/10.1080/15366367.2024.2363718](https://doi.org/10.1080/15366367.2024.2363718)
 
-[2] European Social Survey European Research Infrastructure (ESS ERIC). (2026). *CRONOS-3 Wave 6*. Sikt — Norwegian Agency for Shared Services in Education and Research. https://doi.org/10.21338/cron3w6e01
+[2] European Social Survey. *Disclaimer and conditions of use*. https://www.europeansocialsurvey.org/contact/disclaimer
 
-[3] European Social Survey. *Disclaimer and conditions of use*. https://www.europeansocialsurvey.org/contact/disclaimer
+[3] Haslbeck, J. M. B., & Waldorp, L. J. (2020). *mgm: Estimating time-varying mixed graphical models in high-dimensional data*. *Journal of Statistical Software, 93*(8), 1–46. [https://doi.org/10.18637/jss.v093.i08](https://doi.org/10.18637/jss.v093.i08)
+
+[4] Epskamp, S., Borsboom, D., & Fried, E. I. (2018). *Estimating psychological networks and their accuracy: A tutorial paper*. *Behavior Research Methods, 50*, 195–212. [https://doi.org/10.3758/s13428-017-0862-1](https://doi.org/10.3758/s13428-017-0862-1)

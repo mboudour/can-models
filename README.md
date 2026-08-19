@@ -2,7 +2,7 @@
 
 `can-models` is a **configuration-driven R project for Causal Attitude Network (CAN) analyses**. It implements the computational workflow reported by Abadi et al.—mixed graphical models, LASSO/EBIC estimation, centrality, bootstrap diagnostics, Walktrap communities, CFA/EFA, Network Comparison Tests, country-network clustering, and NetworkTree partitioning—while retaining dataset-specific decisions in YAML files.
 
-The repository centres on a genuine **public Study 2 replication workspace** based on the Abadi et al. authors’ original April 2020 four-country dataset. It also provides an **ESS CRONOS-3 Wave 6 / SoGreen climate-attitudes worked-case specification**: the public repository and app host source links, configuration, code, and safeguards, while the official ESS microdata remain local. Study 1 remains explicitly access-gated because the original 15-country 2019 data are restricted under the article’s H2020/GDPR data-availability statement.
+The repository centres on a genuine **public Study 2 replication workspace** based on the Abadi et al. authors’ original April 2020 four-country dataset. It also provides an **ESS CRONOS-3 Wave 6 / SoGreen Green Transition Attitude Network specification**: the public repository and app host source links, a 21-node cross-national protocol, code, and safeguards, while the official ESS microdata remain local. Study 1 remains explicitly access-gated because the original 15-country 2019 data are restricted under the article’s H2020/GDPR data-availability statement.
 
 > **Interpretive guardrail.** CAN is a substantive theory in which beliefs, feelings, and behavioural tendencies may influence one another. With cross-sectional survey data, the undirected network edges estimated here are **conditional associations**, not verified directional causal effects. Do not interpret an edge or centrality ranking as proof of a causal intervention target.
 
@@ -39,7 +39,7 @@ The repository includes a **Streamlit application** at `app/app.py` with three e
 | Workspace | Purpose |
 |---|---|
 | **Abadi et al. Study 2 replication** | The default public workspace. It displays the original-data sample flow, logged transformations, 29-node joint network, factor-model results, a paper-wide replication ledger, and the precise Study 1 access gate. |
-| **ESS CRONOS-3 / SoGreen Wave 6** | A source-cited, locally reproducible climate-attitudes baseline case. The public app does not host ESS microdata or display substantive network results until the pre-specified publication gate is passed. |
+| **ESS CRONOS-3 / SoGreen Wave 6** | A source-cited, locally reproducible **21-node Green Transition Attitude Network**. It connects environmental encounter, appraisal, policy legitimacy, personal costs, and green behaviour across eleven countries; the public app does not host ESS microdata or display substantive results until the publication gate is passed. |
 | **Bring your own data** | A separate participant workflow. Users upload a CSV/XLSX file, map arbitrary raw variable names to CAN nodes and domains, inspect eligibility, and download a reproducible YAML configuration. |
 
 ```bash
@@ -65,9 +65,9 @@ The worked replication uses the public four-country April 2020 data deposit and 
 
 ## ESS CRONOS-3 / SoGreen Wave 6 worked case
 
-The Wave 6 SoGreen case uses an approved, theory-led 15-node climate-attitudes specification spanning climate appraisal, institutional capacity, policy orientation/legitimacy, expected transition impacts, and personal-cost concerns. It requires the official `CRON3w6e01.csv` and codebook to be downloaded locally from the [ESS Data Portal](https://ess.sikt.no/en/series/a46bcac5-b030-444b-9280-441ec97e1bce), placed in `data/external/ess_cronos3_sogreen/`, and verified using `scripts/verify_ess_cronos3_source.R`.
+The Wave 6 SoGreen case uses an approved, theory-led **21-node Green Transition Attitude Network** spanning environmental encounter, affective appraisal/responsibility, institutional capacity and policy legitimacy, personal transition-cost concerns, and green behaviour/engagement. It follows the multi-family CAN logic of Abadi et al. rather than analysing a narrow, near-saturated policy-evaluation bundle. It requires the official `CRON3w6e01.csv` and codebook to be downloaded locally from the [ESS Data Portal](https://ess.sikt.no/en/series/a46bcac5-b030-444b-9280-441ec97e1bce), placed in `data/external/ess_cronos3_sogreen/`, and verified using `scripts/verify_ess_cronos3_source.R`.
 
-The ESS recommends linking to its portal rather than serving the data elsewhere. The repository therefore ignores all external data files and tracks only [the acquisition instructions](data/external/README.md), the configuration, the source verifier, and the analysis runner. The initial Wave 6 network is a between-person conditional-association baseline; any temporal extension requires documented item overlap in later released panel waves and a pre-specified longitudinal model. See [docs/ess_cronos3_sogreen_case.md](docs/ess_cronos3_sogreen_case.md).
+The ESS recommends linking to its portal rather than serving the data elsewhere. The repository therefore ignores all external data files and tracks only [the acquisition instructions](data/external/README.md), the configuration, the source verifier, and the analysis runners. The full protocol implements pooled and eleven-country MGM workflows, factor diagnostics, split-sample checks, NCT, and country-network clustering. The initial Wave 6 network is a between-person conditional-association baseline; any temporal extension requires documented item overlap in later released panel waves and a pre-specified longitudinal model. See [docs/ess_cronos3_sogreen_case.md](docs/ess_cronos3_sogreen_case.md).
 
 ## Study 1 access gate
 

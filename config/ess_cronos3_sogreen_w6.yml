@@ -1,9 +1,9 @@
 project:
-  id: ess_cronos3_sogreen_w6
-  title: "ESS CRONOS-3 Wave 6 SoGreen climate-attitudes baseline"
+  id: ess_cronos3_green_transition_w6
+  title: "ESS CRONOS-3 Wave 6 Green Transition Attitude Network"
   seed: 20260819
   study_design: "Longitudinal or panel study"
-  interpretive_notice: "This Wave 6 worked case estimates a between-person conditional-association network within a panel survey. It does not by itself estimate within-person change, temporal direction, or verified causal effects. A longitudinal extension requires item overlap across released waves and a pre-specified temporal model."
+  interpretive_notice: "This Wave 6 study estimates between-person conditional-association networks within a panel survey. Its undirected edges do not establish temporal order, within-person effects, or verified causal effects. A temporal extension requires documented item overlap in later released waves and a pre-specified longitudinal model."
 
 input:
   path: data/external/ess_cronos3_sogreen/CRON3w6e01.csv
@@ -19,8 +19,15 @@ audit:
 
 preprocessing:
   missing_values:
-    - variables: [w6sgq11, w6sgq12, w6sgq13, w6sgq14, w6sgq15, w6sgq16, w6sgq17, w6sgq18, w6sgq19, w6sgq20, w6sgq21, w6sgq22, w6sgq23, w6seq2, w6seq4]
+    - variables: [w6sgq2, w6sgq6, w6sgq9, w6sgq11, w6sgq12, w6seq2, w6sgq13, w6seq4, w6sgq14, w6sgq15, w6sgq16, w6sgq17, w6sgq21, w6sgq22, w6sgq23]
       values: [9, 99]
+  collapse_values:
+    - variable: w6sgq16
+      from: [5]
+      to: 4
+    - variable: w6sgq17
+      from: [5]
+      to: 4
 
 sample:
   filter:
@@ -34,11 +41,11 @@ variables:
   country: cntry
   language: ""
   study_field: ""
-  gender: ""
+  gender: gndr
   age: w6age
-  subjective_social_status: ""
+  subjective_social_status: hincfel
   religion: ""
-  education: ""
+  education: eduyrs
   political_orientation: ""
   use_frequency: ""
   use_experience: ""
@@ -52,92 +59,136 @@ network:
   node_levels: 5
   minimum_category_events: 2
   nodes:
+    - id: w6sgq2
+      label: Local air-pollution concern
+      domain: Environmental encounter
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq6
+      label: Public-transport use
+      domain: Green behaviour and engagement
+      node_type: ordinal
+      levels: 5
+    - id: w6sgq9
+      label: Energy-efficient appliance choice
+      domain: Green behaviour and engagement
+      node_type: ordinal
+      levels: 5
     - id: w6sgq11
       label: Climate-change worry
-      domain: Climate appraisal
+      domain: Affective appraisal and responsibility
       node_type: ordinal
       levels: 5
     - id: w6sgq12
       label: Personal responsibility to reduce climate change
-      domain: Climate appraisal
+      domain: Affective appraisal and responsibility
       node_type: ordinal
       levels: 11
     - id: w6seq2
       label: Worry about local extreme weather
-      domain: Climate appraisal
+      domain: Affective appraisal and responsibility
       node_type: ordinal
       levels: 5
+    - id: w6seq1_1
+      label: Experienced severe flooding
+      domain: Environmental encounter
+      node_type: ordinal
+      levels: 2
+    - id: w6seq1_2
+      label: Experienced drought
+      domain: Environmental encounter
+      node_type: ordinal
+      levels: 2
+    - id: w6seq1_3
+      label: Experienced wildfire
+      domain: Environmental encounter
+      node_type: ordinal
+      levels: 2
+    - id: w6seq1_4
+      label: Experienced heavy storm
+      domain: Environmental encounter
+      node_type: ordinal
+      levels: 2
+    - id: w6seq1_5
+      label: Experienced extended extreme heat
+      domain: Environmental encounter
+      node_type: ordinal
+      levels: 2
     - id: w6sgq13
       label: Trust in government to address climate change
-      domain: Institutional capacity
+      domain: Institutional capacity and policy legitimacy
       node_type: ordinal
       levels: 5
     - id: w6seq4
       label: Government preparedness for extreme weather
-      domain: Institutional capacity
+      domain: Institutional capacity and policy legitimacy
       node_type: ordinal
       levels: 5
     - id: w6sgq14
-      label: Environment versus economic growth priority
-      domain: Policy orientation and legitimacy
+      label: Environment versus economic-growth priority
+      domain: Institutional capacity and policy legitimacy
       node_type: ordinal
       levels: 2
     - id: w6sgq15
       label: Familiarity with national climate policies
-      domain: Policy orientation and legitimacy
+      domain: Institutional capacity and policy legitimacy
       node_type: ordinal
       levels: 4
     - id: w6sgq16
-      label: Confidence climate policies consider everyone views
-      domain: Policy orientation and legitimacy
-      node_type: ordinal
-      levels: 5
-    - id: w6sgq17
-      label: Confidence in fair climate-policy outcomes
-      domain: Policy orientation and legitimacy
-      node_type: ordinal
-      levels: 5
-    - id: w6sgq18
-      label: Expected climate-policy impact on jobs
-      domain: Expected transition impacts
+      label: Confidence policies consider everyone views
+      domain: Institutional capacity and policy legitimacy
       node_type: ordinal
       levels: 4
-    - id: w6sgq19
-      label: Expected lifestyle changes from climate policies
-      domain: Expected transition impacts
+    - id: w6sgq17
+      label: Confidence in fair climate-policy outcomes
+      domain: Institutional capacity and policy legitimacy
       node_type: ordinal
-      levels: 11
-    - id: w6sgq20
-      label: Expected daily-life impact of lifestyle changes
-      domain: Expected transition impacts
-      node_type: ordinal
-      levels: 6
+      levels: 4
     - id: w6sgq21
       label: Concern about ability to pay energy bills
-      domain: Personal-cost concerns
+      domain: Personal transition-cost concerns
       node_type: ordinal
       levels: 5
     - id: w6sgq22
       label: Concern about increased transport costs
-      domain: Personal-cost concerns
+      domain: Personal transition-cost concerns
       node_type: ordinal
       levels: 5
     - id: w6sgq23
       label: Concern about future job loss
-      domain: Personal-cost concerns
+      domain: Personal transition-cost concerns
       node_type: ordinal
       levels: 6
+    - id: w6vq5_2
+      label: Participated in an environmental-protection organisation
+      domain: Green behaviour and engagement
+      node_type: ordinal
+      levels: 2
 
-factor_models: []
+factor_models:
+  - id: policy_legitimacy
+    label: "Policy legitimacy and governmental capacity"
+    items: [w6sgq13, w6sgq16, w6sgq17]
+    estimator: MLR
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: true
+  - id: personal_transition_cost
+    label: "Perceived personal transition cost"
+    items: [w6sgq21, w6sgq22, w6sgq23]
+    estimator: MLR
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: true
 
 bootstrapping:
-  edge_bootstrap_iterations: 250
-  case_drop_bootstrap_iterations: 250
+  edge_bootstrap_iterations: 1000
+  case_drop_bootstrap_iterations: 1000
   case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
 
 community_detection:
   primary_algorithm: walktrap
-  bootstrap_consensus_iterations: 100
+  bootstrap_consensus_iterations: 1000
 
 comparisons:
   split_sample:
@@ -148,27 +199,27 @@ comparisons:
     enabled: false
     variable: ""
     exclude_from_network: true
-    label: "Not applicable to the Wave 6 baseline case"
+    label: "Not applicable to the Green Transition Attitude Network"
   country:
     enabled: true
     variable: cntry
-    minimum_n: 500
-    network_estimator: ggm_spearman
+    minimum_n: 400
+    network_estimator: mgm
     all_pairwise_nct: true
-    nct_iterations: 250
+    nct_iterations: 1000
     p_adjustments: [bonferroni, fdr]
   networktree:
     enabled: false
     moderators: []
 
 contextual_associations:
-  categorical_variables: [cntry]
+  categorical_variables: [cntry, gndr]
   effect_size: cramers_v
 
 output:
-  computations_dir: new_computations/ess_cronos3_sogreen_w6
-  figures_dir: figures/ess_cronos3_sogreen_w6
-  report_dir: reports/ess_cronos3_sogreen_w6
+  computations_dir: new_computations/ess_cronos3_green_transition_w6
+  figures_dir: figures/ess_cronos3_green_transition_w6
+  report_dir: reports/ess_cronos3_green_transition_w6
   save_rds: true
   save_csv: true
   figure_width: 16
