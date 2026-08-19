@@ -86,6 +86,7 @@ estimate_mgm_network <- function(data, config) {
     k = 2,
     lambdaSel = "EBIC",
     lambdaGam = config$network$ebic_gamma,
+    lambdaMin = config$network$lambda_min_ratio %||% 0.05,
     pbar = FALSE
   )
   adjacency <- fit$pairwise$wadj

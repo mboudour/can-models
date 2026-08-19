@@ -1,0 +1,17 @@
+source_variable,requested_label,label,label_changed,domain,node_type,levels
+Q15,General ChatGPT use,General ChatGPT use,FALSE,Behaviour,ordinal,5
+Q18a,Use for academic writing,Use for academic writing,FALSE,Behaviour,ordinal,5
+Q18l,Use for coding,Use for coding,FALSE,Behaviour,ordinal,5
+Q19d,Efficient information,Efficient information,FALSE,Beliefs,ordinal,5
+Q19g,Simplifies complex information,Simplifies complex information,FALSE,Beliefs,ordinal,5
+Q21c,University ethical guidance,University ethical guidance,FALSE,Governance,ordinal,5
+Q22e,Inaccurate-information risk,Inaccurate-information risk,FALSE,Risk appraisal,ordinal,5
+Q22f,Privacy risk,Privacy risk,FALSE,Risk appraisal,ordinal,5
+Q24f,Satisfaction with information quality,Satisfaction with information quality,FALSE,Evaluations,ordinal,5
+Q25b,ChatGPT is interesting,ChatGPT is interesting,FALSE,Evaluations,ordinal,5
+Q26e,Expected study efficiency,Expected study efficiency,FALSE,Expected outcomes,ordinal,5
+Q26g,Expected study completion,Expected study completion,FALSE,Expected outcomes,ordinal,5
+Q32b,Hopeful while using ChatGPT,Hopeful while using ChatGPT,FALSE,Feelings,ordinal,5
+Q32j,Anxious while using ChatGPT,Anxious while using ChatGPT,FALSE,Feelings,ordinal,5
+Q32n,Confused while using ChatGPT,Confused while using ChatGPT,FALSE,Feelings,ordinal,5
+Q32o,Frustrated while using ChatGPT,Frustrated while using ChatGPT,FALSE,Feelings,ordinal,5

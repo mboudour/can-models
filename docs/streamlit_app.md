@@ -1,6 +1,6 @@
-# Streamlit application: original Study 2 replication and participant workflow
+# Streamlit application: original Study 2 replication, ChatGPT example, and participant workflow
 
-The Streamlit application has two distinct workspaces. **Abadi et al. Study 2 replication** is the default public view. It uses the authors’ original public April 2020 four-country data and Qualtrics codebook, rather than a topic-adjacent example. It displays the Study 2 sample flow, logged transformations, original 29-node mixed graphical model, centrality and edge exports, scale diagnostics, and a transparent paper-wide ledger. **Bring your own data** is a separate configuration generator and local analysis launcher; it never assumes a participant’s raw variables follow any predefined naming convention.
+The Streamlit application has three distinct workspaces. **Abadi et al. Study 2 replication** is the default public view. It uses the authors’ original public April 2020 four-country data and Qualtrics codebook, rather than a topic-adjacent example. It displays the Study 2 sample flow, logged transformations, original 29-node mixed graphical model, centrality and edge exports, scale diagnostics, and a transparent paper-wide ledger. **Ravšelj et al. ChatGPT example** is a separately labelled, source-cited application of the reusable workflow to the public global survey of higher-education students’ ChatGPT perceptions. It does not claim to replicate Abadi et al.; it exposes the dense-network diagnostic, focused-model sensitivity, and publication-readiness boundary. **Bring your own data** is a separate configuration generator and local analysis launcher; it never assumes a participant’s raw variables follow any predefined naming convention.
 
 Run the application from the repository root after installing the Python requirements.
 
@@ -24,6 +24,12 @@ The application classifies every paper component as one of three states:
 The public Study 2 joint MGM, sample preparation, Mardia diagnostic, centrality/predictability exports, and PA/nativism CFA/EFA workflow are executed. The seven-item one-factor PA model fits poorly, and the interface therefore does not silently treat it as a validated score for high/low PA networks. The original Study 2 data support RQ2–RQ4, including political-orientation and country comparisons, but the app labels those modules as pending until the published grouping rules are verified and their intensive computations complete.
 
 The 2019 15-country Study 1 data are restricted by the article’s H2020/GDPR data-availability statement. The application presents an email-free required-materials checklist for enabling the access-gated module. It does not present a fabricated Study 1 network, a cross-study NCT, or two-study substantive conclusions. The detailed boundary is in [abadi_genuine_replication_scope.md](abadi_genuine_replication_scope.md).
+
+## Ravšelj et al. ChatGPT worked example
+
+The ChatGPT workspace cites both the companion paper—Ravšelj et al., *Higher education students’ perceptions of ChatGPT: A global study of early reactions*, PLOS ONE (2025), [10.1371/journal.pone.0315011](https://doi.org/10.1371/journal.pone.0315011)—and the public Version 2 data record, [10.17632/ymg9nsn6kn.2](https://doi.org/10.17632/ymg9nsn6kn.2). It filters to prior users (`Q13 = 1`) and retains 16,010 users before complete-case handling.
+
+The completed 31-node BYOD run is deliberately shown as a diagnostic: it retained every possible edge and is therefore not a sparse, interpretable CAN result. The workspace does not report its centrality ranking as a substantive result. A smaller labelled sensitivity model is included to show that simply reducing the node count or switching estimator does not automatically resolve dense-network selection. The complete assessment is available in [chatgpt_ravselj_worked_example.md](chatgpt_ravselj_worked_example.md).
 
 ## How participant variable names and study design are handled
 

@@ -17,3 +17,11 @@ The RQ1 joint-network tab was also inspected. It rendered the 29-node original S
 ## BYOD refinement validation
 
 The revised BYOD landing view was inspected in a browser. The left sidebar contains a visible **“← Return to Study 2 replication”** control above the upload section and an optional **Study design** selector defaulting to **“Not specified.”** The main BYOD landing content shows only the upload prompt; it no longer displays a blanket cross-sectional guardrail before any data are uploaded or a design is selected.
+
+## Ravšelj et al. ChatGPT worked-example validation
+
+**Validated locally:** 2026-08-19
+
+The new **Ravšelj et al. ChatGPT example** workspace rendered from the top-level application selector. It visibly separates itself from the Abadi replication, presents the source-cited PLOS ONE article and Mendeley Data Version 2 links, and reports 23,218 public records, 16,010 prior ChatGPT users, 12,175 focused complete cases, and 16 focused nodes. The opening warning explicitly labels the historical 31-node network as a fully connected diagnostic and prohibits centrality, bridge, causal, or intervention claims. The data/design tab displayed the labels and six CAN domains from the focused configuration without empty labels or default-only colouring.
+
+Visual validation also confirmed that the source citation links, workspace tabs, metrics, explanatory warning, and node table render without overflow or missing assets.

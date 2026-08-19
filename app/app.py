@@ -24,6 +24,7 @@ import streamlit as st
 import yaml
 
 from abadi_study2_replication import render_abadi_study2_replication
+from chatgpt_ravselj_worked_example import render_chatgpt_ravselj_example
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNS_DIR = ROOT / "user_runs"
@@ -32,6 +33,7 @@ ALLOWED_SUFFIXES = {".csv", ".xlsx", ".xls"}
 DOMAIN_OPTIONS = [
     "Beliefs",
     "Evaluations",
+    "Expected outcomes",
     "Feelings",
     "Behaviour",
     "Risk appraisal",
@@ -393,17 +395,20 @@ def invoke_r(script_name: str, config_path: Path) -> tuple[int, str]:
 
 st.set_page_config(page_title="CAN Models", page_icon="◌", layout="wide")
 st.title("CAN Models")
-st.caption("A reproducible Causal Attitude Network workspace with an original-data Abadi et al. Study 2 replication and a separate bring-your-own-data workflow.")
+st.caption("A reproducible Causal Attitude Network workspace with an original-data Abadi et al. Study 2 replication, a Ravšelj et al. ChatGPT worked example, and a bring-your-own-data workflow.")
 
 workspace = st.radio(
     "Choose a workspace",
-    ["Abadi et al. Study 2 replication", "Bring your own data"],
+    ["Abadi et al. Study 2 replication", "Ravšelj et al. ChatGPT example", "Bring your own data"],
     horizontal=True,
     label_visibility="collapsed",
     key="workspace_selector",
 )
 if workspace == "Abadi et al. Study 2 replication":
     render_abadi_study2_replication()
+    st.stop()
+if workspace == "Ravšelj et al. ChatGPT example":
+    render_chatgpt_ravselj_example()
     st.stop()
 
 st.header("Bring your own data")

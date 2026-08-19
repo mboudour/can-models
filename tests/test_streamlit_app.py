@@ -22,12 +22,18 @@ def main() -> None:
     assert any("cross-sectional" in element.value for element in app.warning)
     assert len(app.download_button) >= 8
 
+    app.radio[0].set_value("Ravšelj et al. ChatGPT example").run(timeout=90)
+    assert any("Ravšelj et al.: ChatGPT perceptions worked example" in element.value for element in app.header)
+    assert any("Diagnostic result" in element.value for element in app.error)
+    assert any("Cite the sources" in element.value for element in app.markdown)
+    assert any("Assessment and publication readiness" in element.label for element in app.tabs)
+
     app.radio[0].set_value("Bring your own data").run(timeout=90)
     return_button = next(button for button in app.button if button.label == "← Return to Study 2 replication")
     return_button.click().run(timeout=90)
     assert app.radio[0].value == "Abadi et al. Study 2 replication"
     assert any("Abadi et al.: public Study 2 replication" in element.value for element in app.header)
-    print("Streamlit original Study 2 replication, access-gate, and return-navigation smoke test passed.")
+    print("Streamlit Study 2, ChatGPT worked-example, access-gate, and return-navigation smoke test passed.")
 
 
 if __name__ == "__main__":
