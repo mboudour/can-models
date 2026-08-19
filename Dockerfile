@@ -1,8 +1,11 @@
-FROM rocker/r-ver:4.4.2
+# Full local-analysis image: Python/Streamlit interface plus the R CAN engine.
+# r2u provides binary CRAN packages for Ubuntu, avoiding a large fragile source restore.
+FROM rocker/r2u:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    R_COMPILE_AND_INSTALL_PACKAGES=never
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
@@ -23,6 +26,33 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libharfbuzz-dev \
     libfribidi-dev \
     libglpk-dev \
+    r-cran-readxl \
+    r-cran-yaml \
+    r-cran-digest \
+    r-cran-jsonlite \
+    r-cran-dplyr \
+    r-cran-tidyr \
+    r-cran-purrr \
+    r-cran-tibble \
+    r-cran-stringr \
+    r-cran-readr \
+    r-cran-ggplot2 \
+    r-cran-qgraph \
+    r-cran-bootnet \
+    r-cran-networktools \
+    r-cran-lavaan \
+    r-cran-psych \
+    r-cran-semtools \
+    r-cran-gparotation \
+    r-cran-igraph \
+    r-cran-factoextra \
+    r-cran-cluster \
+    r-cran-rmarkdown \
+    r-cran-knitr \
+    r-cran-testthat \
+    r-cran-withr \
+    r-cran-scales \
+    r-cran-renv \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -32,10 +62,10 @@ RUN python3 -m pip install --break-system-packages -r requirements.txt
 
 COPY . .
 
-# Restore the project-locked R library. This enables the R-backed validation,
-# network estimation, diagnostics, and comparison controls in app/app.py.
-RUN Rscript --vanilla -e 'install.packages("renv", repos = "https://cloud.r-project.org")' \
-    && Rscript --vanilla -e 'renv::restore(prompt = FALSE)'
+# Do not restore renv.lock here: its package binaries are platform-specific.
+# The bootstrap detects r2u-provided packages and installs only any CAN-specific
+# CRAN dependencies not supplied as binaries, then records the environment.
+RUN Rscript --vanilla scripts/setup_environment.R
 
 EXPOSE 8501
 
