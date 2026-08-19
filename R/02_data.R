@@ -98,6 +98,20 @@ validate_analysis_variables <- function(data, config) {
   invisible(TRUE)
 }
 
+normalize_node_labels <- function(labels, node_ids) {
+  original <- as.character(labels)
+  cleaned <- trimws(original)
+  missing_label <- is.na(cleaned) | !nzchar(cleaned)
+  cleaned[missing_label] <- node_ids[missing_label]
+  normalized <- make.unique(cleaned, sep = "__")
+  tibble::tibble(
+    source_variable = node_ids,
+    requested_label = original,
+    label = normalized,
+    label_changed = original != normalized
+  )
+}
+
 coerce_ordinal_nodes <- function(data, node_ids, levels, node_types) {
   converted <- data[, node_ids, drop = FALSE]
   effective_levels <- stats::setNames(rep(NA_integer_, length(node_ids)), node_ids)
@@ -143,7 +157,9 @@ prepare_can_data <- function(config) {
   validate_analysis_variables(raw, config)
   filtered <- apply_can_filter(raw, config$sample$filter)
   node_ids <- config_node_ids(config)
-  labels <- config_node_labels(config)
+  requested_labels <- config_node_labels(config)
+  label_audit <- normalize_node_labels(requested_labels, node_ids)
+  labels <- label_audit$label
   domains <- config_node_domains(config)
   node_types <- config_node_types(config)
   node_levels <- config_node_levels(config)
@@ -161,13 +177,12 @@ prepare_can_data <- function(config) {
     primary_context <- filtered
   }
 
-  node_map <- tibble::tibble(
-    source_variable = node_ids,
-    label = labels,
-    domain = domains,
-    node_type = unname(node_types[node_ids]),
-    levels = unname(ordinal$effective_levels[node_ids])
-  )
+  node_map <- label_audit |>
+    dplyr::mutate(
+      domain = domains,
+      node_type = unname(node_types[node_ids]),
+      levels = unname(ordinal$effective_levels[node_ids])
+    )
 
   # Keep item-specific estimator metadata on the prepared matrices. These
   # attributes survive ordinary data-frame handling and prevent a blanket
@@ -186,6 +201,7 @@ prepare_can_data <- function(config) {
     complete_rows = complete_rows,
     node_map = node_map,
     level_diagnostics = ordinal$level_diagnostics,
+    label_audit = label_audit,
     transformation_audit = attr(raw, "transformation_audit"),
     source_path = attr(raw, "source_path"),
     source_checksum = attr(raw, "source_checksum")
@@ -208,6 +224,7 @@ write_data_audit <- function(prepared, config) {
   readr::write_csv(node_missingness, file.path(sample_dir, "node_missingness.csv"))
   readr::write_csv(prepared$level_diagnostics, file.path(sample_dir, "node_level_diagnostics.csv"))
   readr::write_csv(prepared$node_map, file.path(sample_dir, "node_map.csv"))
+  readr::write_csv(prepared$label_audit %||% tibble::tibble(), file.path(sample_dir, "node_label_audit.csv"))
   readr::write_csv(prepared$transformation_audit %||% tibble::tibble(), file.path(sample_dir, "transformation_audit.csv"))
 
   sample_summary <- tibble::tibble(
