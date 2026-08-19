@@ -12,3 +12,6 @@ __pycache__/
 app/__pycache__/
 tests/__pycache__/
 *.pyc
+
+# Official external microdata must never be copied into the image.
+data/external/**
