@@ -1,0 +1,132 @@
+project:
+  id: ccam_dec2024_climate_engagement
+  title: "CCAM December 2024 Climate Engagement CAN Feasibility Case"
+  seed: 20260820
+  study_design: "Repeated cross-sectional survey"
+  interpretive_notice: "This December 2024 network estimates undirected conditional associations among between-person survey responses. The CCAM feasibility result is saturated and must not be interpreted as directional causal evidence or a publication-ready substantive CAN finding. Earlier CCAM waves are independent repeated cross-sections unless an explicit respondent panel is documented."
+
+input:
+  path: data/external/ccam_2008_2024/CCAM SPSS Data 2008-2024.sav
+  sheet: ""
+  format: sav
+  questionnaire: data/external/ccam_2008_2024/Survey Methods and Codebook 2008-2024.pdf
+  source_doi: https://doi.org/10.17605/OSF.IO/JW79P
+  source_license: "YPCCC/George Mason CCAM Terms of Use permit scholarly analysis but prohibit redistribution of respondent-level data. Do not add the source data to Git, Docker, or Streamlit."
+  expected_checksum_sha256: "db6c0d5f0f8acea6591ed4a803a85be1491aa4b0a02239b74792a636997477eb"
+
+audit:
+  mardia_max_n: 1000
+
+preprocessing:
+  missing_values:
+    - variables: [happening, cause_recoded, sci_consensus, worry, harm_personally, harm_US, harm_future_gen, harm_plants_animals, reg_CO2_pollutant, reduce_tax, priority_cleanenergy, teach_gw, transition_economy, discuss_GW, hear_GW_media]
+      values: [-1]
+
+sample:
+  filter:
+    variable: wave
+    operator: equals
+    value: 31
+    label: "CCAM December 2024 nationally representative U.S.-adult wave"
+  complete_case_primary_network: true
+
+variables:
+  country: ""
+  language: ""
+  study_field: ""
+  gender: gender
+  age: age
+  subjective_social_status: ""
+  religion: religion
+  education: educ
+  political_orientation: ideology
+  use_frequency: hear_GW_media
+  use_experience: ""
+
+network:
+  estimator: mgm
+  regularization: LASSO
+  model_selection: EBIC
+  ebic_gamma: 0.25
+  node_type: ordinal
+  node_levels: 6
+  minimum_category_events: 2
+  nodes:
+    - {id: happening, label: "Global warming is happening", domain: "Climate belief and attribution", node_type: ordinal, levels: 4}
+    - {id: cause_recoded, label: "Human causation of global warming", domain: "Climate belief and attribution", node_type: ordinal, levels: 5}
+    - {id: sci_consensus, label: "Perceived scientific consensus", domain: "Climate belief and attribution", node_type: ordinal, levels: 5}
+    - {id: worry, label: "Worry about global warming", domain: "Affective and anticipated risk", node_type: ordinal, levels: 4}
+    - {id: harm_personally, label: "Expected personal harm", domain: "Affective and anticipated risk", node_type: ordinal, levels: 5}
+    - {id: harm_US, label: "Expected harm in the United States", domain: "Affective and anticipated risk", node_type: ordinal, levels: 5}
+    - {id: harm_future_gen, label: "Expected harm to future generations", domain: "Affective and anticipated risk", node_type: ordinal, levels: 5}
+    - {id: harm_plants_animals, label: "Expected harm to plants and animals", domain: "Affective and anticipated risk", node_type: ordinal, levels: 5}
+    - {id: reg_CO2_pollutant, label: "Support regulating carbon dioxide as a pollutant", domain: "Climate policy and transition support", node_type: ordinal, levels: 5}
+    - {id: reduce_tax, label: "Support carbon tax with tax reduction", domain: "Climate policy and transition support", node_type: ordinal, levels: 5}
+    - {id: priority_cleanenergy, label: "Priority for clean-energy development", domain: "Climate policy and transition support", node_type: ordinal, levels: 5}
+    - {id: transition_economy, label: "Support transition to 100 percent clean energy by 2050", domain: "Climate policy and transition support", node_type: ordinal, levels: 5}
+    - {id: teach_gw, label: "Support teaching global warming in schools", domain: "Climate policy and transition support", node_type: ordinal, levels: 5}
+    - {id: discuss_GW, label: "Discusses global warming with family and friends", domain: "Climate communication and attention", node_type: ordinal, levels: 5}
+    - {id: hear_GW_media, label: "Hears about global warming in the media", domain: "Climate communication and attention", node_type: ordinal, levels: 7}
+
+factor_models:
+  - id: anticipated_harm
+    label: "Anticipated climate harm"
+    items: [harm_personally, harm_US, harm_future_gen, harm_plants_animals]
+    estimator: MLR
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: false
+  - id: transition_policy_support
+    label: "Climate transition policy support"
+    items: [reg_CO2_pollutant, reduce_tax, priority_cleanenergy, transition_economy, teach_gw]
+    estimator: MLR
+    minimum_cfi: 0.90
+    maximum_rmsea: 0.08
+    country_invariance: false
+
+bootstrapping:
+  edge_bootstrap_iterations: 25
+  case_drop_bootstrap_iterations: 25
+  case_drop_proportions: [0.05, 0.10, 0.25, 0.50, 0.75]
+  n_cores: 2
+  stability_estimator: ordinal_ggm
+
+community_detection:
+  primary_algorithm: walktrap
+  bootstrap_consensus_iterations: 25
+
+comparisons:
+  split_sample:
+    enabled: true
+    proportion_first_sample: 0.50
+    label: "Within-wave split-sample feasibility check"
+  use_frequency_median_split:
+    enabled: false
+    variable: ""
+    exclude_from_network: true
+    label: "Not used; climate-media exposure is a substantive node"
+  country:
+    enabled: false
+    variable: ""
+    minimum_n: 0
+    network_estimator: mgm
+    all_pairwise_nct: false
+    nct_iterations: 25
+    p_adjustments: [bonferroni, fdr]
+  networktree:
+    enabled: false
+    moderators: []
+
+contextual_associations:
+  categorical_variables: [gender, ideology]
+  effect_size: cramers_v
+
+output:
+  computations_dir: new_computations/ccam_dec2024_climate_engagement
+  figures_dir: figures/ccam_dec2024_climate_engagement
+  report_dir: reports/ccam_dec2024_climate_engagement
+  save_rds: true
+  save_csv: true
+  figure_width: 16
+  figure_height: 12
+  figure_dpi: 180

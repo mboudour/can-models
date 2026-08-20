@@ -25,6 +25,7 @@ import yaml
 
 from abadi_study2_replication import render_abadi_study2_replication
 from ess_cronos3_sogreen_case import render_ess_cronos3_sogreen_case
+from ccam_dec2024_feasibility_case import render_ccam_dec2024_feasibility_case
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNS_DIR = ROOT / "user_runs"
@@ -395,11 +396,11 @@ def invoke_r(script_name: str, config_path: Path) -> tuple[int, str]:
 
 st.set_page_config(page_title="CAN Models", page_icon="◌", layout="wide")
 st.title("CAN Models")
-st.caption("A reproducible Causal Attitude Network workspace with an original-data Abadi et al. Study 2 replication, a completed ESS CRONOS-3 Wave 6 Green Transition Attitude Network case, and a bring-your-own-data workflow.")
+st.caption("A reproducible Causal Attitude Network workspace with an original-data Abadi et al. Study 2 replication, a completed ESS CRONOS-3 Wave 6 case, a transparent CCAM December 2024 feasibility case, and a bring-your-own-data workflow.")
 
 workspace = st.radio(
     "Choose a workspace",
-    ["Abadi et al. Study 2 replication", "ESS CRONOS-3 / SoGreen Wave 6", "Bring your own data"],
+    ["Abadi et al. Study 2 replication", "ESS CRONOS-3 / SoGreen Wave 6", "CCAM December 2024 feasibility case", "Bring your own data"],
     horizontal=True,
     label_visibility="collapsed",
     key="workspace_selector",
@@ -409,6 +410,9 @@ if workspace == "Abadi et al. Study 2 replication":
     st.stop()
 if workspace == "ESS CRONOS-3 / SoGreen Wave 6":
     render_ess_cronos3_sogreen_case()
+    st.stop()
+if workspace == "CCAM December 2024 feasibility case":
+    render_ccam_dec2024_feasibility_case()
     st.stop()
 st.header("Bring your own data")
 st.caption("Upload a compatible survey, map its variable names to CAN roles, inspect the available computations, and create a reproducible run bundle.")

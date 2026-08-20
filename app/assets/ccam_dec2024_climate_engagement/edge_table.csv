@@ -1,0 +1,103 @@
+from,to,weight,abs_weight,sign
+Expected personal harm,Expected harm in the United States,4.198189915095065,4.198189915095065,positive
+Expected harm in the United States,Expected harm to future generations,3.545234736679448,3.545234736679448,positive
+Expected harm to future generations,Expected harm to plants and animals,2.8673796452873113,2.8673796452873113,positive
+Expected harm in the United States,Expected harm to plants and animals,2.330371059221031,2.330371059221031,positive
+Expected personal harm,Expected harm to future generations,1.935324839034811,1.935324839034811,positive
+Expected harm in the United States,Discusses global warming with family and friends,1.5583488774621497,1.5583488774621497,positive
+Expected personal harm,Expected harm to plants and animals,1.5027879631747334,1.5027879631747334,positive
+Expected harm in the United States,Support teaching global warming in schools,1.3100499856378374,1.3100499856378374,positive
+Perceived scientific consensus,Hears about global warming in the media,1.263086379108937,1.263086379108937,positive
+Worry about global warming,Discusses global warming with family and friends,1.251345568840378,1.251345568840378,positive
+Perceived scientific consensus,Worry about global warming,1.2227086223725854,1.2227086223725854,positive
+Worry about global warming,Expected harm in the United States,1.13149133723865,1.13149133723865,positive
+Perceived scientific consensus,Discusses global warming with family and friends,1.0836441190185575,1.0836441190185575,positive
+Worry about global warming,Expected personal harm,1.0763208195884162,1.0763208195884162,positive
+Expected harm in the United States,Hears about global warming in the media,1.029222130179239,1.029222130179239,positive
+Expected harm in the United States,Priority for clean-energy development,1.0282217972274377,1.0282217972274377,positive
+Worry about global warming,Support carbon tax with tax reduction,1.0185827873636406,1.0185827873636406,positive
+Expected personal harm,Discusses global warming with family and friends,0.982594696465122,0.982594696465122,positive
+Priority for clean-energy development,Support transition to 100 percent clean energy by 2050,0.9661626502680912,0.9661626502680912,positive
+Expected harm in the United States,Support transition to 100 percent clean energy by 2050,0.927988325837434,0.927988325837434,positive
+Expected harm to future generations,Hears about global warming in the media,0.8825797293734827,0.8825797293734827,positive
+Support teaching global warming in schools,Discusses global warming with family and friends,0.8487139259913236,0.8487139259913236,positive
+Perceived scientific consensus,Expected harm in the United States,0.8331374271830112,0.8331374271830112,positive
+Worry about global warming,Expected harm to plants and animals,0.8271649127455883,0.8271649127455883,positive
+Priority for clean-energy development,Discusses global warming with family and friends,0.8152908765107856,0.8152908765107856,positive
+Perceived scientific consensus,Expected harm to plants and animals,0.8021172728985588,0.8021172728985588,positive
+Worry about global warming,Priority for clean-energy development,0.8005850420100338,0.8005850420100338,positive
+Expected harm to future generations,Discusses global warming with family and friends,0.7961424624397522,0.7961424624397522,positive
+Human causation of global warming,Discusses global warming with family and friends,0.7801638975630301,0.7801638975630301,positive
+Support regulating carbon dioxide as a pollutant,Support transition to 100 percent clean energy by 2050,0.7566428541650273,0.7566428541650273,positive
+Worry about global warming,Expected harm to future generations,0.7406661525931126,0.7406661525931126,positive
+Expected harm to plants and animals,Support transition to 100 percent clean energy by 2050,0.7398447966803074,0.7398447966803074,positive
+Expected harm in the United States,Support regulating carbon dioxide as a pollutant,0.7346381049632787,0.7346381049632787,positive
+Perceived scientific consensus,Support regulating carbon dioxide as a pollutant,0.7241744306431737,0.7241744306431737,positive
+Global warming is happening,Perceived scientific consensus,0.7034996074427353,0.7034996074427353,positive
+Expected harm to future generations,Support carbon tax with tax reduction,0.6953229539849588,0.6953229539849588,positive
+Expected harm to plants and animals,Discusses global warming with family and friends,0.6910810929244113,0.6910810929244113,positive
+Expected personal harm,Support carbon tax with tax reduction,0.6815477975513466,0.6815477975513466,positive
+Support regulating carbon dioxide as a pollutant,Support carbon tax with tax reduction,0.6414395304225595,0.6414395304225595,positive
+Expected harm to future generations,Support teaching global warming in schools,0.6303437256461837,0.6303437256461837,positive
+Expected harm to plants and animals,Hears about global warming in the media,0.6243557770760764,0.6243557770760764,positive
+Global warming is happening,Worry about global warming,0.6041435028151915,0.6041435028151915,positive
+Discusses global warming with family and friends,Hears about global warming in the media,0.6034087606523071,0.6034087606523071,positive
+Expected harm to future generations,Support transition to 100 percent clean energy by 2050,0.6010378713129031,0.6010378713129031,positive
+Perceived scientific consensus,Expected personal harm,0.5999889253679965,0.5999889253679965,positive
+Support carbon tax with tax reduction,Support transition to 100 percent clean energy by 2050,0.5926230525662592,0.5926230525662592,positive
+Expected harm in the United States,Support carbon tax with tax reduction,0.5624249739189886,0.5624249739189886,positive
+Worry about global warming,Support teaching global warming in schools,0.5570265963769426,0.5570265963769426,positive
+Human causation of global warming,Expected harm in the United States,0.5557766308050275,0.5557766308050275,positive
+Expected personal harm,Priority for clean-energy development,0.5329770897362698,0.5329770897362698,positive
+Expected personal harm,Support transition to 100 percent clean energy by 2050,0.5165201607338887,0.5165201607338887,positive
+Global warming is happening,Expected harm in the United States,0.5053702737231734,0.5053702737231734,positive
+Support transition to 100 percent clean energy by 2050,Discusses global warming with family and friends,0.5002363186904294,0.5002363186904294,positive
+Expected harm to future generations,Priority for clean-energy development,0.4891146352703246,0.4891146352703246,positive
+Expected harm to plants and animals,Support teaching global warming in schools,0.4817907520452862,0.4817907520452862,positive
+Global warming is happening,Discusses global warming with family and friends,0.47019082758210706,0.47019082758210706,positive
+Expected harm to plants and animals,Priority for clean-energy development,0.46545058119993155,0.46545058119993155,positive
+Perceived scientific consensus,Support carbon tax with tax reduction,0.44570798924826094,0.44570798924826094,positive
+Global warming is happening,Expected harm to plants and animals,0.4387676292744832,0.4387676292744832,positive
+Support transition to 100 percent clean energy by 2050,Hears about global warming in the media,0.42374375383273866,0.42374375383273866,positive
+Priority for clean-energy development,Support teaching global warming in schools,0.4052131281030747,0.4052131281030747,positive
+Expected personal harm,Hears about global warming in the media,0.385529399554989,0.385529399554989,positive
+Support carbon tax with tax reduction,Discusses global warming with family and friends,0.3800841784323926,0.3800841784323926,positive
+Expected harm to plants and animals,Support regulating carbon dioxide as a pollutant,0.3783286891847597,0.3783286891847597,positive
+Expected personal harm,Support regulating carbon dioxide as a pollutant,0.36408755084208183,0.36408755084208183,positive
+Global warming is happening,Support teaching global warming in schools,0.3507161543932714,0.3507161543932714,positive
+Perceived scientific consensus,Expected harm to future generations,0.346675752063821,0.346675752063821,positive
+Human causation of global warming,Worry about global warming,0.33514490510413214,0.33514490510413214,positive
+Worry about global warming,Support transition to 100 percent clean energy by 2050,0.3118621675888539,0.3118621675888539,positive
+Global warming is happening,Human causation of global warming,0.30401140095814233,0.30401140095814233,positive
+Worry about global warming,Hears about global warming in the media,0.2843663610142964,0.2843663610142964,positive
+Support regulating carbon dioxide as a pollutant,Support teaching global warming in schools,0.28412675588877945,0.28412675588877945,positive
+Expected personal harm,Support teaching global warming in schools,0.2753395332014409,0.2753395332014409,positive
+Perceived scientific consensus,Priority for clean-energy development,0.2704442517284934,0.2704442517284934,positive
+Human causation of global warming,Perceived scientific consensus,0.26860192211081085,0.26860192211081085,positive
+Global warming is happening,Expected harm to future generations,0.2653525919986254,0.2653525919986254,positive
+Global warming is happening,Expected personal harm,0.25614349376240253,0.25614349376240253,positive
+Global warming is happening,Priority for clean-energy development,0.250427963004322,0.250427963004322,positive
+Perceived scientific consensus,Support transition to 100 percent clean energy by 2050,0.24724696153171472,0.24724696153171472,positive
+Support teaching global warming in schools,Hears about global warming in the media,0.2449690544243803,0.2449690544243803,positive
+Human causation of global warming,Expected harm to plants and animals,0.23012391583164168,0.23012391583164168,positive
+Support carbon tax with tax reduction,Hears about global warming in the media,0.22278888196712696,0.22278888196712696,positive
+Human causation of global warming,Expected harm to future generations,0.19828790056626905,0.19828790056626905,positive
+Expected harm to plants and animals,Support carbon tax with tax reduction,0.18538271222115416,0.18538271222115416,positive
+Human causation of global warming,Priority for clean-energy development,0.18013831803295796,0.18013831803295796,positive
+Priority for clean-energy development,Hears about global warming in the media,0.17472171748207704,0.17472171748207704,positive
+Worry about global warming,Support regulating carbon dioxide as a pollutant,0.1740319853050081,0.1740319853050081,positive
+Human causation of global warming,Support carbon tax with tax reduction,0.17384294062139544,0.17384294062139544,positive
+Human causation of global warming,Support transition to 100 percent clean energy by 2050,0.1670158785694678,0.1670158785694678,positive
+Support carbon tax with tax reduction,Support teaching global warming in schools,0.15885314079558682,0.15885314079558682,positive
+Expected harm to future generations,Support regulating carbon dioxide as a pollutant,0.15509972441726003,0.15509972441726003,positive
+Support regulating carbon dioxide as a pollutant,Discusses global warming with family and friends,0.1453173147324438,0.1453173147324438,positive
+Perceived scientific consensus,Support teaching global warming in schools,0.13791229912988778,0.13791229912988778,positive
+Support regulating carbon dioxide as a pollutant,Priority for clean-energy development,0.1291823518146732,0.1291823518146732,positive
+Human causation of global warming,Support teaching global warming in schools,0.12414011686368476,0.12414011686368476,positive
+Human causation of global warming,Hears about global warming in the media,0.11572028463143604,0.11572028463143604,positive
+Support carbon tax with tax reduction,Priority for clean-energy development,0.1150589516103246,0.1150589516103246,positive
+Support transition to 100 percent clean energy by 2050,Support teaching global warming in schools,0.09830585590541352,0.09830585590541352,positive
+Human causation of global warming,Support regulating carbon dioxide as a pollutant,0.07742389924482772,0.07742389924482772,positive
+Support regulating carbon dioxide as a pollutant,Hears about global warming in the media,0.06493292077310965,0.06493292077310965,positive
+Human causation of global warming,Expected personal harm,0.06313402362993559,0.06313402362993559,positive
+Global warming is happening,Support transition to 100 percent clean energy by 2050,0.02950303738377029,0.02950303738377029,positive

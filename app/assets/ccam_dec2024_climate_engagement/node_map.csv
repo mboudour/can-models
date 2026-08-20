@@ -1,0 +1,16 @@
+source_variable,requested_label,label,label_changed,domain,node_type,levels
+happening,Global warming is happening,Global warming is happening,FALSE,Climate belief and attribution,ordinal,3
+cause_recoded,Human causation of global warming,Human causation of global warming,FALSE,Climate belief and attribution,ordinal,4
+sci_consensus,Perceived scientific consensus,Perceived scientific consensus,FALSE,Climate belief and attribution,ordinal,4
+worry,Worry about global warming,Worry about global warming,FALSE,Affective and anticipated risk,ordinal,4
+harm_personally,Expected personal harm,Expected personal harm,FALSE,Affective and anticipated risk,ordinal,5
+harm_US,Expected harm in the United States,Expected harm in the United States,FALSE,Affective and anticipated risk,ordinal,5
+harm_future_gen,Expected harm to future generations,Expected harm to future generations,FALSE,Affective and anticipated risk,ordinal,5
+harm_plants_animals,Expected harm to plants and animals,Expected harm to plants and animals,FALSE,Affective and anticipated risk,ordinal,5
+reg_CO2_pollutant,Support regulating carbon dioxide as a pollutant,Support regulating carbon dioxide as a pollutant,FALSE,Climate policy and transition support,ordinal,4
+reduce_tax,Support carbon tax with tax reduction,Support carbon tax with tax reduction,FALSE,Climate policy and transition support,ordinal,4
+priority_cleanenergy,Priority for clean-energy development,Priority for clean-energy development,FALSE,Climate policy and transition support,ordinal,4
+transition_economy,Support transition to 100 percent clean energy by 2050,Support transition to 100 percent clean energy by 2050,FALSE,Climate policy and transition support,ordinal,4
+teach_gw,Support teaching global warming in schools,Support teaching global warming in schools,FALSE,Climate policy and transition support,ordinal,4
+discuss_GW,Discusses global warming with family and friends,Discusses global warming with family and friends,FALSE,Climate communication and attention,ordinal,4
+hear_GW_media,Hears about global warming in the media,Hears about global warming in the media,FALSE,Climate communication and attention,ordinal,6

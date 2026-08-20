@@ -2,7 +2,7 @@ source(file.path(can_project_root(), "R", "00_packages.R"))
 source(file.path(can_project_root(), "R", "01_config.R"))
 
 read_can_data <- function(config) {
-  require_can_packages(c("readxl", "readr", "digest", "dplyr", "tibble"))
+  require_can_packages(c("readxl", "readr", "haven", "digest", "dplyr", "tibble"))
   validate_can_config(config, check_input = TRUE)
   path <- can_relative_path(config$input$path, attr(config, "root") %||% can_project_root())
   extension <- tolower(tools::file_ext(path))
@@ -11,7 +11,8 @@ read_can_data <- function(config) {
     xlsx = readxl::read_excel(path, sheet = config$input$sheet, .name_repair = "minimal"),
     xls = readxl::read_excel(path, sheet = config$input$sheet, .name_repair = "minimal"),
     csv = readr::read_csv(path, show_col_types = FALSE, name_repair = "minimal"),
-    stop("Unsupported input format: ", extension, ". Supported formats are xlsx, xls, and csv.", call. = FALSE)
+    sav = haven::read_sav(path, user_na = FALSE),
+    stop("Unsupported input format: ", extension, ". Supported formats are xlsx, xls, csv, and sav.", call. = FALSE)
   )
   attr(data, "source_path") <- path
   attr(data, "source_checksum") <- digest::digest(file = path, algo = "sha256")
