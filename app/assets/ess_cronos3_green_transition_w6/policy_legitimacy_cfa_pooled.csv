@@ -1,0 +1,2 @@
+model_id,group,converged,chisq,df,pvalue,cfi,tli,rmsea,srmr,aic,bic
+policy_legitimacy,pooled,TRUE,0,0,NA,1,1,0,2.0632951443803916e-9,59688.402404904075,59731.279775463125

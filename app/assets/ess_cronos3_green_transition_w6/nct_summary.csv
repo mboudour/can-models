@@ -1,0 +1,2 @@
+network_a,network_b,completed,structure_invariance_statistic,structure_invariance_p,global_strength_difference,global_strength_p,edge_invariance_p
+split_a,split_b,TRUE,0.06712135305153696,0.1752988047808765,0.376691404843462,0.5059760956175299,1

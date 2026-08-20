@@ -1,0 +1,211 @@
+node_1,node_2,coassignment
+Experienced drought,Experienced extended extreme heat,1
+Experienced drought,Experienced severe flooding,0.98
+Experienced extended extreme heat,Experienced severe flooding,0.98
+Experienced drought,Experienced wildfire,0.96
+Experienced extended extreme heat,Experienced wildfire,0.96
+Experienced severe flooding,Experienced wildfire,0.98
+Experienced drought,Worry about local extreme weather,0.72
+Experienced extended extreme heat,Worry about local extreme weather,0.72
+Experienced severe flooding,Worry about local extreme weather,0.72
+Experienced wildfire,Worry about local extreme weather,0.74
+Experienced drought,Concern about ability to pay energy bills,0
+Experienced extended extreme heat,Concern about ability to pay energy bills,0
+Experienced severe flooding,Concern about ability to pay energy bills,0
+Experienced wildfire,Concern about ability to pay energy bills,0
+Worry about local extreme weather,Concern about ability to pay energy bills,0.02
+Experienced drought,Concern about increased transport costs,0
+Experienced extended extreme heat,Concern about increased transport costs,0
+Experienced severe flooding,Concern about increased transport costs,0
+Experienced wildfire,Concern about increased transport costs,0
+Worry about local extreme weather,Concern about increased transport costs,0.02
+Concern about ability to pay energy bills,Concern about increased transport costs,1
+Experienced drought,Confidence in fair climate-policy outcomes,0
+Experienced extended extreme heat,Confidence in fair climate-policy outcomes,0
+Experienced severe flooding,Confidence in fair climate-policy outcomes,0
+Experienced wildfire,Confidence in fair climate-policy outcomes,0
+Worry about local extreme weather,Confidence in fair climate-policy outcomes,0.02
+Concern about ability to pay energy bills,Confidence in fair climate-policy outcomes,0.94
+Concern about increased transport costs,Confidence in fair climate-policy outcomes,0.94
+Experienced drought,Confidence policies consider everyone views,0
+Experienced extended extreme heat,Confidence policies consider everyone views,0
+Experienced severe flooding,Confidence policies consider everyone views,0
+Experienced wildfire,Confidence policies consider everyone views,0
+Worry about local extreme weather,Confidence policies consider everyone views,0.02
+Concern about ability to pay energy bills,Confidence policies consider everyone views,0.94
+Concern about increased transport costs,Confidence policies consider everyone views,0.94
+Confidence in fair climate-policy outcomes,Confidence policies consider everyone views,1
+Experienced drought,Energy-efficient appliance choice,0
+Experienced extended extreme heat,Energy-efficient appliance choice,0
+Experienced severe flooding,Energy-efficient appliance choice,0
+Experienced wildfire,Energy-efficient appliance choice,0
+Worry about local extreme weather,Energy-efficient appliance choice,0.02
+Concern about ability to pay energy bills,Energy-efficient appliance choice,0.94
+Concern about increased transport costs,Energy-efficient appliance choice,0.94
+Confidence in fair climate-policy outcomes,Energy-efficient appliance choice,0.9
+Confidence policies consider everyone views,Energy-efficient appliance choice,0.9
+Experienced drought,Familiarity with national climate policies,0
+Experienced extended extreme heat,Familiarity with national climate policies,0
+Experienced severe flooding,Familiarity with national climate policies,0
+Experienced wildfire,Familiarity with national climate policies,0
+Worry about local extreme weather,Familiarity with national climate policies,0.02
+Concern about ability to pay energy bills,Familiarity with national climate policies,0.94
+Concern about increased transport costs,Familiarity with national climate policies,0.94
+Confidence in fair climate-policy outcomes,Familiarity with national climate policies,0.9
+Confidence policies consider everyone views,Familiarity with national climate policies,0.9
+Energy-efficient appliance choice,Familiarity with national climate policies,1
+Experienced drought,Government preparedness for extreme weather,0
+Experienced extended extreme heat,Government preparedness for extreme weather,0
+Experienced severe flooding,Government preparedness for extreme weather,0
+Experienced wildfire,Government preparedness for extreme weather,0
+Worry about local extreme weather,Government preparedness for extreme weather,0.02
+Concern about ability to pay energy bills,Government preparedness for extreme weather,0.96
+Concern about increased transport costs,Government preparedness for extreme weather,0.96
+Confidence in fair climate-policy outcomes,Government preparedness for extreme weather,0.92
+Confidence policies consider everyone views,Government preparedness for extreme weather,0.92
+Energy-efficient appliance choice,Government preparedness for extreme weather,0.98
+Familiarity with national climate policies,Government preparedness for extreme weather,0.98
+Experienced drought,Personal responsibility to reduce climate change,0
+Experienced extended extreme heat,Personal responsibility to reduce climate change,0
+Experienced severe flooding,Personal responsibility to reduce climate change,0
+Experienced wildfire,Personal responsibility to reduce climate change,0
+Worry about local extreme weather,Personal responsibility to reduce climate change,0.02
+Concern about ability to pay energy bills,Personal responsibility to reduce climate change,0.9
+Concern about increased transport costs,Personal responsibility to reduce climate change,0.9
+Confidence in fair climate-policy outcomes,Personal responsibility to reduce climate change,0.86
+Confidence policies consider everyone views,Personal responsibility to reduce climate change,0.86
+Energy-efficient appliance choice,Personal responsibility to reduce climate change,0.96
+Familiarity with national climate policies,Personal responsibility to reduce climate change,0.96
+Government preparedness for extreme weather,Personal responsibility to reduce climate change,0.94
+Experienced drought,Trust in government to address climate change,0
+Experienced extended extreme heat,Trust in government to address climate change,0
+Experienced severe flooding,Trust in government to address climate change,0
+Experienced wildfire,Trust in government to address climate change,0
+Worry about local extreme weather,Trust in government to address climate change,0.02
+Concern about ability to pay energy bills,Trust in government to address climate change,0.94
+Concern about increased transport costs,Trust in government to address climate change,0.94
+Confidence in fair climate-policy outcomes,Trust in government to address climate change,1
+Confidence policies consider everyone views,Trust in government to address climate change,1
+Energy-efficient appliance choice,Trust in government to address climate change,0.9
+Familiarity with national climate policies,Trust in government to address climate change,0.9
+Government preparedness for extreme weather,Trust in government to address climate change,0.92
+Personal responsibility to reduce climate change,Trust in government to address climate change,0.86
+Experienced drought,Climate-change worry,0
+Experienced extended extreme heat,Climate-change worry,0
+Experienced severe flooding,Climate-change worry,0
+Experienced wildfire,Climate-change worry,0
+Worry about local extreme weather,Climate-change worry,0.08
+Concern about ability to pay energy bills,Climate-change worry,0.84
+Concern about increased transport costs,Climate-change worry,0.84
+Confidence in fair climate-policy outcomes,Climate-change worry,0.8
+Confidence policies consider everyone views,Climate-change worry,0.8
+Energy-efficient appliance choice,Climate-change worry,0.9
+Familiarity with national climate policies,Climate-change worry,0.9
+Government preparedness for extreme weather,Climate-change worry,0.88
+Personal responsibility to reduce climate change,Climate-change worry,0.94
+Trust in government to address climate change,Climate-change worry,0.8
+Experienced drought,Concern about future job loss,0
+Experienced extended extreme heat,Concern about future job loss,0
+Experienced severe flooding,Concern about future job loss,0
+Experienced wildfire,Concern about future job loss,0
+Worry about local extreme weather,Concern about future job loss,0.1
+Concern about ability to pay energy bills,Concern about future job loss,0.84
+Concern about increased transport costs,Concern about future job loss,0.84
+Confidence in fair climate-policy outcomes,Concern about future job loss,0.78
+Confidence policies consider everyone views,Concern about future job loss,0.78
+Energy-efficient appliance choice,Concern about future job loss,0.86
+Familiarity with national climate policies,Concern about future job loss,0.86
+Government preparedness for extreme weather,Concern about future job loss,0.84
+Personal responsibility to reduce climate change,Concern about future job loss,0.9
+Trust in government to address climate change,Concern about future job loss,0.78
+Climate-change worry,Concern about future job loss,0.96
+Experienced drought,Environment versus economic-growth priority,0
+Experienced extended extreme heat,Environment versus economic-growth priority,0
+Experienced severe flooding,Environment versus economic-growth priority,0
+Experienced wildfire,Environment versus economic-growth priority,0
+Worry about local extreme weather,Environment versus economic-growth priority,0.08
+Concern about ability to pay energy bills,Environment versus economic-growth priority,0.8
+Concern about increased transport costs,Environment versus economic-growth priority,0.8
+Confidence in fair climate-policy outcomes,Environment versus economic-growth priority,0.76
+Confidence policies consider everyone views,Environment versus economic-growth priority,0.76
+Energy-efficient appliance choice,Environment versus economic-growth priority,0.86
+Familiarity with national climate policies,Environment versus economic-growth priority,0.86
+Government preparedness for extreme weather,Environment versus economic-growth priority,0.84
+Personal responsibility to reduce climate change,Environment versus economic-growth priority,0.9
+Trust in government to address climate change,Environment versus economic-growth priority,0.76
+Climate-change worry,Environment versus economic-growth priority,0.96
+Concern about future job loss,Environment versus economic-growth priority,0.92
+Experienced drought,Local air-pollution concern,0
+Experienced extended extreme heat,Local air-pollution concern,0
+Experienced severe flooding,Local air-pollution concern,0
+Experienced wildfire,Local air-pollution concern,0
+Worry about local extreme weather,Local air-pollution concern,0.06
+Concern about ability to pay energy bills,Local air-pollution concern,0.86
+Concern about increased transport costs,Local air-pollution concern,0.86
+Confidence in fair climate-policy outcomes,Local air-pollution concern,0.82
+Confidence policies consider everyone views,Local air-pollution concern,0.82
+Energy-efficient appliance choice,Local air-pollution concern,0.92
+Familiarity with national climate policies,Local air-pollution concern,0.92
+Government preparedness for extreme weather,Local air-pollution concern,0.9
+Personal responsibility to reduce climate change,Local air-pollution concern,0.96
+Trust in government to address climate change,Local air-pollution concern,0.82
+Climate-change worry,Local air-pollution concern,0.98
+Concern about future job loss,Local air-pollution concern,0.94
+Environment versus economic-growth priority,Local air-pollution concern,0.94
+Experienced drought,Participated in an environmental-protection organisation,0.04
+Experienced extended extreme heat,Participated in an environmental-protection organisation,0.04
+Experienced severe flooding,Participated in an environmental-protection organisation,0.04
+Experienced wildfire,Participated in an environmental-protection organisation,0.04
+Worry about local extreme weather,Participated in an environmental-protection organisation,0.14
+Concern about ability to pay energy bills,Participated in an environmental-protection organisation,0.66
+Concern about increased transport costs,Participated in an environmental-protection organisation,0.66
+Confidence in fair climate-policy outcomes,Participated in an environmental-protection organisation,0.62
+Confidence policies consider everyone views,Participated in an environmental-protection organisation,0.62
+Energy-efficient appliance choice,Participated in an environmental-protection organisation,0.7
+Familiarity with national climate policies,Participated in an environmental-protection organisation,0.7
+Government preparedness for extreme weather,Participated in an environmental-protection organisation,0.7
+Personal responsibility to reduce climate change,Participated in an environmental-protection organisation,0.74
+Trust in government to address climate change,Participated in an environmental-protection organisation,0.62
+Climate-change worry,Participated in an environmental-protection organisation,0.8
+Concern about future job loss,Participated in an environmental-protection organisation,0.76
+Environment versus economic-growth priority,Participated in an environmental-protection organisation,0.84
+Local air-pollution concern,Participated in an environmental-protection organisation,0.78
+Experienced drought,Public-transport use,0
+Experienced extended extreme heat,Public-transport use,0
+Experienced severe flooding,Public-transport use,0
+Experienced wildfire,Public-transport use,0
+Worry about local extreme weather,Public-transport use,0.06
+Concern about ability to pay energy bills,Public-transport use,0.9
+Concern about increased transport costs,Public-transport use,0.9
+Confidence in fair climate-policy outcomes,Public-transport use,0.86
+Confidence policies consider everyone views,Public-transport use,0.86
+Energy-efficient appliance choice,Public-transport use,0.92
+Familiarity with national climate policies,Public-transport use,0.92
+Government preparedness for extreme weather,Public-transport use,0.94
+Personal responsibility to reduce climate change,Public-transport use,0.92
+Trust in government to address climate change,Public-transport use,0.86
+Climate-change worry,Public-transport use,0.94
+Concern about future job loss,Public-transport use,0.9
+Environment versus economic-growth priority,Public-transport use,0.9
+Local air-pollution concern,Public-transport use,0.96
+Participated in an environmental-protection organisation,Public-transport use,0.76
+Experienced drought,Experienced heavy storm,0.92
+Experienced extended extreme heat,Experienced heavy storm,0.92
+Experienced severe flooding,Experienced heavy storm,0.9
+Experienced wildfire,Experienced heavy storm,0.88
+Worry about local extreme weather,Experienced heavy storm,0.66
+Concern about ability to pay energy bills,Experienced heavy storm,0
+Concern about increased transport costs,Experienced heavy storm,0
+Confidence in fair climate-policy outcomes,Experienced heavy storm,0
+Confidence policies consider everyone views,Experienced heavy storm,0
+Energy-efficient appliance choice,Experienced heavy storm,0
+Familiarity with national climate policies,Experienced heavy storm,0
+Government preparedness for extreme weather,Experienced heavy storm,0
+Personal responsibility to reduce climate change,Experienced heavy storm,0
+Trust in government to address climate change,Experienced heavy storm,0
+Climate-change worry,Experienced heavy storm,0
+Concern about future job loss,Experienced heavy storm,0
+Environment versus economic-growth priority,Experienced heavy storm,0
+Local air-pollution concern,Experienced heavy storm,0
+Participated in an environmental-protection organisation,Experienced heavy storm,0.04
+Public-transport use,Experienced heavy storm,0

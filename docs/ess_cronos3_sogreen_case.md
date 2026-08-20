@@ -97,3 +97,8 @@ The staged runners save the pooled, country, diagnostic, and pairwise NCT output
 ## Post-completion Streamlit visual validation
 
 Validated locally on 2026-08-19 after generation of the completed result bundle. The ESS workspace opens from the main selector and displays the completed-results status, cross-sectional interpretation boundary, 7,841 primary-network cases, 21 nodes, 147 non-zero pooled edges, and 11 country networks. The results-overview tab renders the pooled density, split-sample correlation, top-node table, and strongest-edge table without exposing respondent-level ESS data. The application-level caption was updated to identify this as a completed, rather than publication-gated, ESS case.
+
+
+## Study 2-parallel interface validation
+
+On 2026-08-20, the refreshed local Streamlit workspace was verified after an explicit process restart. The ESS case now follows the same visible sequence as the Abadi Study 2 workspace: **ESS scope**, **RQ1 joint network**, **Scale checks and RQ2–RQ4**, **Complete analysis ledger**, **Country networks, NCTs, and clustering**, and **Data and code**. The scope tab displays sample flow, transformation audit, and the 21-node mapping; the workspace identifies 9,585 official Wave 6 records, 7,841 analysed cases, 21 nodes, and 11 countries. No respondent-level ESS data are exposed.

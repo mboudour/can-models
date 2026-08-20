@@ -1,0 +1,2 @@
+network_a,network_b,adjacency_correlation,p_value,n_edges,global_strength_a,global_strength_b,density_a,density_b
+split_a,split_b,0.8833836402386587,2.149202987824471e-70,210,36.79537814794448,37.885368410895786,0.5238095238095238,0.6

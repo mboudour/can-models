@@ -1,0 +1,5 @@
+statistic,value
+raw_rows,9585
+filtered_rows,9585
+primary_network_rows,7841
+excluded_for_complete_case,1744

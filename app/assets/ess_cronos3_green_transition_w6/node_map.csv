@@ -1,0 +1,22 @@
+source_variable,requested_label,label,label_changed,domain,node_type,levels
+w6sgq2,Local air-pollution concern,Local air-pollution concern,FALSE,Environmental encounter,ordinal,5
+w6sgq6,Public-transport use,Public-transport use,FALSE,Green behaviour and engagement,ordinal,5
+w6sgq9,Energy-efficient appliance choice,Energy-efficient appliance choice,FALSE,Green behaviour and engagement,ordinal,5
+w6sgq11,Climate-change worry,Climate-change worry,FALSE,Affective appraisal and responsibility,ordinal,5
+w6sgq12,Personal responsibility to reduce climate change,Personal responsibility to reduce climate change,FALSE,Affective appraisal and responsibility,ordinal,10
+w6seq2,Worry about local extreme weather,Worry about local extreme weather,FALSE,Affective appraisal and responsibility,ordinal,5
+w6seq1_1,Experienced severe flooding,Experienced severe flooding,FALSE,Environmental encounter,ordinal,2
+w6seq1_2,Experienced drought,Experienced drought,FALSE,Environmental encounter,ordinal,2
+w6seq1_3,Experienced wildfire,Experienced wildfire,FALSE,Environmental encounter,ordinal,2
+w6seq1_4,Experienced heavy storm,Experienced heavy storm,FALSE,Environmental encounter,ordinal,2
+w6seq1_5,Experienced extended extreme heat,Experienced extended extreme heat,FALSE,Environmental encounter,ordinal,2
+w6sgq13,Trust in government to address climate change,Trust in government to address climate change,FALSE,Institutional capacity and policy legitimacy,ordinal,5
+w6seq4,Government preparedness for extreme weather,Government preparedness for extreme weather,FALSE,Institutional capacity and policy legitimacy,ordinal,5
+w6sgq14,Environment versus economic-growth priority,Environment versus economic-growth priority,FALSE,Institutional capacity and policy legitimacy,ordinal,2
+w6sgq15,Familiarity with national climate policies,Familiarity with national climate policies,FALSE,Institutional capacity and policy legitimacy,ordinal,4
+w6sgq16,Confidence policies consider everyone views,Confidence policies consider everyone views,FALSE,Institutional capacity and policy legitimacy,ordinal,4
+w6sgq17,Confidence in fair climate-policy outcomes,Confidence in fair climate-policy outcomes,FALSE,Institutional capacity and policy legitimacy,ordinal,4
+w6sgq21,Concern about ability to pay energy bills,Concern about ability to pay energy bills,FALSE,Personal transition-cost concerns,ordinal,5
+w6sgq22,Concern about increased transport costs,Concern about increased transport costs,FALSE,Personal transition-cost concerns,ordinal,5
+w6sgq23,Concern about future job loss,Concern about future job loss,FALSE,Personal transition-cost concerns,ordinal,6
+w6vq5_2,Participated in an environmental-protection organisation,Participated in an environmental-protection organisation,FALSE,Green behaviour and engagement,ordinal,2

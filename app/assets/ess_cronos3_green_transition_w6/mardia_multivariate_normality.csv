@@ -1,0 +1,11 @@
+statistic,value,n_used,sampled_for_computational_feasibility
+n.obs,2000,2000,TRUE
+n.var,21,2000,TRUE
+b1p,57.97187528784077,2000,TRUE
+b2p,546.567797509668,2000,TRUE
+skew,19323.958429280257,2000,TRUE
+small.skew,19355.582445491098,2000,TRUE
+p.skew,0,2000,TRUE
+p.small,0,2000,TRUE
+kurtosis,45.73341195519123,2000,TRUE
+p.kurt,0,2000,TRUE

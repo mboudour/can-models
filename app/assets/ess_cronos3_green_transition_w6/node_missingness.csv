@@ -1,0 +1,22 @@
+source_variable,label,missing_n,missing_percent,unique_values
+w6sgq2,Local air-pollution concern,18,0.188,5
+w6sgq6,Public-transport use,57,0.595,5
+w6sgq9,Energy-efficient appliance choice,81,0.845,5
+w6sgq11,Climate-change worry,52,0.543,5
+w6sgq12,Personal responsibility to reduce climate change,659,6.875,10
+w6seq2,Worry about local extreme weather,125,1.304,5
+w6seq1_1,Experienced severe flooding,0,0,2
+w6seq1_2,Experienced drought,0,0,2
+w6seq1_3,Experienced wildfire,0,0,2
+w6seq1_4,Experienced heavy storm,0,0,2
+w6seq1_5,Experienced extended extreme heat,0,0,2
+w6sgq13,Trust in government to address climate change,78,0.814,5
+w6seq4,Government preparedness for extreme weather,246,2.567,5
+w6sgq14,Environment versus economic-growth priority,510,5.321,2
+w6sgq15,Familiarity with national climate policies,116,1.21,4
+w6sgq16,Confidence policies consider everyone views,126,1.315,4
+w6sgq17,Confidence in fair climate-policy outcomes,127,1.325,4
+w6sgq21,Concern about ability to pay energy bills,212,2.212,5
+w6sgq22,Concern about increased transport costs,197,2.055,5
+w6sgq23,Concern about future job loss,280,2.921,6
+w6vq5_2,Participated in an environmental-protection organisation,0,0,2

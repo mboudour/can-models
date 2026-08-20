@@ -1,14 +1,15 @@
-"""Completed ESS CRONOS-3 Wave 6 Green Transition CAN worked-case renderer.
+"""ESS CRONOS-3 Wave 6 Green Transition CAN worked-case renderer.
 
-The public page contains only non-row-level derived assets. Official ESS microdata
-remain external to the repository and must be downloaded from the ESS Data Portal.
+This presentation intentionally follows the visible analysis sequence used in the
+Abadi Study 2 replication workspace. Only non-row-level derived outputs are
+bundled; official ESS respondent-level files remain external to the repository.
 """
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
+import json
 import pandas as pd
 import streamlit as st
 
@@ -22,185 +23,272 @@ ESS_TERMS_URL = "https://www.europeansocialsurvey.org/contact/disclaimer"
 WAVE6_DOI_URL = "https://doi.org/10.21338/cron3w6e01"
 
 
-@st.cache_data
-def read_asset_csv(name: str) -> pd.DataFrame:
-    return pd.read_csv(ASSET_DIR / name)
+@st.cache_data(show_spinner=False)
+def ess_table(filename: str) -> pd.DataFrame:
+    return pd.read_csv(ASSET_DIR / filename)
 
 
-@st.cache_data
-def read_nct_summary() -> dict[str, int]:
+@st.cache_data(show_spinner=False)
+def ess_nct_summary() -> dict[str, int]:
     return json.loads((ASSET_DIR / "country_nct_summary.json").read_text(encoding="utf-8"))
 
 
-def node_map() -> pd.DataFrame:
-    return pd.DataFrame(
-        [
-            ("w6sgq2", "Local air-pollution concern", "Environmental encounter"),
-            ("w6seq1_1", "Experienced severe flooding", "Environmental encounter"),
-            ("w6seq1_2", "Experienced drought", "Environmental encounter"),
-            ("w6seq1_3", "Experienced wildfire", "Environmental encounter"),
-            ("w6seq1_4", "Experienced heavy storm", "Environmental encounter"),
-            ("w6seq1_5", "Experienced extended extreme heat", "Environmental encounter"),
-            ("w6sgq11", "Climate-change worry", "Affective appraisal and responsibility"),
-            ("w6seq2", "Worry about local extreme weather", "Affective appraisal and responsibility"),
-            ("w6sgq12", "Personal responsibility to reduce climate change", "Affective appraisal and responsibility"),
-            ("w6sgq13", "Trust in government to address climate change", "Institutional capacity and policy legitimacy"),
-            ("w6seq4", "Government preparedness for extreme weather", "Institutional capacity and policy legitimacy"),
-            ("w6sgq14", "Environment versus economic-growth priority", "Institutional capacity and policy legitimacy"),
-            ("w6sgq15", "Familiarity with national climate policies", "Institutional capacity and policy legitimacy"),
-            ("w6sgq16", "Confidence policies consider everyone views", "Institutional capacity and policy legitimacy"),
-            ("w6sgq17", "Confidence in fair climate-policy outcomes", "Institutional capacity and policy legitimacy"),
-            ("w6sgq21", "Concern about ability to pay energy bills", "Personal transition-cost concerns"),
-            ("w6sgq22", "Concern about increased transport costs", "Personal transition-cost concerns"),
-            ("w6sgq23", "Concern about future job loss", "Personal transition-cost concerns"),
-            ("w6sgq6", "Public-transport use", "Green behaviour and engagement"),
-            ("w6sgq9", "Energy-efficient appliance choice", "Green behaviour and engagement"),
-            ("w6vq5_2", "Participated in an environmental-protection organisation", "Green behaviour and engagement"),
-        ],
-        columns=["Official Wave 6 variable", "Approved node label", "CAN component"],
-    )
+def download_file(label: str, filename: str, mime: str, key: str) -> None:
+    path = ASSET_DIR / filename
+    st.download_button(label, data=path.read_bytes(), file_name=filename, mime=mime, key=key)
 
 
-def research_questions() -> pd.DataFrame:
+def analysis_ledger() -> pd.DataFrame:
     return pd.DataFrame(
         [
-            ("RQ1: Joint system", "Which conditional associations connect environmental encounter, affective appraisal, legitimacy, personal costs, and green behaviour?"),
-            ("RQ2: Bridge structure", "Do appraisal or policy-legitimacy elements bridge personal transition-cost concerns and green behaviour/engagement?"),
-            ("RQ3: Cross-national heterogeneity", "How do the eleven country networks differ in structure, global strength, and bridge location?"),
-            ("RQ4: Network types", "Do countries cluster into green-transition attitude architectures distinguished by the roles of legitimacy and household costs?"),
-            ("RQ5: Measurement boundary", "Do the policy-legitimacy and personal-cost item families support scale probes, or should they remain distinct network elements?"),
-        ],
-        columns=["Research question", "Analysis"],
+            {
+                "Analysis component": "ESS source preparation and provenance",
+                "Abadi-style counterpart": "Study 2 sample preparation and original-variable mapping",
+                "Status": "Executed",
+                "Evidence / boundary": "The official Wave 6 CSV and codebook were verified locally against the configured SHA-256 fingerprint; the app bundles no respondent-level ESS data.",
+            },
+            {
+                "Analysis component": "RQ1: 21-node pooled Green Transition MGM",
+                "Abadi-style counterpart": "RQ1: joint Study 2 MGM",
+                "Status": "Executed",
+                "Evidence / boundary": "7,841 complete cases; 21 theory-led nodes; 147 non-zero conditional associations. The pooled network is dense (0.700), so smaller edges require caution.",
+            },
+            {
+                "Analysis component": "RQ1: Mardia, centrality, edge accuracy/stability, and Walktrap communities",
+                "Abadi-style counterpart": "RQ1: network characterisation and robustness",
+                "Status": "Executed with labelled sensitivity",
+                "Evidence / boundary": "Mardia, Walktrap, and community resampling are bundled. Edge accuracy and case-drop stability use an explicitly labelled ordinal-GGM EBICglasso sensitivity, not a replacement for the primary MGM.",
+            },
+            {
+                "Analysis component": "Policy-legitimacy and personal-cost CFA/EFA probes",
+                "Abadi-style counterpart": "PA and nativism scale checks",
+                "Status": "Executed",
+                "Evidence / boundary": "Both are three-item, just-identified pooled CFA probes. Metric invariance is retained; scalar invariance is not retained, so latent means are not compared across countries.",
+            },
+            {
+                "Analysis component": "RQ2: bridge and centrality structure",
+                "Abadi-style counterpart": "RQ2: subgroup network interpretation",
+                "Status": "Executed",
+                "Evidence / boundary": "The page displays node strength, strongest associations, and four Walktrap communities. These are conditional-association descriptors, not intervention targets.",
+            },
+            {
+                "Analysis component": "RQ3: random split-sample reproducibility",
+                "Abadi-style counterpart": "Methodological comparison check",
+                "Status": "Executed",
+                "Evidence / boundary": "Split-sample edge-matrix correlation is 0.883; NCT structure p = .175 and global-strength p = .506. This is not a second study or a temporal test.",
+            },
+            {
+                "Analysis component": "RQ4: eleven country MGM networks",
+                "Abadi-style counterpart": "RQ4: country networks",
+                "Status": "Executed",
+                "Evidence / boundary": "All eleven eligible country networks were estimated with the same node map and documented category treatment.",
+            },
+            {
+                "Analysis component": "RQ4: pairwise country NCTs",
+                "Abadi-style counterpart": "RQ4: country network-comparison tests",
+                "Status": "Executed",
+                "Evidence / boundary": "All 55 country-pair NCTs completed. Twenty-three show FDR-adjusted structural differences; none shows an FDR-adjusted global-strength difference.",
+            },
+            {
+                "Analysis component": "RQ4: country edge-matrix clustering",
+                "Abadi-style counterpart": "RQ4: country-network clustering",
+                "Status": "Executed; exploratory",
+                "Evidence / boundary": "Country edge matrices were clustered as exploratory summaries, not validated latent country types.",
+            },
+            {
+                "Analysis component": "Temporal panel extension",
+                "Abadi-style counterpart": "New extension beyond the single-wave analysis",
+                "Status": "Not executed",
+                "Evidence / boundary": "Wave 6 is analysed as a cross-sectional between-person network. A temporal or within-person model requires verified item overlap in later waves and a separate pre-specified design.",
+            },
+        ]
     )
 
 
 def render_ess_cronos3_sogreen_case() -> None:
-    gate = read_asset_csv("publication_gate_summary.csv").iloc[0]
-    top_nodes = read_asset_csv("top_nodes.csv")
-    top_edges = read_asset_csv("top_edges.csv")
-    country_summaries = read_asset_csv("country_network_summaries.csv")
-    clusters = read_asset_csv("country_cluster_assignments.csv")
-    nct = read_nct_summary()
+    flow = ess_table("sample_flow.csv").set_index("statistic")["value"]
+    summary = ess_table("network_summary.csv").iloc[0]
+    diagnostics = ess_table("publication_gate_diagnostic_summary.csv").iloc[0]
+    nct = ess_nct_summary()
 
     st.header("ESS CRONOS-3 / SoGreen: Green Transition Attitude Network")
     st.write(
-        "This is a **completed Abadi-style CAN worked case** using the verified official ESS CRONOS-3 Wave 6 SoGreen release. "
-        "It maps a 21-node green-transition attitude system across eleven countries."
+        "This workspace is the **completed ESS counterpart** to the Abadi Study 2 replication. "
+        "It applies the same CAN workflow sequence—scope and sample preparation, RQ1 joint network, scale checks, reproducibility diagnostics, country networks, NCTs, clustering, and a complete ledger—to a 21-node green-transition attitude system."
     )
-    st.success(
-        "**Completed results bundle.** The page presents pooled MGM results, factor probes, split-sample diagnostics, community structure, eleven country networks, pairwise network comparisons, and country clustering."
-    )
-    st.info(
-        "**Interpretive boundary:** Wave 6 is analysed cross-sectionally. Edges are conditional associations, not verified directional, temporal, or causal effects."
+    st.warning(
+        "Interpretive boundary: although CRONOS-3 is a panel, the displayed Wave 6 network is cross-sectional. Its undirected edges are conditional associations, not verified directional, temporal, or causal effects."
     )
 
     metrics = st.columns(4)
-    metrics[0].metric("Primary-network cases", f"{int(gate.pooled_n):,}")
-    metrics[1].metric("Green-transition nodes", int(gate.pooled_nodes))
-    metrics[2].metric("Non-zero pooled edges", int(gate.pooled_nonzero_edges))
-    metrics[3].metric("Country networks", int(gate.completed_countries))
+    metrics[0].metric("Official Wave 6 records", f"{int(flow['raw_rows']):,}")
+    metrics[1].metric("Analysed ESS cases", f"{int(flow['primary_network_rows']):,}")
+    metrics[2].metric("Green Transition nodes", int(summary["p"]))
+    metrics[3].metric("Original countries", "11")
 
-    overview_tab, network_tab, diagnostics_tab, country_tab, design_tab, code_tab = st.tabs(
+    scope_tab, network_tab, scale_tab, ledger_tab, country_tab, data_tab = st.tabs(
         [
-            "Results overview",
-            "Pooled MGM",
-            "Diagnostics and measurement",
-            "Country networks",
-            "Design and source",
-            "Reproduce locally",
+            "ESS scope",
+            "RQ1 joint network",
+            "Scale checks and RQ2–RQ4",
+            "Complete analysis ledger",
+            "Country networks, NCTs, and clustering",
+            "Data and code",
         ]
     )
 
-    with overview_tab:
-        st.subheader("What the completed analysis shows")
+    with scope_tab:
+        st.subheader("Why this is a genuine ESS CAN worked case")
         st.write(
-            "The pooled network connects environmental encounter, climate and extreme-weather worry, institutional legitimacy, household transition-cost concerns, and green engagement. "
-            "Climate-change worry is the highest-strength node. The strongest direct connection is between the two policy-legitimacy elements: confidence that climate policies consider everyone’s views and confidence that policy outcomes are fair."
+            "The official Wave 6 SoGreen release contains a coherent green-transition attitude system: environmental encounter, climate and extreme-weather appraisal, institutional capacity and policy legitimacy, perceived household costs, and green behaviour/engagement. "
+            "The redesigned system intentionally replaces the initial narrow policy-evaluation bundle, which was close to saturated in private feasibility work."
         )
-        first, second = st.columns(2)
-        first.metric("Pooled MGM density", f"{gate.pooled_density:.3f}")
-        first.caption("147 of 210 possible undirected edges are non-zero; interpret smaller pooled edges cautiously.")
-        second.metric("Split-sample adjacency correlation", f"{gate.split_adjacency_correlation:.3f}")
-        second.caption("The two random halves show closely aligned edge patterns.")
-        st.subheader("Top pooled nodes by strength")
-        st.dataframe(top_nodes[["node", "Strength", "ExpectedInfluence"]], width="stretch", hide_index=True)
-        st.subheader("Strongest pooled conditional associations")
-        st.dataframe(top_edges[["from", "to", "weight", "sign"]].head(10), width="stretch", hide_index=True)
-
-    with network_tab:
-        st.subheader("Pooled 21-node mixed graphical model")
-        st.image(
-            ASSET_DIR / "pooled_network.png",
-            caption="Node colours denote theory-led CAN components. Edge width reflects absolute estimated MGM weight; the display omits the smallest links for legibility.",
+        st.markdown("**Sample preparation and logged transformations**")
+        st.dataframe(ess_table("sample_flow.csv"), width="stretch", hide_index=True)
+        st.dataframe(
+            ess_table("transformation_audit.csv").rename(
+                columns={"variable": "Original Wave 6 variable", "transformation": "Logged transformation", "affected_n": "Affected cases"}
+            ),
             width="stretch",
+            hide_index=True,
         )
         st.caption(
-            "The graph is a visualisation of the primary MGM, not a causal path model. The table below gives the complete node-to-component legend."
+            "Documented 9/99 nonresponse values are converted to missing. A uniform adjacent-category collapse is applied to the rare top category of the two policy-legitimacy items in every country, so country MGM coding is not adapted post hoc."
         )
-        st.dataframe(node_map(), width="stretch", hide_index=True, height=620)
+        st.markdown("**Approved 21-node mapping**")
+        nodes = ess_table("node_map.csv").rename(
+            columns={"source_variable": "Original Wave 6 variable", "label": "Node label", "domain": "CAN domain", "node_type": "Response type", "levels": "Response levels"}
+        )
+        nodes.index = nodes.index + 1
+        nodes.index.name = "Node"
+        st.dataframe(nodes, width="stretch", height=620)
+
+    with network_tab:
+        st.subheader("RQ1: pooled 21-node Green Transition MGM")
         st.image(
-            ASSET_DIR / "top_node_strength.png",
-            caption="Strength is the sum of the absolute weights incident on each node in the pooled primary MGM.",
+            ASSET_DIR / "pooled_network.png",
+            caption="21-node Wave 6 MGM with LASSO/EBIC selection. Node colours correspond to the ESS scope table; edge thickness reflects estimated conditional-association magnitude. The smallest edges are hidden only for display legibility.",
             width="stretch",
         )
+        columns = st.columns(2)
+        with columns[0]:
+            st.markdown("**Joint-network summary**")
+            st.dataframe(
+                pd.DataFrame([summary]).rename(
+                    columns={"estimator": "Estimator", "n": "Complete cases", "p": "Nodes", "density": "Density", "global_strength": "Global strength", "nonzero_edges": "Non-zero edges"}
+                ),
+                width="stretch",
+                hide_index=True,
+            )
+            st.markdown("**Highest-strength nodes**")
+            st.dataframe(ess_table("centrality.csv").sort_values("Strength", ascending=False).head(12), width="stretch", hide_index=True)
+        with columns[1]:
+            st.markdown("**Strongest estimated conditional associations**")
+            edges = ess_table("edge_table.csv").sort_values("abs_weight", ascending=False).head(15)
+            st.dataframe(edges[["from", "to", "weight", "sign"]], width="stretch", hide_index=True)
+            st.markdown("**Predictability export**")
+            st.dataframe(ess_table("predictability.csv").sort_values("predictability", ascending=False).head(12), width="stretch", hide_index=True)
+        st.markdown("**Mardia multivariate-normality diagnostic**")
+        st.dataframe(ess_table("mardia_multivariate_normality.csv"), width="stretch", hide_index=True)
 
-    with diagnostics_tab:
-        st.subheader("Abadi-style robustness and measurement checks")
-        checks = pd.DataFrame(
-            [
-                ("Split-sample structure NCT", f"p = {gate.split_structure_invariance_p:.3f}", "No detected structural difference between random halves."),
-                ("Split-sample global-strength NCT", f"p = {gate.split_global_strength_p:.3f}", "No detected overall-connectivity difference between random halves."),
-                ("Centrality stability sensitivity", f"CS = {gate.centrality_stability_coefficient:.3f}", "Ordinal-GGM EBICglasso case-drop sensitivity; strong stability evidence."),
-                ("Walktrap community structure", f"{int(gate.walktrap_communities)} communities", f"{int(gate.community_pairs_coassigned_80_or_more)} node pairs were coassigned in at least 80% of 50 MGM resamples."),
-                ("Policy-legitimacy CFA probe", "Metric invariance retained; scalar not retained", "The 3-item probe is just-identified when pooled; do not compare latent means across countries."),
-                ("Personal-cost CFA probe", "Metric invariance retained; scalar not retained", "The 3-item probe is just-identified when pooled; do not compare latent means across countries."),
-            ],
-            columns=["Check", "Result", "Interpretation"],
+    with scale_tab:
+        st.subheader("Scale checks, RQ2 bridge structure, and RQ3 reproducibility")
+        st.write(
+            "As in the Study 2 workspace, factor checks are shown before any scale-level interpretation. The two ESS scale families are retained as item-level network elements; their three-item pooled CFAs are just-identified and therefore do not supply a meaningful global fit test."
         )
-        st.dataframe(checks, width="stretch", hide_index=True, height=320)
-        st.warning(
-            "The pooled primary MGM is relatively dense. Edge-accuracy and case-drop centrality results use a clearly labelled **ordinal-GGM EBICglasso sensitivity** (250 edge and 250 case-drop resamples); they support robustness assessment but do not replace the primary mixed graphical model."
+        columns = st.columns(2)
+        with columns[0]:
+            st.markdown("**Policy-legitimacy CFA probe**")
+            st.dataframe(ess_table("policy_legitimacy_cfa_pooled.csv"), width="stretch", hide_index=True)
+            st.markdown("**Country invariance sequence**")
+            st.dataframe(ess_table("policy_legitimacy_invariance.csv"), width="stretch", hide_index=True)
+            st.markdown("**Pooled EFA loadings**")
+            st.dataframe(ess_table("policy_legitimacy_efa_pooled.csv"), width="stretch", hide_index=True)
+        with columns[1]:
+            st.markdown("**Personal-transition-cost CFA probe**")
+            st.dataframe(ess_table("personal_transition_cost_cfa_pooled.csv"), width="stretch", hide_index=True)
+            st.markdown("**Country invariance sequence**")
+            st.dataframe(ess_table("personal_transition_cost_invariance.csv"), width="stretch", hide_index=True)
+            st.markdown("**Pooled EFA loadings**")
+            st.dataframe(ess_table("personal_transition_cost_efa_pooled.csv"), width="stretch", hide_index=True)
+        st.markdown("**RQ2: community and centrality-stability evidence**")
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Walktrap communities", int(diagnostics["walktrap_communities"]))
+        c2.metric("Centrality stability (CS)", f"{diagnostics['centrality_stability_coefficient']:.3f}")
+        c3.metric("Community pairs ≥ 80%", int(diagnostics["community_coassignment_pairs"]))
+        st.caption("The CS coefficient comes from an explicitly labelled ordinal-GGM EBICglasso case-drop sensitivity; it assesses robustness without replacing the primary MGM.")
+        st.markdown("**RQ3: split-sample methodological check**")
+        st.dataframe(ess_table("adjacency_correlation.csv"), width="stretch", hide_index=True)
+        st.dataframe(ess_table("nct_summary.csv"), width="stretch", hide_index=True)
+        st.info(
+            "The split is a methodological reproducibility check, not a second study, longitudinal comparison, or causal test. The split-sample edge-matrix correlation is 0.883."
+        )
+
+    with ledger_tab:
+        st.subheader("Complete ESS Abadi-style analysis ledger")
+        st.write(
+            "Every completed and non-completed branch of this adapted CAN study is logged below. The completed country workflow is an ESS-specific analogue to the paper’s country-comparison branch; it is not claimed to be a direct replication of Study 1 or Study 2 substantive results."
+        )
+        ledger = analysis_ledger()
+        st.dataframe(ledger, width="stretch", height=650, hide_index=True)
+        st.download_button(
+            "Download ESS analysis ledger",
+            data=ledger.to_csv(index=False).encode("utf-8"),
+            file_name="ess_cronos3_green_transition_analysis_ledger.csv",
+            mime="text/csv",
+            key="download_ess_ledger",
+        )
+        st.download_button(
+            "Download ESS results and interpretation note",
+            data=(ROOT / "docs" / "ess_cronos3_green_transition_results.md").read_bytes(),
+            file_name="ess_cronos3_green_transition_results.md",
+            mime="text/markdown",
+            key="download_ess_results_note",
         )
 
     with country_tab:
-        st.subheader("Eleven country-specific MGMs")
+        st.subheader("RQ4: eleven country networks, pairwise NCTs, and clustering")
         st.image(
             ASSET_DIR / "country_density.png",
-            caption="Country-network density ranges from 0.071 to 0.248. The dashed line marks the pooled density.",
+            caption="Country MGM density ranges from 0.071 to 0.248. The dashed line marks the pooled-network density; it is not a country-level benchmark or a causal quantity.",
             width="stretch",
         )
-        st.dataframe(country_summaries[["country", "n", "density", "global_strength", "nonzero_edges"]], width="stretch", hide_index=True)
+        st.markdown("**Completed country MGM networks**")
+        st.dataframe(ess_table("country_network_summaries.csv"), width="stretch", hide_index=True)
+        nct = ess_nct_summary()
         c1, c2, c3 = st.columns(3)
         c1.metric("Completed pairwise NCTs", nct["completed_pairs"])
         c2.metric("FDR structure differences", nct["fdr_structure_differences"])
         c3.metric("FDR global-strength differences", nct["fdr_global_strength_differences"])
         st.write(
-            "Twenty-three of 55 country pairs show an FDR-adjusted structural difference, while none shows an FDR-adjusted global-strength difference. "
-            "The cross-national result is therefore about differing configurations of associations rather than a country ranking by overall network connectivity."
+            "The completed 55-pair NCT schedule finds FDR-adjusted differences in network structure for 23 country pairs and none in global strength. This supports a configuration-based, rather than country-ranking, interpretation."
         )
-        st.subheader("Exploratory country-network clustering")
-        st.dataframe(clusters, width="stretch", hide_index=True)
-        st.caption(
-            "Cluster labels are exploratory summaries of edge-matrix similarity; they are not country-level causal types or validated latent classes."
-        )
+        st.dataframe(ess_table("pairwise_nct_summary.csv"), width="stretch", hide_index=True, height=360)
+        st.markdown("**Exploratory country edge-matrix clustering**")
+        st.dataframe(ess_table("country_cluster_assignments.csv"), width="stretch", hide_index=True)
+        st.caption("Country clusters are exploratory edge-matrix summaries. They are not validated latent country types and do not establish causal explanations for cross-country differences.")
 
-    with design_tab:
-        st.subheader("Research design and official source")
+    with data_tab:
+        st.subheader("Official ESS data, non-row-level results, and reproduction files")
         st.write(
-            "The analysis is modelled on Abadi et al.’s strategy of embedding a focal attitude family in a wider system of related appraisals, cognitions, and contextual elements. "
-            "Here, the focal object is the green transition rather than a narrow climate-policy evaluation bundle."
+            "The official respondent-level CSV and HTML codebook are not downloadable here. The ESS conditions recommend portal linking rather than redistribution. The public workspace instead offers the configuration and non-row-level derived tables needed to audit the displayed results."
         )
-        st.dataframe(research_questions(), width="stretch", hide_index=True, height=310)
         st.markdown(
-            f"The respondent-level source remains outside this repository. Obtain it from the [ESS CRONOS-3 Data Portal]({ESS_PORTAL_URL}), "
-            f"consult the [Wave 6 SoGreen release]({SOGREEN_RELEASE_URL}), the [Wave 6 DOI]({WAVE6_DOI_URL}), and the [ESS conditions of use]({ESS_TERMS_URL})."
+            f"**Sources:** [ESS CRONOS-3 Data Portal]({ESS_PORTAL_URL}); [Wave 6 SoGreen release]({SOGREEN_RELEASE_URL}); [Wave 6 DOI]({WAVE6_DOI_URL}); and [ESS conditions of use]({ESS_TERMS_URL})."
         )
-        st.caption(
-            "The public repository contains configuration, code, provenance metadata, and non-row-level derived outputs only. It does not redistribute ESS microdata or the codebook."
-        )
-
-    with code_tab:
-        st.subheader("Reproduce the completed workflow locally or with Docker")
+        downloads = [
+            ("Download Green Transition configuration", CONFIG_PATH, "ess_cronos3_sogreen_w6.yml", "application/x-yaml"),
+            ("Download primary MGM edge table", ASSET_DIR / "edge_table.csv", "ess_cronos3_green_transition_edges.csv", "text/csv"),
+            ("Download primary MGM centrality", ASSET_DIR / "centrality.csv", "ess_cronos3_green_transition_centrality.csv", "text/csv"),
+            ("Download primary MGM predictability", ASSET_DIR / "predictability.csv", "ess_cronos3_green_transition_predictability.csv", "text/csv"),
+            ("Download country NCT summary", ASSET_DIR / "pairwise_nct_summary.csv", "ess_cronos3_country_nct_summary.csv", "text/csv"),
+            ("Download pooled network image", ASSET_DIR / "pooled_network.png", "ess_cronos3_green_transition_mgm.png", "image/png"),
+        ]
+        columns = st.columns(2)
+        for index, (label, path, filename, mime) in enumerate(downloads):
+            with columns[index % 2]:
+                st.download_button(label, data=path.read_bytes(), file_name=filename, mime=mime, key=f"ess_download_{index}")
+        st.markdown("**Local staged reproduction**")
         st.code(
             "Rscript --vanilla scripts/verify_ess_cronos3_source.R\n"
             "Rscript --vanilla scripts/run_ess_cronos3_green_transition_results.R\n"
@@ -208,13 +296,4 @@ def render_ess_cronos3_sogreen_case() -> None:
             "Rscript --vanilla scripts/run_ess_cronos3_green_transition_country_nct.R\n"
             "Rscript --vanilla scripts/build_ess_streamlit_assets.R",
             language="bash",
-        )
-        st.write(
-            "Put the official CSV and HTML codebook in the protected `data/external/ess_cronos3_sogreen/` folder. The source verifier checks the configured file fingerprint before any analysis."
-        )
-        st.download_button(
-            "Download Green Transition CAN configuration",
-            data=CONFIG_PATH.read_bytes(),
-            file_name="ess_cronos3_sogreen_w6.yml",
-            mime="application/x-yaml",
         )

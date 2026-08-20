@@ -81,5 +81,36 @@ readr::write_csv(top_edges, file.path(asset_dir, "top_edges.csv"))
 readr::write_csv(country_summaries, file.path(asset_dir, "country_network_summaries.csv"))
 readr::write_csv(clusters, file.path(asset_dir, "country_cluster_assignments.csv"))
 readr::write_csv(gate, file.path(asset_dir, "publication_gate_summary.csv"))
+
+# Copy non-row-level tables so the public interface mirrors the Study 2 ledger.
+asset_sources <- c(
+  "data_audit/sample_flow.csv",
+  "data_audit/transformation_audit.csv",
+  "data_audit/node_map.csv",
+  "data_audit/node_missingness.csv",
+  "data_audit/node_level_diagnostics.csv",
+  "data_audit/mardia_multivariate_normality.csv",
+  "networks/primary_mgm/network_summary.csv",
+  "networks/primary_mgm/centrality.csv",
+  "networks/primary_mgm/edge_table.csv",
+  "networks/primary_mgm/predictability.csv",
+  "factor_models/policy_legitimacy_cfa_pooled.csv",
+  "factor_models/policy_legitimacy_invariance.csv",
+  "factor_models/policy_legitimacy_efa_pooled.csv",
+  "factor_models/personal_transition_cost_cfa_pooled.csv",
+  "factor_models/personal_transition_cost_invariance.csv",
+  "factor_models/personal_transition_cost_efa_pooled.csv",
+  "comparisons/split_sample/adjacency_correlation.csv",
+  "comparisons/split_sample/nct_summary.csv",
+  "diagnostics/walktrap_communities.csv",
+  "diagnostics/bootstrap_community_coassignment.csv",
+  "diagnostics/publication_gate_diagnostic_summary.csv",
+  "country_networks/pairwise_nct_summary.csv",
+  "country_clustering/gap_statistic.csv",
+  "country_clustering/within_sum_of_squares.csv"
+)
+for (relative_path in asset_sources) {
+  file.copy(file.path(base, relative_path), file.path(asset_dir, basename(relative_path)), overwrite = TRUE)
+}
 jsonlite::write_json(nct_summary, file.path(asset_dir, "country_nct_summary.json"), auto_unbox = TRUE, pretty = TRUE)
 cat("ESS Streamlit assets created in ", asset_dir, "\n", sep = "")
